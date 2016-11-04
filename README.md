@@ -1,4 +1,4 @@
-# 金山直播SDK多样化实现
+# 金山直播开放平台
 ## 目标
 [KSYDiversityLive](https://github.com/ksvc/KSYDiversityLive_iOS)基于组件化思路，通过和多种数据处理服务商的联动，共同构建和繁荣移动直播生态链。
 多样化主要体现在如下几个方面：  
