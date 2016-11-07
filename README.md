@@ -1,7 +1,8 @@
-# 金山云直播开放平台
+# 金山云SDK开发平台(iOS)
 ## 目标
 [KSYDiversityLive](https://github.com/ksvc/KSYDiversityLive_iOS)基于组件化思路，通过和多种数据处理服务商的联动，共同构建和繁荣移动直播生态链。
-多样化主要体现在如下几个方面：  
+
+金山云SDK通过共享全链路处理能力，开放数据接入处理，实现以下几个方面的多样化：  
 
 1. 功能模式的多样化；
 1. 应用场景的多样化；
@@ -26,7 +27,7 @@
 
 ## 功能
 [KSYDiversityLive](https://github.com/ksvc/KSYDiversityLive_iOS)将提供以下功能。同时也欢迎大家提新的功能需求。
-* [游戏录屏直播](https://github.com/ksvc/KSYDiversityLive_iOS/tree/master/KSYReplayKitDemo)
+* [游戏录屏直播](KSYReplayKitDemo)
 * 应用内录屏
 * 短视频录制
 * 动态贴纸
@@ -45,9 +46,9 @@
 ## 大事记
 
 1. 2016.09.26，[连麦v1.5.0稳定版本](https://github.com/ksvc/KSYRTCLive_iOS)开放测试
-1. 2016.10.20，基于Replaykit(iOS10+)的[游戏录屏体验版](https://github.com/ksvc/KSYDiversityLive_iOS/tree/master/KSYReplayKitDemo)demo代码开放 
-1. 2016年10月28日，支持[Faceunity动态贴纸方案](https://github.com/ksvc/KSYDiversityLive_iOS/tree/master/FaceUnitySDK)；
-1. 2016年10月28日，支持[涂图SDK美颜方案](https://github.com/ksvc/KSYDiversityLive_iOS/tree/master/TuSDK)；
+1. 2016.10.20，基于Replaykit(iOS10+)的[游戏录屏体验版](KSYReplayKitDemo)demo代码开放 
+1. 2016年10月28日，支持[Faceunity动态贴纸方案](FaceUnitySDK)；
+1. 2016年10月28日，支持[涂图SDK美颜方案](TuSDK)；
 
 ## 反馈与建议
 - 主页：[金山云](http://v.ksyun.com)
