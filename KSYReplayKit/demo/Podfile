@@ -4,7 +4,7 @@ use_frameworks!
 
 target 'KSYRKUploadExt' do
 	pod 'GPUImage'
-    pod 'libksygpulive/libksygpulive', '1.8.4'
+    pod 'libksygpulive/libksygpulive', '1.8.6'
 end
 
 target 'KSYReplayKitDemo' do

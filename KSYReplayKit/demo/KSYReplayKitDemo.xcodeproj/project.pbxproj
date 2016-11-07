@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		062136231DD061D00093E115 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 062136221DD061D00093E115 /* README.md */; };
+		062136261DD061DD0093E115 /* KSYRKStreamerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 062136251DD061DD0093E115 /* KSYRKStreamerKit.m */; };
 		06CA4B3A1D9BFA24006F3AD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CA4B391D9BFA24006F3AD3 /* main.m */; };
 		06CA4B3D1D9BFA24006F3AD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CA4B3C1D9BFA24006F3AD3 /* AppDelegate.m */; };
 		06CA4B401D9BFA24006F3AD3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CA4B3F1D9BFA24006F3AD3 /* ViewController.m */; };
@@ -21,7 +23,6 @@
 		06CA4B701D9C0203006F3AD3 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CA4B6E1D9C0203006F3AD3 /* MainInterface.storyboard */; };
 		06CA4B741D9C0203006F3AD3 /* KSYRKUploadExtUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 06CA4B661D9C0203006F3AD3 /* KSYRKUploadExtUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		06CA4B771D9C0203006F3AD3 /* KSYRKUploadExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 06CA4B561D9C0203006F3AD3 /* KSYRKUploadExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		06DDC3991D9E335E0014B545 /* KSYRKStreamerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDC3971D9E335E0014B545 /* KSYRKStreamerKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		062136221DD061D00093E115 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		062136241DD061DD0093E115 /* KSYRKStreamerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYRKStreamerKit.h; path = ../../source/KSYRKStreamerKit.h; sourceTree = "<group>"; };
+		062136251DD061DD0093E115 /* KSYRKStreamerKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYRKStreamerKit.m; path = ../../source/KSYRKStreamerKit.m; sourceTree = "<group>"; };
 		06CA4B351D9BFA24006F3AD3 /* KSYReplayKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSYReplayKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06CA4B391D9BFA24006F3AD3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		06CA4B3B1D9BFA24006F3AD3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,7 +71,6 @@
 		06CA4B441D9BFA24006F3AD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06CA4B471D9BFA24006F3AD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06CA4B491D9BFA24006F3AD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		06CA4B4F1D9BFB99006F3AD3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		06CA4B561D9C0203006F3AD3 /* KSYRKUploadExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = KSYRKUploadExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		06CA4B581D9C0203006F3AD3 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		06CA4B5E1D9C0203006F3AD3 /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
@@ -79,8 +82,6 @@
 		06CA4B6C1D9C0203006F3AD3 /* BroadcastViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastViewController.m; sourceTree = "<group>"; };
 		06CA4B6F1D9C0203006F3AD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		06CA4B711D9C0203006F3AD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		06DDC3971D9E335E0014B545 /* KSYRKStreamerKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYRKStreamerKit.m; sourceTree = "<group>"; };
-		06DDC3981D9E335E0014B545 /* KSYRKStreamerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYRKStreamerKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +115,7 @@
 		06CA4B2C1D9BFA24006F3AD3 = {
 			isa = PBXGroup;
 			children = (
-				06CA4B4F1D9BFB99006F3AD3 /* README.md */,
+				062136221DD061D00093E115 /* README.md */,
 				06CA4B371D9BFA24006F3AD3 /* KSYReplayKitDemo */,
 				06CA4B5A1D9C0203006F3AD3 /* KSYRKUploadExt */,
 				06CA4B6A1D9C0203006F3AD3 /* KSYRKUploadExtUI */,
@@ -169,8 +170,8 @@
 		06CA4B5A1D9C0203006F3AD3 /* KSYRKUploadExt */ = {
 			isa = PBXGroup;
 			children = (
-				06DDC3971D9E335E0014B545 /* KSYRKStreamerKit.m */,
-				06DDC3981D9E335E0014B545 /* KSYRKStreamerKit.h */,
+				062136241DD061DD0093E115 /* KSYRKStreamerKit.h */,
+				062136251DD061DD0093E115 /* KSYRKStreamerKit.m */,
 				06CA4B5E1D9C0203006F3AD3 /* SampleHandler.h */,
 				06CA4B5F1D9C0203006F3AD3 /* SampleHandler.m */,
 				06CA4B611D9C0203006F3AD3 /* Info.plist */,
@@ -327,6 +328,7 @@
 			files = (
 				06CA4B401D9BFA24006F3AD3 /* ViewController.m in Sources */,
 				06CA4B3D1D9BFA24006F3AD3 /* AppDelegate.m in Sources */,
+				062136231DD061D00093E115 /* README.md in Sources */,
 				06CA4B3A1D9BFA24006F3AD3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,8 +337,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06DDC3991D9E335E0014B545 /* KSYRKStreamerKit.m in Sources */,
 				06CA4B601D9C0203006F3AD3 /* SampleHandler.m in Sources */,
+				062136261DD061DD0093E115 /* KSYRKStreamerKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
