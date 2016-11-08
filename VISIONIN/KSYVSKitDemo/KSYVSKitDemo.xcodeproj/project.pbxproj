@@ -29,9 +29,6 @@
 		E31CCEC71DCE27B7002F7AAC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E31CCEC61DCE27B7002F7AAC /* CoreGraphics.framework */; };
 		E31CCECB1DCE27CD002F7AAC /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E31CCECA1DCE27CD002F7AAC /* CoreImage.framework */; };
 		E31CCECD1DCE27DB002F7AAC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E31CCECC1DCE27DB002F7AAC /* MediaPlayer.framework */; };
-		E31CCED71DCE29A0002F7AAC /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = E31CCECE1DCE29A0002F7AAC /* default.png */; };
-		E31CCED81DCE29A0002F7AAC /* facer.model in Resources */ = {isa = PBXBuildFile; fileRef = E31CCECF1DCE29A0002F7AAC /* facer.model */; };
-		E31CCEDE1DCE29A0002F7AAC /* libVisionin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E31CCED51DCE29A0002F7AAC /* libVisionin.a */; };
 		E31CCF001DCE340B002F7AAC /* KSYCtrlView.m in Sources */ = {isa = PBXBuildFile; fileRef = E31CCEF91DCE340B002F7AAC /* KSYCtrlView.m */; };
 		E31CCF011DCE340B002F7AAC /* KSYPresetCfgVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E31CCEFB1DCE340B002F7AAC /* KSYPresetCfgVC.m */; };
 		E31CCF021DCE340B002F7AAC /* KSYPresetCfgView.m in Sources */ = {isa = PBXBuildFile; fileRef = E31CCEFD1DCE340B002F7AAC /* KSYPresetCfgView.m */; };
@@ -41,12 +38,15 @@
 		E31CCF101DCE341C002F7AAC /* KSYReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E31CCF091DCE341C002F7AAC /* KSYReachability.m */; };
 		E31CCF111DCE341C002F7AAC /* KSYUIVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E31CCF0B1DCE341C002F7AAC /* KSYUIVC.m */; };
 		E31CCF121DCE341C002F7AAC /* KSYUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = E31CCF0D1DCE341C002F7AAC /* KSYUIView.m */; };
-		E3C9293D1DD044EE00D1072C /* KSYVSStreamerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C9293C1DD044EE00D1072C /* KSYVSStreamerKit.m */; };
-		E3C929431DD06CB300D1072C /* libFacer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C9293E1DD06CB300D1072C /* libFacer.a */; };
-		E3C929441DD06CB300D1072C /* libFacerModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C9293F1DD06CB300D1072C /* libFacerModel.a */; };
-		E3C929451DD06CB300D1072C /* libMobileCross.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C929401DD06CB300D1072C /* libMobileCross.a */; };
-		E3C929461DD06CB300D1072C /* libProps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C929411DD06CB300D1072C /* libProps.a */; };
-		E3C929471DD06CB300D1072C /* libsszip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C929421DD06CB300D1072C /* libsszip.a */; };
+		E3C929621DD1F49200D1072C /* libFacer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C9295C1DD1F49100D1072C /* libFacer.a */; };
+		E3C929631DD1F49200D1072C /* libFacerModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C9295D1DD1F49200D1072C /* libFacerModel.a */; };
+		E3C929641DD1F49200D1072C /* libMobileCross.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C9295E1DD1F49200D1072C /* libMobileCross.a */; };
+		E3C929651DD1F49200D1072C /* libProps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C9295F1DD1F49200D1072C /* libProps.a */; };
+		E3C929661DD1F49200D1072C /* libsszip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C929601DD1F49200D1072C /* libsszip.a */; };
+		E3C929671DD1F49200D1072C /* libVisionin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C929611DD1F49200D1072C /* libVisionin.a */; };
+		E3C9296F1DD1F4A900D1072C /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = E3C9296D1DD1F4A900D1072C /* default.png */; };
+		E3C929701DD1F4A900D1072C /* facer.model in Resources */ = {isa = PBXBuildFile; fileRef = E3C9296E1DD1F4A900D1072C /* facer.model */; };
+		E3C929731DD1F53800D1072C /* KSYVSStreamerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C929721DD1F53800D1072C /* KSYVSStreamerKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,14 +106,6 @@
 		E31CCEC81DCE27BF002F7AAC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		E31CCECA1DCE27CD002F7AAC /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		E31CCECC1DCE27DB002F7AAC /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		E31CCECE1DCE29A0002F7AAC /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default.png; path = ../sources/default.png; sourceTree = "<group>"; };
-		E31CCECF1DCE29A0002F7AAC /* facer.model */ = {isa = PBXFileReference; lastKnownFileType = file; name = facer.model; path = ../sources/facer.model; sourceTree = "<group>"; };
-		E31CCED51DCE29A0002F7AAC /* libVisionin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVisionin.a; path = ../sources/libVisionin.a; sourceTree = "<group>"; };
-		E31CCEE11DCE29B1002F7AAC /* Visionin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Visionin.h; path = ../sources/include/Visionin.h; sourceTree = "<group>"; };
-		E31CCEE21DCE29B1002F7AAC /* VSFacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VSFacer.h; path = ../sources/include/VSFacer.h; sourceTree = "<group>"; };
-		E31CCEE31DCE29B1002F7AAC /* VSProps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VSProps.h; path = ../sources/include/VSProps.h; sourceTree = "<group>"; };
-		E31CCEE41DCE29B1002F7AAC /* VSVideoCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VSVideoCamera.h; path = ../sources/include/VSVideoCamera.h; sourceTree = "<group>"; };
-		E31CCEE51DCE29B1002F7AAC /* VSVideoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VSVideoFrame.h; path = ../sources/include/VSVideoFrame.h; sourceTree = "<group>"; };
 		E31CCEF81DCE340B002F7AAC /* KSYCtrlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYCtrlView.h; path = KSYVSKitDemo/KSYConfig/KSYCtrlView.h; sourceTree = "<group>"; };
 		E31CCEF91DCE340B002F7AAC /* KSYCtrlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYCtrlView.m; path = KSYVSKitDemo/KSYConfig/KSYCtrlView.m; sourceTree = "<group>"; };
 		E31CCEFA1DCE340B002F7AAC /* KSYPresetCfgVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYPresetCfgVC.h; path = KSYVSKitDemo/KSYConfig/KSYPresetCfgVC.h; sourceTree = "<group>"; };
@@ -132,13 +124,21 @@
 		E31CCF0B1DCE341C002F7AAC /* KSYUIVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYUIVC.m; path = KSYVSKitDemo/KSYConfig/KSYUIUtils/KSYUIVC.m; sourceTree = "<group>"; };
 		E31CCF0C1DCE341C002F7AAC /* KSYUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYUIView.h; path = KSYVSKitDemo/KSYConfig/KSYUIUtils/KSYUIView.h; sourceTree = "<group>"; };
 		E31CCF0D1DCE341C002F7AAC /* KSYUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYUIView.m; path = KSYVSKitDemo/KSYConfig/KSYUIUtils/KSYUIView.m; sourceTree = "<group>"; };
-		E3C9293B1DD044EE00D1072C /* KSYVSStreamerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYVSStreamerKit.h; sourceTree = "<group>"; };
-		E3C9293C1DD044EE00D1072C /* KSYVSStreamerKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYVSStreamerKit.m; sourceTree = "<group>"; };
-		E3C9293E1DD06CB300D1072C /* libFacer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFacer.a; path = ../sources/libFacer.a; sourceTree = "<group>"; };
-		E3C9293F1DD06CB300D1072C /* libFacerModel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFacerModel.a; path = ../sources/libFacerModel.a; sourceTree = "<group>"; };
-		E3C929401DD06CB300D1072C /* libMobileCross.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobileCross.a; path = ../sources/libMobileCross.a; sourceTree = "<group>"; };
-		E3C929411DD06CB300D1072C /* libProps.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libProps.a; path = ../sources/libProps.a; sourceTree = "<group>"; };
-		E3C929421DD06CB300D1072C /* libsszip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsszip.a; path = ../sources/libsszip.a; sourceTree = "<group>"; };
+		E3C9295C1DD1F49100D1072C /* libFacer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFacer.a; path = ../framework/libFacer.a; sourceTree = "<group>"; };
+		E3C9295D1DD1F49200D1072C /* libFacerModel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFacerModel.a; path = ../framework/libFacerModel.a; sourceTree = "<group>"; };
+		E3C9295E1DD1F49200D1072C /* libMobileCross.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobileCross.a; path = ../framework/libMobileCross.a; sourceTree = "<group>"; };
+		E3C9295F1DD1F49200D1072C /* libProps.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libProps.a; path = ../framework/libProps.a; sourceTree = "<group>"; };
+		E3C929601DD1F49200D1072C /* libsszip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsszip.a; path = ../framework/libsszip.a; sourceTree = "<group>"; };
+		E3C929611DD1F49200D1072C /* libVisionin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVisionin.a; path = ../framework/libVisionin.a; sourceTree = "<group>"; };
+		E3C929681DD1F49F00D1072C /* Visionin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Visionin.h; path = ../framework/include/Visionin.h; sourceTree = "<group>"; };
+		E3C929691DD1F49F00D1072C /* VSFacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VSFacer.h; path = ../framework/include/VSFacer.h; sourceTree = "<group>"; };
+		E3C9296A1DD1F49F00D1072C /* VSProps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VSProps.h; path = ../framework/include/VSProps.h; sourceTree = "<group>"; };
+		E3C9296B1DD1F49F00D1072C /* VSVideoCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VSVideoCamera.h; path = ../framework/include/VSVideoCamera.h; sourceTree = "<group>"; };
+		E3C9296C1DD1F49F00D1072C /* VSVideoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VSVideoFrame.h; path = ../framework/include/VSVideoFrame.h; sourceTree = "<group>"; };
+		E3C9296D1DD1F4A900D1072C /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default.png; path = ../framework/default.png; sourceTree = "<group>"; };
+		E3C9296E1DD1F4A900D1072C /* facer.model */ = {isa = PBXFileReference; lastKnownFileType = file; name = facer.model; path = ../framework/facer.model; sourceTree = "<group>"; };
+		E3C929711DD1F53800D1072C /* KSYVSStreamerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYVSStreamerKit.h; path = ../../sources/KSYVSStreamerKit.h; sourceTree = "<group>"; };
+		E3C929721DD1F53800D1072C /* KSYVSStreamerKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYVSStreamerKit.m; path = ../../sources/KSYVSStreamerKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,21 +146,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3C929651DD1F49200D1072C /* libProps.a in Frameworks */,
 				E31B77DE1DCF4CCE00DC891E /* libz.1.dylib in Frameworks */,
-				E3C929471DD06CB300D1072C /* libsszip.a in Frameworks */,
-				E3C929431DD06CB300D1072C /* libFacer.a in Frameworks */,
 				E31B77DC1DCF4CAD00DC891E /* libc++.1.dylib in Frameworks */,
+				E3C929641DD1F49200D1072C /* libMobileCross.a in Frameworks */,
+				E3C929661DD1F49200D1072C /* libsszip.a in Frameworks */,
 				E31B77DA1DCF4C8C00DC891E /* libstdc++.6.0.9.dylib in Frameworks */,
+				E3C929671DD1F49200D1072C /* libVisionin.a in Frameworks */,
 				E31B77D81DCF4BBA00DC891E /* QuartzCore.framework in Frameworks */,
 				E31B77D61DCF4BA600DC891E /* CoreMedia.framework in Frameworks */,
 				E31B77D51DCF4B8A00DC891E /* AVFoundation.framework in Frameworks */,
+				E3C929621DD1F49200D1072C /* libFacer.a in Frameworks */,
+				E3C929631DD1F49200D1072C /* libFacerModel.a in Frameworks */,
 				E31B77D31DCF4B8000DC891E /* Foundation.framework in Frameworks */,
 				E31CCECD1DCE27DB002F7AAC /* MediaPlayer.framework in Frameworks */,
-				E31CCEDE1DCE29A0002F7AAC /* libVisionin.a in Frameworks */,
-				E3C929451DD06CB300D1072C /* libMobileCross.a in Frameworks */,
 				E31CCECB1DCE27CD002F7AAC /* CoreImage.framework in Frameworks */,
-				E3C929461DD06CB300D1072C /* libProps.a in Frameworks */,
-				E3C929441DD06CB300D1072C /* libFacerModel.a in Frameworks */,
 				E31CCEC71DCE27B7002F7AAC /* CoreGraphics.framework in Frameworks */,
 				E31CCEC51DCE27A4002F7AAC /* UIKit.framework in Frameworks */,
 				E31CCEC31DCE2794002F7AAC /* OpenGLES.framework in Frameworks */,
@@ -226,8 +226,8 @@
 				E30DE31F1DCD7EDF00C5429C /* AppDelegate.m */,
 				E30DE3211DCD7EDF00C5429C /* KSYVSController.h */,
 				E30DE3221DCD7EDF00C5429C /* KSYVSController.m */,
-				E3C9293B1DD044EE00D1072C /* KSYVSStreamerKit.h */,
-				E3C9293C1DD044EE00D1072C /* KSYVSStreamerKit.m */,
+				E3C929711DD1F53800D1072C /* KSYVSStreamerKit.h */,
+				E3C929721DD1F53800D1072C /* KSYVSStreamerKit.m */,
 				E30DE3241DCD7EDF00C5429C /* Main.storyboard */,
 				E30DE3271DCD7EDF00C5429C /* Assets.xcassets */,
 				E30DE3291DCD7EDF00C5429C /* LaunchScreen.storyboard */,
@@ -266,15 +266,15 @@
 		E30DE34E1DCD7F1D00C5429C /* Visionin */ = {
 			isa = PBXGroup;
 			children = (
+				E3C9296D1DD1F4A900D1072C /* default.png */,
+				E3C9296E1DD1F4A900D1072C /* facer.model */,
+				E3C9295C1DD1F49100D1072C /* libFacer.a */,
+				E3C9295D1DD1F49200D1072C /* libFacerModel.a */,
+				E3C9295E1DD1F49200D1072C /* libMobileCross.a */,
+				E3C9295F1DD1F49200D1072C /* libProps.a */,
+				E3C929601DD1F49200D1072C /* libsszip.a */,
+				E3C929611DD1F49200D1072C /* libVisionin.a */,
 				E31CCEE01DCE29A4002F7AAC /* include */,
-				E31CCECE1DCE29A0002F7AAC /* default.png */,
-				E31CCECF1DCE29A0002F7AAC /* facer.model */,
-				E31CCED51DCE29A0002F7AAC /* libVisionin.a */,
-				E3C9293E1DD06CB300D1072C /* libFacer.a */,
-				E3C9293F1DD06CB300D1072C /* libFacerModel.a */,
-				E3C929401DD06CB300D1072C /* libMobileCross.a */,
-				E3C929411DD06CB300D1072C /* libProps.a */,
-				E3C929421DD06CB300D1072C /* libsszip.a */,
 			);
 			name = Visionin;
 			sourceTree = "<group>";
@@ -310,11 +310,11 @@
 		E31CCEE01DCE29A4002F7AAC /* include */ = {
 			isa = PBXGroup;
 			children = (
-				E31CCEE11DCE29B1002F7AAC /* Visionin.h */,
-				E31CCEE21DCE29B1002F7AAC /* VSFacer.h */,
-				E31CCEE31DCE29B1002F7AAC /* VSProps.h */,
-				E31CCEE41DCE29B1002F7AAC /* VSVideoCamera.h */,
-				E31CCEE51DCE29B1002F7AAC /* VSVideoFrame.h */,
+				E3C929681DD1F49F00D1072C /* Visionin.h */,
+				E3C929691DD1F49F00D1072C /* VSFacer.h */,
+				E3C9296A1DD1F49F00D1072C /* VSProps.h */,
+				E3C9296B1DD1F49F00D1072C /* VSVideoCamera.h */,
+				E3C9296C1DD1F49F00D1072C /* VSVideoFrame.h */,
 			);
 			name = include;
 			sourceTree = "<group>";
@@ -457,10 +457,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E30DE32B1DCD7EDF00C5429C /* LaunchScreen.storyboard in Resources */,
-				E31CCED81DCE29A0002F7AAC /* facer.model in Resources */,
+				E3C929701DD1F4A900D1072C /* facer.model in Resources */,
 				E30DE3281DCD7EDF00C5429C /* Assets.xcassets in Resources */,
 				E30DE3261DCD7EDF00C5429C /* Main.storyboard in Resources */,
-				E31CCED71DCE29A0002F7AAC /* default.png in Resources */,
+				E3C9296F1DD1F4A900D1072C /* default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,12 +539,12 @@
 				E30DE3201DCD7EDF00C5429C /* AppDelegate.m in Sources */,
 				E31CCF021DCE340B002F7AAC /* KSYPresetCfgView.m in Sources */,
 				E31CCF011DCE340B002F7AAC /* KSYPresetCfgVC.m in Sources */,
+				E3C929731DD1F53800D1072C /* KSYVSStreamerKit.m in Sources */,
 				E31CCF121DCE341C002F7AAC /* KSYUIView.m in Sources */,
 				E31CCF111DCE341C002F7AAC /* KSYUIVC.m in Sources */,
 				E30DE31D1DCD7EDF00C5429C /* main.m in Sources */,
 				E31CCF101DCE341C002F7AAC /* KSYReachability.m in Sources */,
 				E31CCF001DCE340B002F7AAC /* KSYCtrlView.m in Sources */,
-				E3C9293D1DD044EE00D1072C /* KSYVSStreamerKit.m in Sources */,
 				E31CCF0E1DCE341C002F7AAC /* KSYFileSelector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -704,13 +704,14 @@
 					"\"${PODS_ROOT}/Headers/Public/Bugly\"",
 					"\"${PODS_ROOT}/Headers/Public/GPUImage\"",
 					"\"${PODS_ROOT}/Headers/Public/libksygpulive\"",
-					../sources/include,
+					../framework/include,
+					../sources,
 				);
 				INFOPLIST_FILE = KSYVSKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					../sources,
+					../framework,
 					"$(inherited)",
 				);
 				OTHER_LDFLAGS = (
@@ -735,13 +736,14 @@
 					"\"${PODS_ROOT}/Headers/Public/Bugly\"",
 					"\"${PODS_ROOT}/Headers/Public/GPUImage\"",
 					"\"${PODS_ROOT}/Headers/Public/libksygpulive\"",
-					../sources/include,
+					../framework/include,
+					../sources,
 				);
 				INFOPLIST_FILE = KSYVSKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					../sources,
+					../framework,
 					"$(inherited)",
 				);
 				OTHER_LDFLAGS = (
