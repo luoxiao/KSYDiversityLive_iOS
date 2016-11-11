@@ -19,11 +19,11 @@ IOS 贴纸功能 （KSYLive_IOS + faceunity）
     
   目前金山SDK流程结构图：
     
-  ![Diagram](images/diagram.png)
+  ![Diagram](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/diagram.png)
   
   那我们要做的事情是啥呢，请看下图：
   
-  ![Diagram](images/faceUnity2.png)
+  ![Diagram](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/faceUnity2.png)
 
 ## 注意事项
 1. 集成金山云SDK：
@@ -95,11 +95,11 @@ IOS 贴纸功能 （KSYLive_IOS + faceunity）
 | | |
 | :---: | :---:|
 |fox| cat |
-|![fox](images/fox.png)| ![cat](images/cat.PNG)|
+|![fox](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/fox.png)| ![cat](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/cat.PNG)|
 |mood| rabbit |
-|![fox](images/mood.PNG)| ![cat](images/rabbit.PNG)|
+|![fox](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/mood.PNG)| ![cat](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/rabbit.PNG)|
 |evil| kitty |
-|![fox](images/evil.PNG )| ![cat](images/kitty.png )|
+|![fox](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/evil.PNG )| ![cat](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/kitty.png )|
 
 
 ## 商务合作
