@@ -29,7 +29,7 @@
 }
 - (NSString *)sessionPreset{
     if (!_sessionPreset) {
-        _sessionPreset = AVCaptureSessionPresetHigh;
+        _sessionPreset = AVCaptureSessionPreset1280x720;
     }
     return _sessionPreset;
 }

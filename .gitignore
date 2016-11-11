@@ -23,6 +23,6 @@ Icon
 *.ipa
 xcuserdata
 project.xcworkspace/
-build/
+#build/
 *.log
-framework/
+#framework/

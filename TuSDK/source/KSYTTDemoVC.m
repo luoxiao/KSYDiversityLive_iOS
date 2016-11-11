@@ -29,7 +29,7 @@
 }
 - (void)loadView{
     [super loadView];
-    _videoFilters = @[@"Glare",@"VideoFair",@""];
+    _videoFilters = @[@"Glare",@"VideoFair",@"无"];
     _videoFilterIndex = 1;
 }
 - (void)viewWillDisappear:(BOOL)animated

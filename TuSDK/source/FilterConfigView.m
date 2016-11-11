@@ -118,8 +118,8 @@
 {
     
     // 重置按钮
-    _resetButton = [UIButton buttonWithFrame:CGRectMake(10, 10, 55, 30)
-                                       title:NSLocalizedString(@"lsq_reset", @"重置")
+    _resetButton = [UIButton buttonWithFrame:CGRectMake(10, 10, 100, 30)
+                                       title:@"重置"
                                         font:lsqFontSize(16)
                                        color:[UIColor whiteColor]];
     [_resetButton setCornerRadius:_resetButton.getSizeHeight * 0.5];

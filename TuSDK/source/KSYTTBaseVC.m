@@ -159,7 +159,7 @@
     }
     NSString *code = [_videoFilters objectAtIndex:_videoFilterIndex];
     [self switchFilter:code];
-    NSString *key = [NSString stringWithFormat:@"lsq_filter_%@", code];
+    NSString *key = [NSString stringWithFormat:@"滤镜_%@", code];
     [[TuSDK shared].messageHub showToast:NSLocalizedString(key, @"")];
 }
 - (void)updateShowStatus:(BOOL)isRunning
@@ -173,7 +173,7 @@
     NSString *imageName = isBeautyEnabled ? @"icon_beauty_on" : @"icon_beauty_off";
     UIImage *image = [UIImage imageNamed:imageName];
     [_mFilterButton setImage:image forState:UIControlStateNormal];
-    NSString *key = isBeautyEnabled ? @"beauty_on" : @"beauty_off";
+    NSString *key = isBeautyEnabled ? @"美颜开" : @"美颜关";
     [[TuSDK shared].messageHub showToast:NSLocalizedString(key, @"")];
 }
 - (void)updateMuteStatus:(BOOL)isMuted

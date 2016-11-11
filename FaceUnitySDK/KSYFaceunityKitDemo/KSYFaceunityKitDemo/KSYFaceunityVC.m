@@ -272,6 +272,10 @@
 //    if (![[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePathWithName:fileName]]) {
 //        [self loadDataWithItem:fileName];
 //    }
+    UICollectionViewCell *cell = [collectionView  cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor blueColor];
+    
+    
     switch (indexPath.row) {
         case 0:
             _ctrlView.lblNetwork.text = @"open";
@@ -317,7 +321,10 @@
             break;
     }
 }
-
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView  cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor whiteColor];
+}
 //返回分区个数
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
@@ -329,9 +336,9 @@
 //获取cell
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell * cell  = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellid" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1];
+    cell.backgroundColor = [UIColor whiteColor];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    label.textColor = [UIColor blackColor];
+    label.textColor = [UIColor redColor];
     label.text = [NSString stringWithFormat:@"%@",[_resourceArray objectAtIndex:indexPath.row]];
     for (id subView in cell.contentView.subviews) {
         [subView removeFromSuperview];
