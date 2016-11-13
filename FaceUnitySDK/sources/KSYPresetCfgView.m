@@ -176,7 +176,7 @@
         case 1:
             return  KSYAudioCodec_AAC;
         case 2:
-            return  KSYAudioCodec_AT_AAC_HE;
+            return  KSYAudioCodec_AT_AAC;
         case 3:
             return  KSYAudioCodec_AT_AAC;
         default:
