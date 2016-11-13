@@ -43,6 +43,10 @@ IOS 贴纸功能 （KSYLive_IOS + faceunity）
     
     下载KSYFaceUnityKitDemo，将文件夹中的libnama.a的.a文件和funama.h文件拷贝到自己的项目中；
     
+    **加速访问：**
+    
+    可以从[oschina](git@git.oschina.net:ksvc/KSYDiversityLive_iOS.git)镜像下载。
+    
 3. 资源加载方法
     
     项目中使用的贴纸资源，可以将资源文件放在自己的服务器上，开启APP，当选择选择相应的贴纸样式的时候，从服务器端加载资源，资源下载可以使用苹果原生的NSURLSession的方法，也可以用开源框架AFNetWorking等，这里要注意，网络请求在子线程中操作，并且比较耗时，在添加贴纸的时候，一定要保证资源已下载在本地，否则会发生错误！
