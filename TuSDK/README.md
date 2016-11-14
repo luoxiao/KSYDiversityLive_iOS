@@ -151,3 +151,13 @@ TuSDK初始化：
 * 邮箱：<business@tusdk.com>
 * QQ：2969573855
 * 电话：159-2730-3048
+
+## 更新提示
+在正确的git clone本工程到本地，并成功的pod install添加了依赖项，在打开工程KSYTTStreamer.xcworkspace后发现如下的错误
+
+![lPod](images/lPods.png)
+
+请按下图进行操作
+![solution](images/solution.png)
+
+问题就可以解决。
