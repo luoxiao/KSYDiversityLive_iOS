@@ -1,14 +1,14 @@
-### 概述
-可扩展性是金山SDK的重要特征，下面就介绍一下金山SDK+途图SDK完成视频采集、图像处理、推流的相关功能
-### 集成
-#### 准备工作
+## 1. 概述
+可扩展性是金山SDK的重要特征，下面就介绍一下金山SDK+涂图SDK完成视频采集、图像处理、推流的相关功能
+
+## 2. 集成
+### 2.1 准备工作
 资源下载：
 
-金山SDK：https://github.com/ksvc/KSYLive_iOS
+* 金山SDK：https://github.com/ksvc/KSYLive_iOS
+* 涂图SDK：https://tusdk.com
 
-途图SDK：https://tusdk.com
-
-#### 结构图
+### 2.2 结构图
 
 金山SDK流程结构图：
     
@@ -18,7 +18,7 @@
   
 ![Diagram](images/ksyReplace.png)
 
-#### 开始集成
+### 2.3 开始集成
 
 重要功能类介绍：
 ```
@@ -104,8 +104,8 @@ _kit = [[KSYGPUStreamerKit alloc] initWithDefaultCfg];
 }
 //更加详细的相机控制请看Demo
 ```
-###资源获取
-途图资源获取：
+## 3. 资源获取
+### 3.1 涂图资源获取
 
 可以登录涂图官网：https://tusdk.com
 
@@ -115,7 +115,11 @@ _kit = [[KSYGPUStreamerKit alloc] initWithDefaultCfg];
 3.创建自己的应用
 4.管理贴纸、滤镜资源
 5.资源打包下载，更新配置
+### 3.2 凃图权限
 
+联系商务开通权限，打开 tusdk.com/video 填写表单、点击「联系商务」，填写表单。
+
+### 3.3 获取示例
 代码中需要注意的地方：
 
 资源下载：
@@ -130,7 +134,20 @@ TuSDK初始化：
 
 详情请咨询：https://tusdk.com
 
-金山SDK资源获取：
+### 3.4 金山SDK资源获取
 
-可以登录：https://github.com/ksvc/KSYLive_iOS
+请直接从github获取：https://github.com/ksvc/KSYLive_iOS
 这里有详细的集成介绍。
+
+## 4. 反馈与建议
+### 4.1 金山云
+* 主页：[金山云](http://www.ksyun.com/)
+* 邮箱：<zengfanping@kingsoft.com>
+* QQ讨论群：574179720
+* Issues:https://github.com/ksvc/KSYDiversityLive_iOS/issues
+
+### 4.2 凃图
+* 主页：[涂图](https://tusdk.com/)
+* 邮箱：<business@tusdk.com>
+* QQ：2969573855
+* 电话：159-2730-3048
