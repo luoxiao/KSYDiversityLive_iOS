@@ -5,8 +5,8 @@
 ### 2.1 准备工作
 资源下载：
 
-* 金山SDK：https://github.com/ksvc/KSYLive_iOS
-* 涂图SDK：https://tusdk.com
+* 金山SDK：[https://github.com/ksvc/KSYLive_iOS](https://github.com/ksvc/KSYLive_iOS)
+* 涂图SDK：[https://tusdk.com](https://tusdk.com)
 
 ### 2.2 结构图
 
@@ -107,7 +107,7 @@ _kit = [[KSYGPUStreamerKit alloc] initWithDefaultCfg];
 ## 3. 资源获取
 ### 3.1 涂图资源获取
 
-可以登录涂图官网：https://tusdk.com
+可以登录涂图官网：[https://tusdk.com](https://tusdk.com)
 
 下面说明一下我在集成过程中的操作步骤：
 1.注册账号，申请权限
@@ -117,7 +117,7 @@ _kit = [[KSYGPUStreamerKit alloc] initWithDefaultCfg];
 5.资源打包下载，更新配置
 ### 3.2 凃图权限
 
-联系商务开通权限，打开 tusdk.com/video 填写表单、点击「联系商务」，填写表单。
+联系商务开通权限，打开 [tusdk.com/video](tusdk.com/video) 填写表单、点击「联系商务」，填写表单。
 
 ### 3.3 获取示例
 代码中需要注意的地方：
