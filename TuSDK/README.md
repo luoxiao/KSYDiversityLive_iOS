@@ -1,5 +1,10 @@
 ## 1. 概述
-可扩展性是金山SDK的重要特征，下面就介绍一下金山SDK+涂图SDK完成视频采集、图像处理、推流的相关功能
+金山云开发平台，开放所有数据链路处理能力。以下是金山云直播SDK与涂图美颜SDK合作完成的直播、美颜、编码、推流功能。
+
+其中金山云直播SDK与凃图美颜SDK结合调用代码，全部开源，代码请见[链接](source)
+
+视频效果请见：  
+[![ScreenShot](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/tu/tusdk.png)](http://www.bilibili.com/video/av7054148/)
 
 ## 2. 集成
 ### 2.1 准备工作
