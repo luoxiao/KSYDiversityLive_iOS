@@ -4,8 +4,7 @@ platform :ios, '7.0'
 
 target 'KSYTTStreamer' do
   pod 'Bugly'
-  #pod 'GPUImage',  '0.1.7'
-  #pod 'libksygpulive/KSYGPUResource'
-  #pod 'libksygpulive/libksygpulive', '1.8.7'
-  pod 'KSYGPULive_iOS', :git => 'https://github.com/ksvc/KSYLive_iOS.git',:tag=>'v1.7.0’
+  pod 'GPUImage',  '0.1.7'
+  pod 'libksygpulive/KSYGPUResource'
+  pod 'libksygpulive/libksygpulive', '1.8.7'
 end
