@@ -12,11 +12,11 @@
 
 金山SDK流程结构图：
     
-![Diagram](images/diagram.png)
+![Diagram](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/diagram.png)
   
 那我们要做的事情是啥呢，请看下图：
   
-![Diagram](images/ksyReplace.png)
+![Diagram](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/ksyReplace.png)
 
 ### 2.3 开始集成
 
@@ -123,14 +123,14 @@ _kit = [[KSYGPUStreamerKit alloc] initWithDefaultCfg];
 代码中需要注意的地方：
 
 资源下载：
-![TuSDK appControl.png](images/TuSDK appControl.png)
+![TuSDK appControl.png](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/TuSDK appControl.png)
 
 TuSDK初始化：
-![TuSDK initialized.png](images/TuSDK initialized.png)
+![TuSDK initialized.png](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/TuSDK initialized.png)
 
 添加资源到项目中：
 
-![TuSDK source.png](images/TuSDK source.png)
+![TuSDK source.png](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/TuSDK source.png)
 
 详情请咨询：https://tusdk.com
 
