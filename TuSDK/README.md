@@ -1,7 +1,7 @@
 ## 1. 概述
 金山云开发平台，开放所有数据链路处理能力。以下是金山云直播SDK与涂图美颜SDK合作完成的直播、美颜、编码、推流功能。
 
-其中金山云直播SDK与凃图美颜SDK结合调用代码，全部开源，代码请见[链接](source)
+其中金山云直播SDK与涂图美颜SDK结合调用代码，全部开源，代码请见[链接](source)
 
 视频效果请见：  
 [![ScreenShot](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/tu/tusdk.png)](http://www.bilibili.com/video/av7054148/)
@@ -112,19 +112,18 @@ _kit = [[KSYGPUStreamerKit alloc] initWithDefaultCfg];
 ## 3. 资源获取
 ### 3.1 涂图资源获取
 
-可以登录涂图官网：[tusdk.com](https://tusdk.com)
+涂图直播 SDK 集成步骤：
 
-下面说明一下我在集成过程中的操作步骤：
-1.注册账号，申请权限
-2.进入控制台
-3.创建自己的应用
-4.管理贴纸、滤镜资源
-5.资源打包下载，更新配置
-### 3.2 凃图权限
+1. 登录[涂图网站](https://tusdk.com)注册账号
+2. 申请权限：打开 [tusdk.com/video](http://tusdk.com/video) 点击「联系商务」，填写表单，等待权限开通
+3. 进入控制台，创建应用
+4. 管理和打包滤镜资源
+5. 下载资源包，更新工程文件
 
-联系商务开通权限，打开 [tusdk.com/video](http://tusdk.com/video) 填写表单、点击「联系商务」，填写表单。
+如有疑问可与具体负责的工作人员沟通。
 
-### 3.3 获取示例
+### 3.2 获取示例
+
 代码中需要注意的地方：
 
 资源下载：
@@ -139,7 +138,7 @@ TuSDK初始化：
 
 详情请咨询：https://tusdk.com
 
-### 3.4 金山SDK资源获取
+### 3.3 金山SDK资源获取
 
 请直接从github获取：https://github.com/ksvc/KSYLive_iOS
 这里有详细的集成介绍。
@@ -151,7 +150,7 @@ TuSDK初始化：
 * QQ讨论群：574179720
 * Issues:https://github.com/ksvc/KSYDiversityLive_iOS/issues
 
-### 4.2 凃图
+### 4.2 涂图
 * 主页：[涂图](https://tusdk.com/)
 * 邮箱：<business@tusdk.com>
 * QQ：2969573855
