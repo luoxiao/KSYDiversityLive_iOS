@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		09B673F46B82C4BA6F4D7589 /* Pods_KSYVSKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 239BE217D4433F2639EC8863 /* Pods_KSYVSKitDemo.framework */; };
-		79E8EB2FBD7EF78BA76E24F6 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4FA22B3848CA355F7EA69C /* Pods.framework */; };
 		E30DE31D1DCD7EDF00C5429C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E30DE31C1DCD7EDF00C5429C /* main.m */; };
 		E30DE3201DCD7EDF00C5429C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E30DE31F1DCD7EDF00C5429C /* AppDelegate.m */; };
 		E30DE3231DCD7EDF00C5429C /* KSYVSController.m in Sources */ = {isa = PBXBuildFile; fileRef = E30DE3221DCD7EDF00C5429C /* KSYVSController.m */; };
@@ -17,6 +16,7 @@
 		E30DE32B1DCD7EDF00C5429C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30DE3291DCD7EDF00C5429C /* LaunchScreen.storyboard */; };
 		E30DE3361DCD7EE000C5429C /* KSYVSKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E30DE3351DCD7EE000C5429C /* KSYVSKitDemoTests.m */; };
 		E30DE3411DCD7EE000C5429C /* KSYVSKitDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E30DE3401DCD7EE000C5429C /* KSYVSKitDemoUITests.m */; };
+		E315AA171DDD6F9D008E31E2 /* KSYVSStreamerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E315AA161DDD6F9D008E31E2 /* KSYVSStreamerKit.m */; };
 		E31B77D31DCF4B8000DC891E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E31B77D21DCF4B8000DC891E /* Foundation.framework */; };
 		E31B77D51DCF4B8A00DC891E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E31B77D41DCF4B8A00DC891E /* AVFoundation.framework */; };
 		E31B77D61DCF4BA600DC891E /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E31CCEC81DCE27BF002F7AAC /* CoreMedia.framework */; };
@@ -47,7 +47,6 @@
 		E3C929671DD1F49200D1072C /* libVisionin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C929611DD1F49200D1072C /* libVisionin.a */; };
 		E3C9296F1DD1F4A900D1072C /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = E3C9296D1DD1F4A900D1072C /* default.png */; };
 		E3C929701DD1F4A900D1072C /* facer.model in Resources */ = {isa = PBXBuildFile; fileRef = E3C9296E1DD1F4A900D1072C /* facer.model */; };
-		E3C929731DD1F53800D1072C /* KSYVSStreamerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C929721DD1F53800D1072C /* KSYVSStreamerKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +92,8 @@
 		E30DE36A1DCD815200C5429C /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
 		E30DE36C1DCD815B00C5429C /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
 		E30DE36E1DCD818B00C5429C /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
+		E315AA151DDD6F9D008E31E2 /* KSYVSStreamerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYVSStreamerKit.h; path = ../../source/KSYVSStreamerKit.h; sourceTree = "<group>"; };
+		E315AA161DDD6F9D008E31E2 /* KSYVSStreamerKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYVSStreamerKit.m; path = ../../source/KSYVSStreamerKit.m; sourceTree = "<group>"; };
 		E31B77D21DCF4B8000DC891E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E31B77D41DCF4B8A00DC891E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E31B77D71DCF4BBA00DC891E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -140,8 +141,6 @@
 		E3C9296C1DD1F49F00D1072C /* VSVideoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VSVideoFrame.h; path = ../framework/include/VSVideoFrame.h; sourceTree = "<group>"; };
 		E3C9296D1DD1F4A900D1072C /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default.png; path = ../framework/default.png; sourceTree = "<group>"; };
 		E3C9296E1DD1F4A900D1072C /* facer.model */ = {isa = PBXFileReference; lastKnownFileType = file; name = facer.model; path = ../framework/facer.model; sourceTree = "<group>"; };
-		E3C929711DD1F53800D1072C /* KSYVSStreamerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYVSStreamerKit.h; path = ../../sources/KSYVSStreamerKit.h; sourceTree = "<group>"; };
-		E3C929721DD1F53800D1072C /* KSYVSStreamerKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYVSStreamerKit.m; path = ../../sources/KSYVSStreamerKit.m; sourceTree = "<group>"; };
 		ECFE4D09E24513648E47E31B /* Pods-KSYVSKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYVSKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KSYVSKitDemo/Pods-KSYVSKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,7 +168,6 @@
 				E31CCEC51DCE27A4002F7AAC /* UIKit.framework in Frameworks */,
 				E31CCEC31DCE2794002F7AAC /* OpenGLES.framework in Frameworks */,
 				E31CCEC11DCE278C002F7AAC /* CoreVideo.framework in Frameworks */,
-				79E8EB2FBD7EF78BA76E24F6 /* Pods.framework in Frameworks */,
 				09B673F46B82C4BA6F4D7589 /* Pods_KSYVSKitDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,8 +231,8 @@
 				E30DE31F1DCD7EDF00C5429C /* AppDelegate.m */,
 				E30DE3211DCD7EDF00C5429C /* KSYVSController.h */,
 				E30DE3221DCD7EDF00C5429C /* KSYVSController.m */,
-				E3C929711DD1F53800D1072C /* KSYVSStreamerKit.h */,
-				E3C929721DD1F53800D1072C /* KSYVSStreamerKit.m */,
+				E315AA151DDD6F9D008E31E2 /* KSYVSStreamerKit.h */,
+				E315AA161DDD6F9D008E31E2 /* KSYVSStreamerKit.m */,
 				E30DE3241DCD7EDF00C5429C /* Main.storyboard */,
 				E30DE3271DCD7EDF00C5429C /* Assets.xcassets */,
 				E30DE3291DCD7EDF00C5429C /* LaunchScreen.storyboard */,
@@ -545,9 +543,9 @@
 				E31CCF0F1DCE341C002F7AAC /* KSYNameSlider.m in Sources */,
 				E31CCF031DCE340B002F7AAC /* KSYStateLableView.m in Sources */,
 				E30DE3201DCD7EDF00C5429C /* AppDelegate.m in Sources */,
+				E315AA171DDD6F9D008E31E2 /* KSYVSStreamerKit.m in Sources */,
 				E31CCF021DCE340B002F7AAC /* KSYPresetCfgView.m in Sources */,
 				E31CCF011DCE340B002F7AAC /* KSYPresetCfgVC.m in Sources */,
-				E3C929731DD1F53800D1072C /* KSYVSStreamerKit.m in Sources */,
 				E31CCF121DCE341C002F7AAC /* KSYUIView.m in Sources */,
 				E31CCF111DCE341C002F7AAC /* KSYUIVC.m in Sources */,
 				E30DE31D1DCD7EDF00C5429C /* main.m in Sources */,
@@ -713,10 +711,10 @@
 					"\"${PODS_ROOT}/Headers/Public/GPUImage\"",
 					"\"${PODS_ROOT}/Headers/Public/libksygpulive\"",
 					../framework/include,
-					../sources,
+					../source,
 				);
 				INFOPLIST_FILE = KSYVSKitDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					../framework,
@@ -745,10 +743,10 @@
 					"\"${PODS_ROOT}/Headers/Public/GPUImage\"",
 					"\"${PODS_ROOT}/Headers/Public/libksygpulive\"",
 					../framework/include,
-					../sources,
+					../source,
 				);
 				INFOPLIST_FILE = KSYVSKitDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					../framework,
