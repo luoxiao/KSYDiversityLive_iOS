@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8FCD805ED1F3DE53DE607605 /* libPods-KSYTTStreamer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D27F5A7A32F9786B5098A397 /* libPods-KSYTTStreamer.a */; };
 		D7BE4BD71AA89A93CEE6D8B8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA941B1C1F6EDDD8DDE5D9A6 /* libPods.a */; };
+		E315A9EB1DDD60F2008E31E2 /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = E315A9E81DDD60F1008E31E2 /* UIControl+YYAdd.m */; };
+		E315A9EC1DDD60F2008E31E2 /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = E315A9EA1DDD60F1008E31E2 /* UIView+YYAdd.m */; };
+		E315A9F51DDD6102008E31E2 /* FilterConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = E315A9EE1DDD6102008E31E2 /* FilterConfigView.m */; };
+		E315A9F61DDD6102008E31E2 /* KSYCameraSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E315A9F01DDD6102008E31E2 /* KSYCameraSource.m */; };
+		E315A9F71DDD6102008E31E2 /* KSYTTBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E315A9F21DDD6102008E31E2 /* KSYTTBaseVC.m */; };
+		E315A9F81DDD6102008E31E2 /* KSYTTDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E315A9F41DDD6102008E31E2 /* KSYTTDemoVC.m */; };
 		E38399261D7479EA00D12963 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E38399251D7479EA00D12963 /* main.m */; };
 		E38399291D7479EA00D12963 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E38399281D7479EA00D12963 /* AppDelegate.m */; };
 		E383992F1D7479EA00D12963 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E383992D1D7479EA00D12963 /* Main.storyboard */; };
@@ -17,12 +24,6 @@
 		E383994A1D7479EA00D12963 /* KSYTTStreamerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E38399491D7479EA00D12963 /* KSYTTStreamerUITests.m */; };
 		E3C097AD1D7584E600B45C1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C097AC1D7584E600B45C1D /* ViewController.m */; };
 		E3C929871DD1F98200D1072C /* TuSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3C929861DD1F98200D1072C /* TuSDK.bundle */; };
-		E3C929C81DD203BF00D1072C /* FilterConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C929C11DD203BF00D1072C /* FilterConfigView.m */; };
-		E3C929C91DD203BF00D1072C /* KSYCameraSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C929C31DD203BF00D1072C /* KSYCameraSource.m */; };
-		E3C929CA1DD203BF00D1072C /* KSYTTBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C929C51DD203BF00D1072C /* KSYTTBaseVC.m */; };
-		E3C929CB1DD203BF00D1072C /* KSYTTDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C929C71DD203BF00D1072C /* KSYTTDemoVC.m */; };
-		E3C929D01DD203D400D1072C /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C929CD1DD203D400D1072C /* UIControl+YYAdd.m */; };
-		E3C929D11DD203D400D1072C /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C929CF1DD203D400D1072C /* UIView+YYAdd.m */; };
 		E3F4BB281D75568C0088A29E /* libyuv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F4BB241D75568C0088A29E /* libyuv.framework */; };
 		E3F4BB291D75568C0088A29E /* TuSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F4BB251D75568C0088A29E /* TuSDK.framework */; };
 		E3F4BB2A1D75568C0088A29E /* TuSDKFace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F4BB261D75568C0088A29E /* TuSDKFace.framework */; };
@@ -49,8 +50,23 @@
 
 /* Begin PBXFileReference section */
 		7B2C1BE33025D85371D1C6AA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		853583A44842738DD58CB061 /* Pods-KSYTTStreamer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYTTStreamer.release.xcconfig"; path = "Pods/Target Support Files/Pods-KSYTTStreamer/Pods-KSYTTStreamer.release.xcconfig"; sourceTree = "<group>"; };
+		CFBDB1EDBBAE2227EACF27CF /* Pods-KSYTTStreamer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYTTStreamer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KSYTTStreamer/Pods-KSYTTStreamer.debug.xcconfig"; sourceTree = "<group>"; };
+		D27F5A7A32F9786B5098A397 /* libPods-KSYTTStreamer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KSYTTStreamer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA941B1C1F6EDDD8DDE5D9A6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C06CFF9FED468B10EF277D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E315A9E71DDD60F1008E31E2 /* UIControl+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+YYAdd.h"; sourceTree = "<group>"; };
+		E315A9E81DDD60F1008E31E2 /* UIControl+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+YYAdd.m"; sourceTree = "<group>"; };
+		E315A9E91DDD60F1008E31E2 /* UIView+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YYAdd.h"; sourceTree = "<group>"; };
+		E315A9EA1DDD60F1008E31E2 /* UIView+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YYAdd.m"; sourceTree = "<group>"; };
+		E315A9ED1DDD6102008E31E2 /* FilterConfigView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterConfigView.h; sourceTree = "<group>"; };
+		E315A9EE1DDD6102008E31E2 /* FilterConfigView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterConfigView.m; sourceTree = "<group>"; };
+		E315A9EF1DDD6102008E31E2 /* KSYCameraSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYCameraSource.h; sourceTree = "<group>"; };
+		E315A9F01DDD6102008E31E2 /* KSYCameraSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYCameraSource.m; sourceTree = "<group>"; };
+		E315A9F11DDD6102008E31E2 /* KSYTTBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYTTBaseVC.h; sourceTree = "<group>"; };
+		E315A9F21DDD6102008E31E2 /* KSYTTBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYTTBaseVC.m; sourceTree = "<group>"; };
+		E315A9F31DDD6102008E31E2 /* KSYTTDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYTTDemoVC.h; sourceTree = "<group>"; };
+		E315A9F41DDD6102008E31E2 /* KSYTTDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYTTDemoVC.m; sourceTree = "<group>"; };
 		E38399211D7479EA00D12963 /* KSYTTStreamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSYTTStreamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38399251D7479EA00D12963 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E38399271D7479EA00D12963 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,18 +84,6 @@
 		E3C097AB1D7584E600B45C1D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E3C097AC1D7584E600B45C1D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E3C929861DD1F98200D1072C /* TuSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TuSDK.bundle; path = ../../framework/TuSDK.bundle; sourceTree = "<group>"; };
-		E3C929C01DD203BF00D1072C /* FilterConfigView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilterConfigView.h; path = ../../source/FilterConfigView.h; sourceTree = "<group>"; };
-		E3C929C11DD203BF00D1072C /* FilterConfigView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilterConfigView.m; path = ../../source/FilterConfigView.m; sourceTree = "<group>"; };
-		E3C929C21DD203BF00D1072C /* KSYCameraSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYCameraSource.h; path = ../../source/KSYCameraSource.h; sourceTree = "<group>"; };
-		E3C929C31DD203BF00D1072C /* KSYCameraSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYCameraSource.m; path = ../../source/KSYCameraSource.m; sourceTree = "<group>"; };
-		E3C929C41DD203BF00D1072C /* KSYTTBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYTTBaseVC.h; path = ../../source/KSYTTBaseVC.h; sourceTree = "<group>"; };
-		E3C929C51DD203BF00D1072C /* KSYTTBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYTTBaseVC.m; path = ../../source/KSYTTBaseVC.m; sourceTree = "<group>"; };
-		E3C929C61DD203BF00D1072C /* KSYTTDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYTTDemoVC.h; path = ../../source/KSYTTDemoVC.h; sourceTree = "<group>"; };
-		E3C929C71DD203BF00D1072C /* KSYTTDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYTTDemoVC.m; path = ../../source/KSYTTDemoVC.m; sourceTree = "<group>"; };
-		E3C929CC1DD203D400D1072C /* UIControl+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIControl+YYAdd.h"; path = "../../source/UIControl+YYAdd.h"; sourceTree = "<group>"; };
-		E3C929CD1DD203D400D1072C /* UIControl+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIControl+YYAdd.m"; path = "../../source/UIControl+YYAdd.m"; sourceTree = "<group>"; };
-		E3C929CE1DD203D400D1072C /* UIView+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+YYAdd.h"; path = "../../source/UIView+YYAdd.h"; sourceTree = "<group>"; };
-		E3C929CF1DD203D400D1072C /* UIView+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+YYAdd.m"; path = "../../source/UIView+YYAdd.m"; sourceTree = "<group>"; };
 		E3F4BB241D75568C0088A29E /* libyuv.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = libyuv.framework; sourceTree = "<group>"; };
 		E3F4BB251D75568C0088A29E /* TuSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDK.framework; sourceTree = "<group>"; };
 		E3F4BB261D75568C0088A29E /* TuSDKFace.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKFace.framework; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 				E3F4BB291D75568C0088A29E /* TuSDK.framework in Frameworks */,
 				E3F4BB2B1D75568C0088A29E /* TuSDKVideo.framework in Frameworks */,
 				E3F4BB281D75568C0088A29E /* libyuv.framework in Frameworks */,
+				8FCD805ED1F3DE53DE607605 /* libPods-KSYTTStreamer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +132,7 @@
 				E3F4BB261D75568C0088A29E /* TuSDKFace.framework */,
 				E3F4BB271D75568C0088A29E /* TuSDKVideo.framework */,
 				DA941B1C1F6EDDD8DDE5D9A6 /* libPods.a */,
+				D27F5A7A32F9786B5098A397 /* libPods-KSYTTStreamer.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -136,6 +142,8 @@
 			children = (
 				E1C06CFF9FED468B10EF277D /* Pods.debug.xcconfig */,
 				7B2C1BE33025D85371D1C6AA /* Pods.release.xcconfig */,
+				CFBDB1EDBBAE2227EACF27CF /* Pods-KSYTTStreamer.debug.xcconfig */,
+				853583A44842738DD58CB061 /* Pods-KSYTTStreamer.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -210,14 +218,14 @@
 		E3C097BE1D76994100B45C1D /* KSYTT */ = {
 			isa = PBXGroup;
 			children = (
-				E3C929C01DD203BF00D1072C /* FilterConfigView.h */,
-				E3C929C11DD203BF00D1072C /* FilterConfigView.m */,
-				E3C929C21DD203BF00D1072C /* KSYCameraSource.h */,
-				E3C929C31DD203BF00D1072C /* KSYCameraSource.m */,
-				E3C929C41DD203BF00D1072C /* KSYTTBaseVC.h */,
-				E3C929C51DD203BF00D1072C /* KSYTTBaseVC.m */,
-				E3C929C61DD203BF00D1072C /* KSYTTDemoVC.h */,
-				E3C929C71DD203BF00D1072C /* KSYTTDemoVC.m */,
+				E315A9ED1DDD6102008E31E2 /* FilterConfigView.h */,
+				E315A9EE1DDD6102008E31E2 /* FilterConfigView.m */,
+				E315A9EF1DDD6102008E31E2 /* KSYCameraSource.h */,
+				E315A9F01DDD6102008E31E2 /* KSYCameraSource.m */,
+				E315A9F11DDD6102008E31E2 /* KSYTTBaseVC.h */,
+				E315A9F21DDD6102008E31E2 /* KSYTTBaseVC.m */,
+				E315A9F31DDD6102008E31E2 /* KSYTTDemoVC.h */,
+				E315A9F41DDD6102008E31E2 /* KSYTTDemoVC.m */,
 			);
 			name = KSYTT;
 			sourceTree = "<group>";
@@ -225,10 +233,10 @@
 		E3C097C01D769C4E00B45C1D /* category */ = {
 			isa = PBXGroup;
 			children = (
-				E3C929CC1DD203D400D1072C /* UIControl+YYAdd.h */,
-				E3C929CD1DD203D400D1072C /* UIControl+YYAdd.m */,
-				E3C929CE1DD203D400D1072C /* UIView+YYAdd.h */,
-				E3C929CF1DD203D400D1072C /* UIView+YYAdd.m */,
+				E315A9E71DDD60F1008E31E2 /* UIControl+YYAdd.h */,
+				E315A9E81DDD60F1008E31E2 /* UIControl+YYAdd.m */,
+				E315A9E91DDD60F1008E31E2 /* UIView+YYAdd.h */,
+				E315A9EA1DDD60F1008E31E2 /* UIView+YYAdd.m */,
 			);
 			name = category;
 			sourceTree = "<group>";
@@ -240,12 +248,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E383994E1D7479EA00D12963 /* Build configuration list for PBXNativeTarget "KSYTTStreamer" */;
 			buildPhases = (
-				5F287C783EB23A98F424E653 /* Check Pods Manifest.lock */,
+				5F287C783EB23A98F424E653 /* [CP] Check Pods Manifest.lock */,
 				E383991D1D7479EA00D12963 /* Sources */,
 				E383991E1D7479EA00D12963 /* Frameworks */,
 				E383991F1D7479EA00D12963 /* Resources */,
-				052011949060DC60CFD71174 /* Embed Pods Frameworks */,
-				1C2CCF7BACF726D5190D149C /* Copy Pods Resources */,
+				052011949060DC60CFD71174 /* [CP] Embed Pods Frameworks */,
+				1C2CCF7BACF726D5190D149C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -364,49 +372,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		052011949060DC60CFD71174 /* Embed Pods Frameworks */ = {
+		052011949060DC60CFD71174 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSYTTStreamer/Pods-KSYTTStreamer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1C2CCF7BACF726D5190D149C /* Copy Pods Resources */ = {
+		1C2CCF7BACF726D5190D149C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSYTTStreamer/Pods-KSYTTStreamer-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5F287C783EB23A98F424E653 /* Check Pods Manifest.lock */ = {
+		5F287C783EB23A98F424E653 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -416,15 +424,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3C929CB1DD203BF00D1072C /* KSYTTDemoVC.m in Sources */,
-				E3C929C81DD203BF00D1072C /* FilterConfigView.m in Sources */,
-				E3C929D11DD203D400D1072C /* UIView+YYAdd.m in Sources */,
-				E3C929C91DD203BF00D1072C /* KSYCameraSource.m in Sources */,
-				E3C929D01DD203D400D1072C /* UIControl+YYAdd.m in Sources */,
+				E315A9EC1DDD60F2008E31E2 /* UIView+YYAdd.m in Sources */,
+				E315A9F81DDD6102008E31E2 /* KSYTTDemoVC.m in Sources */,
+				E315A9EB1DDD60F2008E31E2 /* UIControl+YYAdd.m in Sources */,
 				E38399291D7479EA00D12963 /* AppDelegate.m in Sources */,
+				E315A9F51DDD6102008E31E2 /* FilterConfigView.m in Sources */,
+				E315A9F71DDD6102008E31E2 /* KSYTTBaseVC.m in Sources */,
+				E315A9F61DDD6102008E31E2 /* KSYCameraSource.m in Sources */,
 				E38399261D7479EA00D12963 /* main.m in Sources */,
 				E3C097AD1D7584E600B45C1D /* ViewController.m in Sources */,
-				E3C929CA1DD203BF00D1072C /* KSYTTBaseVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,7 +575,7 @@
 		};
 		E383994F1D7479EA00D12963 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1C06CFF9FED468B10EF277D /* Pods.debug.xcconfig */;
+			baseConfigurationReference = CFBDB1EDBBAE2227EACF27CF /* Pods-KSYTTStreamer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -594,7 +602,7 @@
 		};
 		E38399501D7479EA00D12963 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B2C1BE33025D85371D1C6AA /* Pods.release.xcconfig */;
+			baseConfigurationReference = 853583A44842738DD58CB061 /* Pods-KSYTTStreamer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
