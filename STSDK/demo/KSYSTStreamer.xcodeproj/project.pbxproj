@@ -1,0 +1,713 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		58CDD54F266C6896321C9837 /* Pods_KSYSTStreamer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3B522890608E0967253AB3 /* Pods_KSYSTStreamer.framework */; };
+		E369AE931DE2D12300D5078D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E369AE921DE2D12300D5078D /* main.m */; };
+		E369AE961DE2D12300D5078D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E369AE951DE2D12300D5078D /* AppDelegate.m */; };
+		E369AE991DE2D12300D5078D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E369AE981DE2D12300D5078D /* ViewController.m */; };
+		E369AE9C1DE2D12300D5078D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E369AE9A1DE2D12300D5078D /* Main.storyboard */; };
+		E369AE9E1DE2D12300D5078D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E369AE9D1DE2D12300D5078D /* Assets.xcassets */; };
+		E369AEA11DE2D12300D5078D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E369AE9F1DE2D12300D5078D /* LaunchScreen.storyboard */; };
+		E369AEAC1DE2D12300D5078D /* KSYSTStreamerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E369AEAB1DE2D12300D5078D /* KSYSTStreamerTests.m */; };
+		E369AEB71DE2D12300D5078D /* KSYSTStreamerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E369AEB61DE2D12300D5078D /* KSYSTStreamerUITests.m */; };
+		E369AECD1DE2DAD800D5078D /* face_action_2.0.0.model in Resources */ = {isa = PBXBuildFile; fileRef = E369AEC51DE2DAD800D5078D /* face_action_2.0.0.model */; };
+		E369AECE1DE2DAD800D5078D /* face_track.model in Resources */ = {isa = PBXBuildFile; fileRef = E369AEC61DE2DAD800D5078D /* face_track.model */; };
+		E369AECF1DE2DAD900D5078D /* libst_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E369AEC71DE2DAD800D5078D /* libst_mobile.a */; };
+		E369AED01DE2DAD900D5078D /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = E369AEC81DE2DAD800D5078D /* SENSEME.lic */; };
+		E369AED11DE2DAD900D5078D /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = E369AECC1DE2DAD800D5078D /* VERSION */; };
+		E369AED41DE2DB2600D5078D /* rabbit.zip in Resources */ = {isa = PBXBuildFile; fileRef = E369AED21DE2DB2600D5078D /* rabbit.zip */; };
+		E369AED51DE2DB2600D5078D /* starwberry.zip in Resources */ = {isa = PBXBuildFile; fileRef = E369AED31DE2DB2600D5078D /* starwberry.zip */; };
+		E369AED71DE2DB5F00D5078D /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E369AED61DE2DB5F00D5078D /* ZipArchive.framework */; };
+		E369AEDB1DE2DEF200D5078D /* STStickerLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E369AEDA1DE2DEF200D5078D /* STStickerLoader.m */; };
+		E39C4D521DE408E9006FF0A2 /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E369AED61DE2DB5F00D5078D /* ZipArchive.framework */; };
+		E39C4D531DE408E9006FF0A2 /* ZipArchive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E369AED61DE2DB5F00D5078D /* ZipArchive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E39C4D5C1DE467C9006FF0A2 /* KSYSTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E39C4D5B1DE467C9006FF0A2 /* KSYSTFilter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E369AEA81DE2D12300D5078D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E369AE861DE2D12300D5078D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E369AE8D1DE2D12300D5078D;
+			remoteInfo = KSYSTStreamer;
+		};
+		E369AEB31DE2D12300D5078D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E369AE861DE2D12300D5078D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E369AE8D1DE2D12300D5078D;
+			remoteInfo = KSYSTStreamer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E39C4D541DE408EA006FF0A2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E39C4D531DE408E9006FF0A2 /* ZipArchive.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2D3B522890608E0967253AB3 /* Pods_KSYSTStreamer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KSYSTStreamer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87A91D8FDE1918B7DF7C2F5F /* Pods-KSYSTStreamer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYSTStreamer.release.xcconfig"; path = "Pods/Target Support Files/Pods-KSYSTStreamer/Pods-KSYSTStreamer.release.xcconfig"; sourceTree = "<group>"; };
+		D47C215A62623676A23F1250 /* Pods-KSYSTStreamer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYSTStreamer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KSYSTStreamer/Pods-KSYSTStreamer.debug.xcconfig"; sourceTree = "<group>"; };
+		E369AE8E1DE2D12300D5078D /* KSYSTStreamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSYSTStreamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E369AE921DE2D12300D5078D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E369AE941DE2D12300D5078D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E369AE951DE2D12300D5078D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E369AE971DE2D12300D5078D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E369AE981DE2D12300D5078D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E369AE9B1DE2D12300D5078D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E369AE9D1DE2D12300D5078D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E369AEA01DE2D12300D5078D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E369AEA21DE2D12300D5078D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E369AEA71DE2D12300D5078D /* KSYSTStreamerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KSYSTStreamerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E369AEAB1DE2D12300D5078D /* KSYSTStreamerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSYSTStreamerTests.m; sourceTree = "<group>"; };
+		E369AEAD1DE2D12300D5078D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E369AEB21DE2D12300D5078D /* KSYSTStreamerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KSYSTStreamerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E369AEB61DE2D12300D5078D /* KSYSTStreamerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSYSTStreamerUITests.m; sourceTree = "<group>"; };
+		E369AEB81DE2D12300D5078D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E369AEC51DE2DAD800D5078D /* face_action_2.0.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; name = face_action_2.0.0.model; path = ../../framework/libSticker/face_action_2.0.0.model; sourceTree = "<group>"; };
+		E369AEC61DE2DAD800D5078D /* face_track.model */ = {isa = PBXFileReference; lastKnownFileType = file; name = face_track.model; path = ../../framework/libSticker/face_track.model; sourceTree = "<group>"; };
+		E369AEC71DE2DAD800D5078D /* libst_mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libst_mobile.a; path = ../../framework/libSticker/libst_mobile.a; sourceTree = "<group>"; };
+		E369AEC81DE2DAD800D5078D /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SENSEME.lic; path = ../../framework/libSticker/SENSEME.lic; sourceTree = "<group>"; };
+		E369AEC91DE2DAD800D5078D /* st_mobile_beautify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = st_mobile_beautify.h; path = ../../framework/libSticker/st_mobile_beautify.h; sourceTree = "<group>"; };
+		E369AECA1DE2DAD800D5078D /* st_mobile_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = st_mobile_common.h; path = ../../framework/libSticker/st_mobile_common.h; sourceTree = "<group>"; };
+		E369AECB1DE2DAD800D5078D /* st_mobile_sticker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = st_mobile_sticker.h; path = ../../framework/libSticker/st_mobile_sticker.h; sourceTree = "<group>"; };
+		E369AECC1DE2DAD800D5078D /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = VERSION; path = ../../framework/libSticker/VERSION; sourceTree = "<group>"; };
+		E369AED21DE2DB2600D5078D /* rabbit.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = rabbit.zip; path = ../../framework/rabbit.zip; sourceTree = "<group>"; };
+		E369AED31DE2DB2600D5078D /* starwberry.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = starwberry.zip; path = ../../framework/starwberry.zip; sourceTree = "<group>"; };
+		E369AED61DE2DB5F00D5078D /* ZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipArchive.framework; path = ../../framework/ZipArchive.framework; sourceTree = "<group>"; };
+		E369AED91DE2DEF200D5078D /* STStickerLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STStickerLoader.h; path = StickerLoader/STStickerLoader.h; sourceTree = SOURCE_ROOT; };
+		E369AEDA1DE2DEF200D5078D /* STStickerLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STStickerLoader.m; path = StickerLoader/STStickerLoader.m; sourceTree = SOURCE_ROOT; };
+		E39C4D5A1DE467C9006FF0A2 /* KSYSTFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYSTFilter.h; sourceTree = "<group>"; };
+		E39C4D5B1DE467C9006FF0A2 /* KSYSTFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYSTFilter.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E369AE8B1DE2D12300D5078D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E369AED71DE2DB5F00D5078D /* ZipArchive.framework in Frameworks */,
+				E39C4D521DE408E9006FF0A2 /* ZipArchive.framework in Frameworks */,
+				E369AECF1DE2DAD900D5078D /* libst_mobile.a in Frameworks */,
+				58CDD54F266C6896321C9837 /* Pods_KSYSTStreamer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E369AEA41DE2D12300D5078D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E369AEAF1DE2D12300D5078D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3AC2C0E57882A2878A3B98DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D3B522890608E0967253AB3 /* Pods_KSYSTStreamer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0005219F08C1D8F693004E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D47C215A62623676A23F1250 /* Pods-KSYSTStreamer.debug.xcconfig */,
+				87A91D8FDE1918B7DF7C2F5F /* Pods-KSYSTStreamer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E369AE851DE2D12300D5078D = {
+			isa = PBXGroup;
+			children = (
+				E369AE901DE2D12300D5078D /* KSYSTStreamer */,
+				E369AEAA1DE2D12300D5078D /* KSYSTStreamerTests */,
+				E369AEB51DE2D12300D5078D /* KSYSTStreamerUITests */,
+				E369AE8F1DE2D12300D5078D /* Products */,
+				A0005219F08C1D8F693004E0 /* Pods */,
+				3AC2C0E57882A2878A3B98DF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E369AE8F1DE2D12300D5078D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E369AE8E1DE2D12300D5078D /* KSYSTStreamer.app */,
+				E369AEA71DE2D12300D5078D /* KSYSTStreamerTests.xctest */,
+				E369AEB21DE2D12300D5078D /* KSYSTStreamerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E369AE901DE2D12300D5078D /* KSYSTStreamer */ = {
+			isa = PBXGroup;
+			children = (
+				E369AED81DE2DBC400D5078D /* StickerLoader */,
+				E369AEC41DE2DAAD00D5078D /* libSticker */,
+				E369AE941DE2D12300D5078D /* AppDelegate.h */,
+				E369AE951DE2D12300D5078D /* AppDelegate.m */,
+				E369AE971DE2D12300D5078D /* ViewController.h */,
+				E369AE981DE2D12300D5078D /* ViewController.m */,
+				E39C4D5A1DE467C9006FF0A2 /* KSYSTFilter.h */,
+				E39C4D5B1DE467C9006FF0A2 /* KSYSTFilter.m */,
+				E369AE9A1DE2D12300D5078D /* Main.storyboard */,
+				E369AE9D1DE2D12300D5078D /* Assets.xcassets */,
+				E369AE9F1DE2D12300D5078D /* LaunchScreen.storyboard */,
+				E369AEA21DE2D12300D5078D /* Info.plist */,
+				E369AE911DE2D12300D5078D /* Supporting Files */,
+			);
+			path = KSYSTStreamer;
+			sourceTree = "<group>";
+		};
+		E369AE911DE2D12300D5078D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E369AE921DE2D12300D5078D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E369AEAA1DE2D12300D5078D /* KSYSTStreamerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E369AEAB1DE2D12300D5078D /* KSYSTStreamerTests.m */,
+				E369AEAD1DE2D12300D5078D /* Info.plist */,
+			);
+			path = KSYSTStreamerTests;
+			sourceTree = "<group>";
+		};
+		E369AEB51DE2D12300D5078D /* KSYSTStreamerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E369AEB61DE2D12300D5078D /* KSYSTStreamerUITests.m */,
+				E369AEB81DE2D12300D5078D /* Info.plist */,
+			);
+			path = KSYSTStreamerUITests;
+			sourceTree = "<group>";
+		};
+		E369AEC41DE2DAAD00D5078D /* libSticker */ = {
+			isa = PBXGroup;
+			children = (
+				E369AED61DE2DB5F00D5078D /* ZipArchive.framework */,
+				E369AED21DE2DB2600D5078D /* rabbit.zip */,
+				E369AED31DE2DB2600D5078D /* starwberry.zip */,
+				E369AEC51DE2DAD800D5078D /* face_action_2.0.0.model */,
+				E369AEC61DE2DAD800D5078D /* face_track.model */,
+				E369AEC71DE2DAD800D5078D /* libst_mobile.a */,
+				E369AEC81DE2DAD800D5078D /* SENSEME.lic */,
+				E369AEC91DE2DAD800D5078D /* st_mobile_beautify.h */,
+				E369AECA1DE2DAD800D5078D /* st_mobile_common.h */,
+				E369AECB1DE2DAD800D5078D /* st_mobile_sticker.h */,
+				E369AECC1DE2DAD800D5078D /* VERSION */,
+			);
+			name = libSticker;
+			sourceTree = "<group>";
+		};
+		E369AED81DE2DBC400D5078D /* StickerLoader */ = {
+			isa = PBXGroup;
+			children = (
+				E369AED91DE2DEF200D5078D /* STStickerLoader.h */,
+				E369AEDA1DE2DEF200D5078D /* STStickerLoader.m */,
+			);
+			name = StickerLoader;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E369AE8D1DE2D12300D5078D /* KSYSTStreamer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E369AEBB1DE2D12300D5078D /* Build configuration list for PBXNativeTarget "KSYSTStreamer" */;
+			buildPhases = (
+				69890EE205F56E44D1886CD4 /* [CP] Check Pods Manifest.lock */,
+				E369AE8A1DE2D12300D5078D /* Sources */,
+				E369AE8B1DE2D12300D5078D /* Frameworks */,
+				E369AE8C1DE2D12300D5078D /* Resources */,
+				EF2878D32BFC0D0E32E301C1 /* [CP] Embed Pods Frameworks */,
+				C7312C47B03455A01F2D4889 /* [CP] Copy Pods Resources */,
+				E39C4D541DE408EA006FF0A2 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KSYSTStreamer;
+			productName = KSYSTStreamer;
+			productReference = E369AE8E1DE2D12300D5078D /* KSYSTStreamer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E369AEA61DE2D12300D5078D /* KSYSTStreamerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E369AEBE1DE2D12300D5078D /* Build configuration list for PBXNativeTarget "KSYSTStreamerTests" */;
+			buildPhases = (
+				E369AEA31DE2D12300D5078D /* Sources */,
+				E369AEA41DE2D12300D5078D /* Frameworks */,
+				E369AEA51DE2D12300D5078D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E369AEA91DE2D12300D5078D /* PBXTargetDependency */,
+			);
+			name = KSYSTStreamerTests;
+			productName = KSYSTStreamerTests;
+			productReference = E369AEA71DE2D12300D5078D /* KSYSTStreamerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E369AEB11DE2D12300D5078D /* KSYSTStreamerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E369AEC11DE2D12300D5078D /* Build configuration list for PBXNativeTarget "KSYSTStreamerUITests" */;
+			buildPhases = (
+				E369AEAE1DE2D12300D5078D /* Sources */,
+				E369AEAF1DE2D12300D5078D /* Frameworks */,
+				E369AEB01DE2D12300D5078D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E369AEB41DE2D12300D5078D /* PBXTargetDependency */,
+			);
+			name = KSYSTStreamerUITests;
+			productName = KSYSTStreamerUITests;
+			productReference = E369AEB21DE2D12300D5078D /* KSYSTStreamerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E369AE861DE2D12300D5078D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "孙健";
+				TargetAttributes = {
+					E369AE8D1DE2D12300D5078D = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ZGJ54Q7R45;
+						ProvisioningStyle = Automatic;
+					};
+					E369AEA61DE2D12300D5078D = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ZGJ54Q7R45;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E369AE8D1DE2D12300D5078D;
+					};
+					E369AEB11DE2D12300D5078D = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ZGJ54Q7R45;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E369AE8D1DE2D12300D5078D;
+					};
+				};
+			};
+			buildConfigurationList = E369AE891DE2D12300D5078D /* Build configuration list for PBXProject "KSYSTStreamer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E369AE851DE2D12300D5078D;
+			productRefGroup = E369AE8F1DE2D12300D5078D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E369AE8D1DE2D12300D5078D /* KSYSTStreamer */,
+				E369AEA61DE2D12300D5078D /* KSYSTStreamerTests */,
+				E369AEB11DE2D12300D5078D /* KSYSTStreamerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E369AE8C1DE2D12300D5078D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E369AEA11DE2D12300D5078D /* LaunchScreen.storyboard in Resources */,
+				E369AED11DE2DAD900D5078D /* VERSION in Resources */,
+				E369AED01DE2DAD900D5078D /* SENSEME.lic in Resources */,
+				E369AED51DE2DB2600D5078D /* starwberry.zip in Resources */,
+				E369AECE1DE2DAD800D5078D /* face_track.model in Resources */,
+				E369AE9E1DE2D12300D5078D /* Assets.xcassets in Resources */,
+				E369AE9C1DE2D12300D5078D /* Main.storyboard in Resources */,
+				E369AECD1DE2DAD800D5078D /* face_action_2.0.0.model in Resources */,
+				E369AED41DE2DB2600D5078D /* rabbit.zip in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E369AEA51DE2D12300D5078D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E369AEB01DE2D12300D5078D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		69890EE205F56E44D1886CD4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C7312C47B03455A01F2D4889 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSYSTStreamer/Pods-KSYSTStreamer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF2878D32BFC0D0E32E301C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSYSTStreamer/Pods-KSYSTStreamer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E369AE8A1DE2D12300D5078D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E369AE991DE2D12300D5078D /* ViewController.m in Sources */,
+				E369AE961DE2D12300D5078D /* AppDelegate.m in Sources */,
+				E39C4D5C1DE467C9006FF0A2 /* KSYSTFilter.m in Sources */,
+				E369AE931DE2D12300D5078D /* main.m in Sources */,
+				E369AEDB1DE2DEF200D5078D /* STStickerLoader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E369AEA31DE2D12300D5078D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E369AEAC1DE2D12300D5078D /* KSYSTStreamerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E369AEAE1DE2D12300D5078D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E369AEB71DE2D12300D5078D /* KSYSTStreamerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E369AEA91DE2D12300D5078D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E369AE8D1DE2D12300D5078D /* KSYSTStreamer */;
+			targetProxy = E369AEA81DE2D12300D5078D /* PBXContainerItemProxy */;
+		};
+		E369AEB41DE2D12300D5078D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E369AE8D1DE2D12300D5078D /* KSYSTStreamer */;
+			targetProxy = E369AEB31DE2D12300D5078D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E369AE9A1DE2D12300D5078D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E369AE9B1DE2D12300D5078D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E369AE9F1DE2D12300D5078D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E369AEA01DE2D12300D5078D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E369AEB91DE2D12300D5078D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = ../framework;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = ../framework/libSticker;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E369AEBA1DE2D12300D5078D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = ../framework;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = ../framework/libSticker;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E369AEBC1DE2D12300D5078D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D47C215A62623676A23F1250 /* Pods-KSYSTStreamer.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZGJ54Q7R45;
+				INFOPLIST_FILE = KSYSTStreamer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ksyun.ios.KSYLiveDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E369AEBD1DE2D12300D5078D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87A91D8FDE1918B7DF7C2F5F /* Pods-KSYSTStreamer.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZGJ54Q7R45;
+				INFOPLIST_FILE = KSYSTStreamer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ksyun.ios.KSYLiveDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E369AEBF1DE2D12300D5078D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ZGJ54Q7R45;
+				INFOPLIST_FILE = KSYSTStreamerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kingsoft.KSYSTStreamerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KSYSTStreamer.app/KSYSTStreamer";
+			};
+			name = Debug;
+		};
+		E369AEC01DE2D12300D5078D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ZGJ54Q7R45;
+				INFOPLIST_FILE = KSYSTStreamerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kingsoft.KSYSTStreamerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KSYSTStreamer.app/KSYSTStreamer";
+			};
+			name = Release;
+		};
+		E369AEC21DE2D12300D5078D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ZGJ54Q7R45;
+				INFOPLIST_FILE = KSYSTStreamerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kingsoft.KSYSTStreamerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KSYSTStreamer;
+			};
+			name = Debug;
+		};
+		E369AEC31DE2D12300D5078D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ZGJ54Q7R45;
+				INFOPLIST_FILE = KSYSTStreamerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kingsoft.KSYSTStreamerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KSYSTStreamer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E369AE891DE2D12300D5078D /* Build configuration list for PBXProject "KSYSTStreamer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E369AEB91DE2D12300D5078D /* Debug */,
+				E369AEBA1DE2D12300D5078D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E369AEBB1DE2D12300D5078D /* Build configuration list for PBXNativeTarget "KSYSTStreamer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E369AEBC1DE2D12300D5078D /* Debug */,
+				E369AEBD1DE2D12300D5078D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E369AEBE1DE2D12300D5078D /* Build configuration list for PBXNativeTarget "KSYSTStreamerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E369AEBF1DE2D12300D5078D /* Debug */,
+				E369AEC01DE2D12300D5078D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E369AEC11DE2D12300D5078D /* Build configuration list for PBXNativeTarget "KSYSTStreamerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E369AEC21DE2D12300D5078D /* Debug */,
+				E369AEC31DE2D12300D5078D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E369AE861DE2D12300D5078D /* Project object */;
+}
