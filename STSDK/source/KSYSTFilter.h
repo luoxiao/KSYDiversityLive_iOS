@@ -29,5 +29,6 @@
 - (void)processSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 - (void)processPixelBuffer:(CVPixelBufferRef)pixelBuffer
                       time:(CMTime)timeInfo;
+- (void)stChangeSicker;
 
 @end

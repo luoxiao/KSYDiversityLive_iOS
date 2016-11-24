@@ -25,9 +25,9 @@
 		E369AED51DE2DB2600D5078D /* starwberry.zip in Resources */ = {isa = PBXBuildFile; fileRef = E369AED31DE2DB2600D5078D /* starwberry.zip */; };
 		E369AED71DE2DB5F00D5078D /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E369AED61DE2DB5F00D5078D /* ZipArchive.framework */; };
 		E369AEDB1DE2DEF200D5078D /* STStickerLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E369AEDA1DE2DEF200D5078D /* STStickerLoader.m */; };
+		E389ABFB1DE6AC2C00E97561 /* KSYSTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E389ABFA1DE6AC2C00E97561 /* KSYSTFilter.m */; };
 		E39C4D521DE408E9006FF0A2 /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E369AED61DE2DB5F00D5078D /* ZipArchive.framework */; };
 		E39C4D531DE408E9006FF0A2 /* ZipArchive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E369AED61DE2DB5F00D5078D /* ZipArchive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E39C4D5C1DE467C9006FF0A2 /* KSYSTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E39C4D5B1DE467C9006FF0A2 /* KSYSTFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,8 +94,8 @@
 		E369AED61DE2DB5F00D5078D /* ZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipArchive.framework; path = ../../framework/ZipArchive.framework; sourceTree = "<group>"; };
 		E369AED91DE2DEF200D5078D /* STStickerLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STStickerLoader.h; path = StickerLoader/STStickerLoader.h; sourceTree = SOURCE_ROOT; };
 		E369AEDA1DE2DEF200D5078D /* STStickerLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STStickerLoader.m; path = StickerLoader/STStickerLoader.m; sourceTree = SOURCE_ROOT; };
-		E39C4D5A1DE467C9006FF0A2 /* KSYSTFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYSTFilter.h; sourceTree = "<group>"; };
-		E39C4D5B1DE467C9006FF0A2 /* KSYSTFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYSTFilter.m; sourceTree = "<group>"; };
+		E389ABF91DE6AC2C00E97561 /* KSYSTFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYSTFilter.h; path = ../../source/KSYSTFilter.h; sourceTree = "<group>"; };
+		E389ABFA1DE6AC2C00E97561 /* KSYSTFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYSTFilter.m; path = ../../source/KSYSTFilter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,8 +175,8 @@
 				E369AE951DE2D12300D5078D /* AppDelegate.m */,
 				E369AE971DE2D12300D5078D /* KSYSTController.h */,
 				E369AE981DE2D12300D5078D /* KSYSTController.m */,
-				E39C4D5A1DE467C9006FF0A2 /* KSYSTFilter.h */,
-				E39C4D5B1DE467C9006FF0A2 /* KSYSTFilter.m */,
+				E389ABF91DE6AC2C00E97561 /* KSYSTFilter.h */,
+				E389ABFA1DE6AC2C00E97561 /* KSYSTFilter.m */,
 				E369AE9A1DE2D12300D5078D /* Main.storyboard */,
 				E369AE9D1DE2D12300D5078D /* Assets.xcassets */,
 				E369AE9F1DE2D12300D5078D /* LaunchScreen.storyboard */,
@@ -435,7 +435,7 @@
 			files = (
 				E369AE991DE2D12300D5078D /* KSYSTController.m in Sources */,
 				E369AE961DE2D12300D5078D /* AppDelegate.m in Sources */,
-				E39C4D5C1DE467C9006FF0A2 /* KSYSTFilter.m in Sources */,
+				E389ABFB1DE6AC2C00E97561 /* KSYSTFilter.m in Sources */,
 				E369AE931DE2D12300D5078D /* main.m in Sources */,
 				E369AEDB1DE2DEF200D5078D /* STStickerLoader.m in Sources */,
 			);

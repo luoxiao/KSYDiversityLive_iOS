@@ -272,5 +272,11 @@ void ksyitem_callback(const char* material_name, st_material_status status) {
             break;
     }
 }
-
+- (void)stChangeSicker{
+    NSInteger cnt = [[STStickerLoader getStickersPaths] count];
+    if (cnt > 0) {
+        _currentIndex = (_currentIndex + 1) % cnt;
+        st_mobile_sticker_change_package(_hSticker, [(NSString *)[STStickerLoader getStickersPaths][_currentIndex] UTF8String]);
+    }
+}
 @end

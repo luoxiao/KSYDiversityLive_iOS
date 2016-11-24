@@ -17,6 +17,7 @@
 #import <libksygpulive/KSYGPUStreamerKit.h>
 #import "KSYSTFilter.h"
 #import <GPUImage/GPUImage.h>
+#import <libksygpulive/KSYGPUBeautifyPlusFilter.h>
 
 #define CHECK_LICENSE_WITH_PATH 1
 
@@ -26,8 +27,12 @@
     KSYSTFilter          *_stFilter;
     GPUImageView         *_preview;
     NSURL                *_hostURL;
+    KSYGPUCamera         *_vCapDev;
+    KSYAUAudioCapture    *_aCapDev;
     KSYGPUPicOutput      *_ksyRGBOutput;
     KSYGPUPicOutput      *_ksyGpuToStr;
+    KSYStreamerBase      *_streameBase;
+    KSYGPUBeautifyPlusFilter *_buautiFilter;
 }
 @end
     
@@ -47,10 +52,15 @@
     [self setAudioChain];
 }
 - (void)setCapture{
-    _kit.capPreset = AVCaptureSessionPreset1280x720;
-    _kit.previewDimension = CGSizeMake(1280, 720);
-    _kit.vCapDev.frameRate = 15;
-    _kit.cameraPosition = AVCaptureDevicePositionFront;
+    _vCapDev = [[KSYGPUCamera alloc] initWithSessionPreset:AVCaptureSessionPreset1280x720 cameraPosition:AVCaptureDevicePositionFront];
+    _vCapDev.frameRate = 30;
+    //TODO:
+//    _kit.capPreset = AVCaptureSessionPreset640x480;
+//    _kit.previewDimension = CGSizeMake(640, 360);
+//    _kit.streamDimension  = CGSizeMake(640, 360);
+//    _kit.vCapDev.frameRate = 15;
+//    _kit.cameraPosition = AVCaptureDevicePositionFront;
+    _aCapDev = [[KSYAUAudioCapture alloc] init];
 }
 //KSYSTDelegate
 - (void)videoOutputWithTexture:(unsigned int)textOutput
@@ -67,15 +77,7 @@
 
 - (void)setStream{
     // stream default settings
-    _kit.streamerBase.videoCodec = KSYVideoCodec_AUTO;
-    _kit.streamerBase.videoInitBitrate =  800;
-    _kit.streamerBase.videoMaxBitrate  = 1000;
-    _kit.streamerBase.videoMinBitrate  =    0;
-    _kit.streamerBase.audiokBPS        =   48;
-    _kit.streamerBase.shouldEnableKSYStatModule = YES;
-    _kit.streamerBase.videoFPS = 30;
-    _kit.streamerBase.logBlock = ^(NSString* str){
-    };
+    _streameBase = [[KSYStreamerBase alloc] initWithDefaultCfg];
     //set stream url from uuid
     NSString *rtmpStr = @"rtmp://test.uplive.ks-cdn.com/live";
     NSString *devCode = [[[[[UIDevice currentDevice] identifierForVendor] UUIDString] lowercaseString] substringToIndex:3];
@@ -83,26 +85,29 @@
     NSLog(@"hostURL is %@", _hostURL);
 }
 - (void)setVideoChain{
+    //preview
+    _preview      = [[GPUImageView alloc] init];
+    _preview.frame = self.view.frame;
+    [self.view insertSubview:_preview atIndex:0];
+    //texture ---> buffer
     _ksyRGBOutput = [[KSYGPUPicOutput alloc] initWithOutFmt:kCVPixelFormatType_32BGRA];
     _ksyGpuToStr  = [[KSYGPUPicOutput alloc] initWithOutFmt:kCVPixelFormatType_32BGRA];
     
-    [_kit.vCapDev addTarget:_ksyRGBOutput];
+    //beautify filter
+    _buautiFilter = [[KSYGPUBeautifyPlusFilter alloc] init];
+    [_vCapDev addTarget:_buautiFilter];
+    [_buautiFilter addTarget:_ksyRGBOutput];
+    
+    //sticker filter
     _stFilter = [[KSYSTFilter alloc] initWithEAContext:[GPUImageContext sharedImageProcessingContext].context];
     _stFilter.delegate = self;
+    
+    //call back
     __weak typeof(self) weakSelf = self;
     _ksyRGBOutput.videoProcessingCallback = ^(CVPixelBufferRef pixelbuffer, CMTime timeInfo){
         __strong typeof(self) strongSelf = weakSelf;
         [strongSelf->_stFilter processPixelBuffer:pixelbuffer time:timeInfo];
     };
-    
-    
-    _inputTexture = [[GPUImageTextureInput alloc] init];
-    _preview      = [[GPUImageView alloc] init];
-    _preview.frame = self.view.frame;
-    [self.view insertSubview:_preview atIndex:0];
-    [_inputTexture addTarget:_preview];
-    [_inputTexture addTarget:_ksyGpuToStr];
-    
     
     _ksyGpuToStr.videoProcessingCallback = ^(CVPixelBufferRef pixelbuffer, CMTime timeInfo){
         __strong typeof(self) strongSelf = weakSelf;
@@ -112,22 +117,22 @@
 }
 - (void)setAudioChain{
     __weak typeof(self) weakSelf = self;
-    _kit.aCapDev.audioProcessingCallback = ^(CMSampleBufferRef sampleBuffer){
+    _aCapDev.audioProcessingCallback = ^(CMSampleBufferRef sampleBuffer){
         __strong typeof(self) strongSelf = weakSelf;
         [strongSelf->_kit.streamerBase processAudioSampleBuffer:sampleBuffer];
-        NSLog(@"streame state is %lu", (unsigned long)strongSelf->_kit.streamerBase.streamState);
+        NSLog(@"streame state is %lu \n encodeVKbps is %f \n encodeAKbps is %f", (unsigned long)strongSelf->_kit.streamerBase.streamState, strongSelf->_kit.streamerBase.encodeVKbps,strongSelf->_kit.streamerBase.encodeAKbps);
     };
 }
 //遇到的问题：开启预览后很卡
 - (IBAction)onCapture:(id)sender {
-    if (!_kit.vCapDev.isRunning) {
+    if (!_vCapDev.isRunning) {
         _kit.videoOrientation = [[UIApplication sharedApplication] statusBarOrientation];
-        [_kit.vCapDev startCameraCapture];
-        [_kit.aCapDev startCapture];
+        [_vCapDev startCameraCapture];
+        [_aCapDev startCapture];
     }
     else{
-        [_kit.vCapDev stopCameraCapture];
-        [_kit.aCapDev stopCapture];
+        [_vCapDev stopCameraCapture];
+        [_aCapDev stopCapture];
     }
 }
 
@@ -138,6 +143,9 @@
     else{
         [_kit.streamerBase stopStream];
     }
+}
+- (IBAction)sticker:(id)sender {
+    [_stFilter stChangeSicker];
 }
 - (void)addObserver{
     

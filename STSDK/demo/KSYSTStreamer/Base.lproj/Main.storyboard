@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7r1-6q-mXJ">
-                                <rect key="frame" x="77" y="20" width="31" height="30"/>
+                                <rect key="frame" x="90" y="28" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="采集"/>
                                 <connections>
@@ -29,11 +29,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0c-aE-Khc">
-                                <rect key="frame" x="242" y="28" width="31" height="30"/>
+                                <rect key="frame" x="234" y="28" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="推流"/>
                                 <connections>
                                     <action selector="onStream:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v5K-Gf-eLm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyu-p8-KKk">
+                                <rect key="frame" x="145" y="28" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="切换贴纸"/>
+                                <connections>
+                                    <action selector="sticker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="teN-cg-wLF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -42,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-271" y="125"/>
+            <point key="canvasLocation" x="-473" y="-63"/>
         </scene>
     </scenes>
 </document>
