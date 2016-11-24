@@ -79,10 +79,11 @@
     // stream default settings
     _streameBase = [[KSYStreamerBase alloc] initWithDefaultCfg];
     //set stream url from uuid
-    NSString *rtmpStr = @"rtmp://test.uplive.ks-cdn.com/live";
-    NSString *devCode = [[[[[UIDevice currentDevice] identifierForVendor] UUIDString] lowercaseString] substringToIndex:3];
-    _hostURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", rtmpStr, devCode]];
-    NSLog(@"hostURL is %@", _hostURL);
+    NSString *rtmpStr = @"rtmp://test.uplive.ks-cdn.com/live/ksyun";
+//    NSString *devCode = [[[[[UIDevice currentDevice] identifierForVendor] UUIDString] lowercaseString] substringToIndex:3];
+//    _hostURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", rtmpStr, devCode]];
+    _hostURL = [NSURL URLWithString:rtmpStr];
+//    NSLog(@"hostURL is %@", _hostURL);
 }
 - (void)setVideoChain{
     //preview
