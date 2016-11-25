@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KSYSTStreamerKit.h"
+
 
 @interface KSYSTController : UIViewController
 
+@property (nonatomic, strong) KSYSTStreamerKit *kit;
 
 @end
 

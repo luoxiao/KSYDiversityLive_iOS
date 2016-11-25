@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,7 +42,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="切换贴纸"/>
                                 <connections>
-                                    <action selector="sticker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="teN-cg-wLF"/>
+                                    <action selector="sticker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D7L-07-Gbj"/>
                                 </connections>
                             </button>
                         </subviews>
