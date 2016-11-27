@@ -26,7 +26,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //NSArray *array = [NSArray arrayWithObjects:@"open",@"kitty.bundle", @"fox.bundle", @"evil.bundle", @"eyeballs.bundle", @"mood.bundle", @"tears.bundle", @"rabbit.bundle", @"cat.bundle", @"close", nil];
-    NSArray *array = [NSArray arrayWithObjects:@"open",@"kitty", @"fox", @"evil", @"eyeballs", @"mood", @"tears", @"rabbit", @"cat", @"close", nil];
+    NSArray *array = @[
+                      @"kitty",
+                      @"fox",
+                      @"evil",
+                      @"eyeballs",
+                      @"mood",
+                      @"tears",
+                      @"rabbit",
+                      @"cat",
+                      @"tiara",
+                      @"item0208",
+                      @"YellowEar",
+                      @"PrincessCrown",
+                      @"Mood",
+                      @"Deer",
+                      @"BeagleDog",
+                      @"item0501",
+                      @"ColorCrown",
+                      @"item0210",
+                      @"HappyRabbi",
+                      @"item0204",
+                      @"hartshorn"];
     _resourceArray = [NSMutableArray arrayWithArray:array];
 //    NSString *str = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]stringByAppendingPathComponent:@"v2.bundle"];
 //    if (![[NSFileManager defaultManager] fileExistsAtPath:str]) {
@@ -50,7 +71,7 @@
     if (_kit) { // init with default filter
         _kit.videoOrientation = [[UIApplication sharedApplication] statusBarOrientation];
         [_kit startPreview:self.view];
-        
+        [_kit openSticker];
     }
     [self iniWithUI];
 }
@@ -198,6 +219,7 @@
     if (!_kit.vCapDev.isRunning){
         _kit.videoOrientation = [[UIApplication sharedApplication] statusBarOrientation];
         [_kit startPreview:self.view];
+        [_kit openSticker];
     }
     else {
         [_kit stopPreview];
@@ -275,51 +297,11 @@
     UICollectionViewCell *cell = [collectionView  cellForItemAtIndexPath:indexPath];
     cell.backgroundColor = [UIColor blueColor];
     
-    
-    switch (indexPath.row) {
-        case 0:
-            _ctrlView.lblNetwork.text = @"open";
-            [_kit openSticker];
-            break;
-        case 1:
-            _ctrlView.lblNetwork.text = @"kitty";
-            [_kit selectSticker:1];
-            break;
-        case 2:
-            _ctrlView.lblNetwork.text = @"fox";
-            [_kit selectSticker:2];
-            break;
-        case 3:
-            _ctrlView.lblNetwork.text = @"evil";
-            [_kit selectSticker:3];
-            break;
-        case 4:
-            _ctrlView.lblNetwork.text = @"eyeballs 请张开嘴";
-            [_kit selectSticker:4];
-            break;
-        case 5:
-            _ctrlView.lblNetwork.text = @"mood";
-            [_kit selectSticker:5];
-            break;
-        case 6:
-            _ctrlView.lblNetwork.text = @"tears 请张开嘴";
-            [_kit selectSticker:6];
-            break;
-        case 7:
-            _ctrlView.lblNetwork.text = @"rabbit";
-            [_kit selectSticker:7];
-            break;
-        case 8:
-            _ctrlView.lblNetwork.text = @"cat";
-            [_kit selectSticker:8];
-            break;
-        case 9:
-            _ctrlView.lblNetwork.text = @"close";
-            [_kit closeSticker];
-            break;
-        default:
-            break;
-    }
+    [self changeStickerName:indexPath.row];
+    [_kit selectSticker:indexPath.row];
+}
+- (void)changeStickerName:(NSInteger)idx{
+    _ctrlView.lblNetwork.text = _resourceArray[idx];
 }
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView  cellForItemAtIndexPath:indexPath];
@@ -331,7 +313,7 @@
 }
 //返回每个分区的item个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    return 21;
 }
 //获取cell
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{

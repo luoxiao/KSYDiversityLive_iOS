@@ -151,7 +151,28 @@ static int g_selected_item = 0;
 static volatile int g_reset_camera = 0;
 static NSString * path = nil;
 //  Predefined items and maintenance
-static NSString* g_item_names[] = {@"kitty.bundle", @"fox.bundle", @"evil.bundle", @"eyeballs.bundle", @"mood.bundle", @"tears.bundle", @"rabbit.bundle", @"cat.bundle"};
+static NSString* g_item_names[] = {
+    @"kitty.bundle",
+    @"fox.bundle",
+    @"evil.bundle",
+    @"eyeballs.bundle",
+    @"mood.bundle",
+    @"tears.bundle",
+    @"rabbit.bundle",
+    @"cat.bundle",
+    @"tiara.bundle",
+    @"item0208.bundle",
+    @"YellowEar.bundle",
+    @"PrincessCrown.bundle",
+    @"Mood.bundle" ,
+    @"Deer.bundle" ,
+    @"BeagleDog.bundle",
+    @"item0501.bundle",
+    @"ColorCrown.bundle",
+    @"item0210.bundle",
+    @"HappyRabbi.bundle",
+    @"item0204.bundle",
+    @"hartshorn.bundle"};
 static const int g_item_num = sizeof(g_item_names) / sizeof(NSString*);
 static void* g_mmap_pointers[g_item_num] = {NULL};
 static intptr_t g_mmap_sizes[g_item_num] = {0};
@@ -228,7 +249,7 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
         //            return pixelBuffer;
         //        }
         void* ardata = mmap_bundle(@"ar.bundle", &size);
-        fuInit(v2data, ardata);
+        fuSetup(v2data, ardata, NULL, 0);
         g_faceplugin_inited = 1;
     }
     //  Load item if needed
@@ -256,7 +277,7 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
     n_items = 1;
 }
 - (void)selectSticker:(NSInteger)index{
-    g_selected_item = index - 1;
+    g_selected_item = index;
     g_need_reload_item = 1;
     dispatch_async(dispatch_get_main_queue(), ^{
         //self.itemHintText.text = g_item_hints[g_selected_item];
@@ -264,6 +285,7 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
 }
 - (void)closeSticker{
     n_items = 0;
+    fuDestroyAllItems();
 }
 
 -(void) ARGBTONV12:(CVPixelBufferRef)src time:(CMTime)timeStamp
