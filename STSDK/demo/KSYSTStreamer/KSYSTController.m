@@ -181,9 +181,9 @@
     _ksyGpuToStr  = [[KSYGPUPicOutput alloc] initWithOutFmt:kCVPixelFormatType_32BGRA];
     
     //beautify filter
-    _buautiFilter = [[KSYGPUBeautifyPlusFilter alloc] init];
-    [_vCapDev addTarget:_buautiFilter];
-    [_buautiFilter addTarget:_ksyRGBOutput];
+//    _buautiFilter = [[KSYGPUBeautifyPlusFilter alloc] init];
+//    [_vCapDev addTarget:_buautiFilter];
+    [_vCapDev addTarget:_ksyRGBOutput];
     
     //sticker filter
     _stFilter = [[KSYSTFilter alloc] initWithEAContext:[GPUImageContext sharedImageProcessingContext].context];

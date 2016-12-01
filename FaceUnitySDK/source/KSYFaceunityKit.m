@@ -120,7 +120,7 @@
     CGRect cropR = CGRectMake(0, 0, 1, 1);
     _cropfilter = [[GPUImageCropFilter alloc] initWithCropRegion:cropR];
     // 核心部件:图像处理滤镜
-    _filter     = [[KSYGPUBeautifyFilter alloc] init];
+    _filter     = [[KSYGPUBeautifyPlusFilter alloc] init];
     //_filter = [[KSYFUFilter alloc] init];
     // 核心部件:视频叠加混合
     _vMixer = [[KSYGPUPicMixer alloc] init];

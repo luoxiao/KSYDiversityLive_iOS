@@ -30,5 +30,6 @@
 - (void)processPixelBuffer:(CVPixelBufferRef)pixelBuffer
                       time:(CMTime)timeInfo;
 - (void)stChangeSicker;
+- (void)setBeautifyLevel:(int)level;
 
 @end
