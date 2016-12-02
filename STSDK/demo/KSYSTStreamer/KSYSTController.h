@@ -12,7 +12,6 @@
 
 @interface KSYSTController : UIViewController
 
-@property (nonatomic, strong) KSYSTStreamerKit *kit;
 
 @end
 
