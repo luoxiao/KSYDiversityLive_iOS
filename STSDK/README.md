@@ -21,3 +21,29 @@
 
 ###2.3开始集成
 
+重要功能类介绍：
+
+金山：
+
+
+```
+视频数据回调接口
+@property(nonatomic, copy) void(^videoProcessingCallback)(CVPixelBufferRef pixelBuffer, CMTime timeInfo );
+```
+
+```
+音频数据回调接口
+@property(nonatomic, copy) void(^audioProcessingCallback)(CMSampleBufferRef sampleBuffer);
+```
+
+Sensetime:
+
+
+```
+
+添加了美颜、贴纸效果的图像数据回调
+- (void)videoOutputWithTexture:(unsigned int)textOutput
+                          size:(CGSize)size
+                          time:(CMTime)timeInfo;
+```
+
