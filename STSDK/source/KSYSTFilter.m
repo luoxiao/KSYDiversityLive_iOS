@@ -15,14 +15,18 @@
 @interface KSYSTFilter(){
     BOOL isChanging;
     BOOL processing;
+    st_handle_t     _hBeautify;
     st_handle_t     _hSticker;
     st_handle_t     _hDetect;
+    int             _iBeautifyLevel;
     NSInteger       _currentIndex;
     GLuint          _textureInputRGBAID;
+    GLuint          _textureMiddleRGBAID;
     GLuint          _textureOutputRGBAID;
     EAGLContext     *_glContext;
     CVOpenGLESTextureCacheRef _textureCache;
 }
+@property (nonatomic, strong) dispatch_queue_t bufferQueue;
 @end
 
 @implementation KSYSTFilter
@@ -33,6 +37,8 @@
     _glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2 sharegroup:context.sharegroup];
     [self checkActiveCode];
     [self setupHandle];
+    isChanging = NO;
+    _bufferQueue = dispatch_queue_create("com.ksyun.buffer", DISPATCH_QUEUE_SERIAL);
     return self;
 }
 //sha
@@ -124,6 +130,39 @@
     if (ST_OK != iRet) {
         [self toast:@"贴纸SDK初始化失败，可能是app中没有素材包，SDK权限过期，或者与绑定包名不符"];
     }
+    
+    //初始化美颜
+    iRet = st_mobile_beautify_create(720, 1280, &_hBeautify);
+    if (ST_OK != iRet || !_hBeautify) {
+        [self toast:@"美颜SDK初始化失败，可能是模型路径错误，SDK权限过期，与绑定包名不符"];
+    }
+    _iBeautifyLevel = 7;
+    [self setBeautifyLevel:_iBeautifyLevel];
+}
+- (void)setBeautifyLevel:(int)level{
+    if (level < 1.0) {
+        level = 1.0;
+    }
+    
+    if (level > 7.0) {
+        level = 7.0;
+    }
+    
+    float fLevel = (float)level / 7.0;
+    
+    if (_hBeautify) {
+        
+        st_result_t iRet = ST_OK;
+        
+        iRet = st_mobile_beautify_setparam(_hBeautify, ST_BEAUTIFY_CONTRAST_STRENGTH, fLevel);
+        iRet = st_mobile_beautify_setparam(_hBeautify, ST_BEAUTIFY_SMOOTH_STRENGTH, fLevel);
+        
+        if (ST_OK != iRet) {
+            
+            //            NSLog(@"st_mobile_beautify_setparam error %d" ,iRet);
+            
+        }
+    }
 }
 - (void)toast:(NSString *)message{
     UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"Successful" preferredStyle:UIAlertControllerStyleAlert];
@@ -153,8 +192,17 @@
     iHeight = iHeight + (int)iTop + (int)iBottom;
     
     glGenTextures(1, &_textureOutputRGBAID);
-    
     glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, _textureOutputRGBAID);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, iWidth, iHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
+    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
+    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
+    glBindTexture(GL_TEXTURE_2D, 0);
+    
+    glGenTextures(1, &_textureMiddleRGBAID);
+    glActiveTexture(GL_TEXTURE2);
     glBindTexture(GL_TEXTURE_2D, _textureOutputRGBAID);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, iWidth, iHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
@@ -165,13 +213,11 @@
     
     glActiveTexture(GL_TEXTURE0);
     CVReturn err = CVOpenGLESTextureCacheCreate( kCFAllocatorDefault, NULL, _glContext, NULL, &_textureCache );
-    
     if ( err )
     {
         CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
         NSLog( @"Error at CVOpenGLESTextureCacheCreate %d", err );
     }
-    
     CVOpenGLESTextureRef texture = NULL;
     err = CVOpenGLESTextureCacheCreateTextureFromImage( kCFAllocatorDefault,
                                                        _textureCache,
@@ -185,14 +231,11 @@
                                                        GL_UNSIGNED_BYTE,
                                                        0,
                                                        &texture );
-    
     if ( ! texture || err ) {
         CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
         NSLog( @"CVOpenGLESTextureCacheCreateTextureFromImage failed (error: %d)", err );
     }
-    
     _textureInputRGBAID = CVOpenGLESTextureGetName( texture );
-    
     glBindTexture(GL_TEXTURE_2D, _textureInputRGBAID);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, iWidth , iHeight, 0, GL_BGRA, GL_UNSIGNED_BYTE, NULL);
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
@@ -200,6 +243,7 @@
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glBindTexture(GL_TEXTURE_2D, 0);
+    
     
     UIDeviceOrientation iDeviceOrientation = [[UIDevice currentDevice] orientation];
     st_rotate_type stMobileRotate;
@@ -233,25 +277,34 @@
             stMobileRotate = ST_CLOCKWISE_ROTATE_0;
             break;
     }
+    if (!_hBeautify) {
+        return;
+    }
     st_result_t iRet = ST_OK;
+    
+    iRet = st_mobile_beautify_process_texture(_hBeautify,
+                                              _textureInputRGBAID,
+                                              iWidth,
+                                              iHeight,
+                                              _textureMiddleRGBAID);
 
     st_mobile_human_action_t theResult;
-    
-    iRet = st_mobile_human_action_detect(_hDetect, baseAddress, ST_PIX_FMT_BGRA8888, iWidth, iHeight, iWidth * 4, stMobileRotate, ST_MOBILE_HUMAN_ACTION_DEFAULT_CONFIG, &theResult);
-    
-    if (strcmp((char *)baseAddress, "") == 0) {
-        NSLog(@"theResult: %d", theResult.face_count);
-    }
     
     unsigned int outputID = _textureOutputRGBAID;
     
     if (ST_OK == iRet && _hSticker && !isChanging) {
+        iRet = st_mobile_human_action_detect(_hDetect, baseAddress, ST_PIX_FMT_BGRA8888, iWidth, iHeight, iWidth * 4, stMobileRotate, ST_MOBILE_HUMAN_ACTION_DEFAULT_CONFIG, &theResult);
         
-        iRet = st_mobile_sticker_process_texture(_hSticker , _textureInputRGBAID, iWidth, iHeight, stMobileRotate, false, &theResult, ksyitem_callback, _textureOutputRGBAID);
+        if (strcmp((char *)baseAddress, "") == 0) {
+            NSLog(@"theResult: %d", theResult.face_count);
+        }
+        
+        iRet = st_mobile_sticker_process_texture(_hSticker , _textureMiddleRGBAID, iWidth, iHeight, stMobileRotate, false, &theResult, ksyitem_callback, _textureOutputRGBAID);
         if (_delegate) {
             [_delegate videoOutputWithTexture:outputID size:CGSizeMake(iWidth, iHeight) time:timeInfo];
         }
     }
+    glDeleteTextures(1, &_textureMiddleRGBAID);
     CFRelease(texture);
     CFRelease(_textureCache);
     CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
@@ -274,9 +327,22 @@ void ksyitem_callback(const char* material_name, st_material_status status) {
 }
 - (void)stChangeSicker{
     NSInteger cnt = [[STStickerLoader getStickersPaths] count];
-    if (cnt > 0) {
-        _currentIndex = (_currentIndex + 1) % cnt;
-        st_mobile_sticker_change_package(_hSticker, [(NSString *)[STStickerLoader getStickersPaths][_currentIndex] UTF8String]);
+    if (cnt > 0 && !isChanging) {
+        isChanging = YES;
+        _currentIndex = (_currentIndex + 1) % (cnt + 1);
+        
+        if (self.bufferQueue) {
+            
+            dispatch_sync(self.bufferQueue, ^{
+                if (_currentIndex == cnt) {
+                    st_mobile_sticker_change_package(_hSticker, NULL);
+                } else {
+                    st_mobile_sticker_change_package(_hSticker, [(NSString *)[STStickerLoader getStickersPaths][_currentIndex] UTF8String]);
+                }
+            });
+        }
+        
+        isChanging = NO;
     }
 }
 @end
