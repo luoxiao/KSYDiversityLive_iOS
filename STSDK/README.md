@@ -23,8 +23,6 @@
 
 重要功能类介绍：
 
-金山：
-
 
 ```
 视频数据回调接口
@@ -35,9 +33,6 @@
 音频数据回调接口
 @property(nonatomic, copy) void(^audioProcessingCallback)(CMSampleBufferRef sampleBuffer);
 ```
-
-Sensetime:
-
 
 ```
 
