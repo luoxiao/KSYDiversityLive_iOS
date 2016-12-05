@@ -4,7 +4,7 @@ IOS 连麦功能 （KSYLive_IOS + agora） 金山云开放平台，提供SDK全�
 
 ----------
 ## 效果图 ##
-![rtc](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/agora/xiaoguo.PNG)
+![rtc](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/agora/performance.png)
 ## 如何集成？##
 
  - 客户需要自己指定agora的appid填入：
