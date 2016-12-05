@@ -46,6 +46,7 @@
 ## 3. 资源获取
 SenseME_Sticker 使用了 license 文件授权方式支持 SDK 离线激活，用户在授权 期限内激活 SDK 就可永久使用该版本的功能。如需延长或调整 SDK 授权期限， 通过替换 license 文件即可。
 
+[详细文档介绍](https://ks3-cn-beijing.ksyun.com/ksy.vcloud.sdk/Ios/%E7%89%B9%E6%95%88%E8%B4%B4%E7%BA%B8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3%20v3.2.2.pdf)
 ## 4. 效果展示
 ## 效果展示
 | | |
