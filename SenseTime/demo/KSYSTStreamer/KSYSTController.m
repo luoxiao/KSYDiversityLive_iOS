@@ -27,12 +27,13 @@
 #import "KSYSTFilter.h"
 #import <GPUImage/GPUImage.h>
 #import <libksygpulive/KSYGPUBeautifyPlusFilter.h>
+#import "KSYSTStreamerKit.h"
 
 
 #define CHECK_LICENSE_WITH_PATH 1
 
 @interface KSYSTController ()<KSYSTFilterDelegate>{
-    KSYGPUStreamerKit    *_kit;
+//    KSYGPUStreamerKit    *_kit;
     GPUImageTextureInput *_inputTexture;
     KSYSTFilter          *_stFilter;
     GPUImageView         *_preview;
@@ -43,6 +44,7 @@
     KSYGPUPicOutput      *_ksyGpuToStr;
     KSYStreamerBase      *_streameBase;
     KSYAudioMixer        *_stAudioMix;
+    KSYSTStreamerKit     *_stKit;
 }
 @end
 
@@ -50,20 +52,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //initial ksystreamerKit
-    _kit = [[KSYGPUStreamerKit alloc] initWithDefaultCfg];
+    _stKit = [[KSYSTStreamerKit alloc] initWithDefaultCfg];
     //set capture
     [self setCapture];
     //set streame
     [self setStream];
     //set video path
-    [self setVideoChain];
+//    [self setVideoChain];
     //set video chain
-    [self setAudioChain];
+//    [self setAudioChain];
 }
 - (void)setCapture{
-    _vCapDev = [[KSYGPUCamera alloc] initWithSessionPreset:AVCaptureSessionPreset1280x720 cameraPosition:AVCaptureDevicePositionFront];
-    _vCapDev.frameRate = 30;
-    _aCapDev = [[KSYAUAudioCapture alloc] init];
+    _stKit.capPreset = AVCaptureSessionPreset640x480;
+    _stKit.previewDimension = CGSizeMake(640, 360);
+    _stKit.streamDimension = CGSizeMake(640, 360);
+    _stKit.videoFPS       = 15;
+    _stKit.cameraPosition = AVCaptureDevicePositionFront;
 }
 //KSYSTDelegate
 - (void)videoOutputWithTexture:(unsigned int)textOutput
@@ -80,8 +84,15 @@
 
 - (void)setStream{
     // stream default settings
-    _streameBase = [[KSYStreamerBase alloc] initWithDefaultCfg];
-    _streameBase.videoFPS = 30;
+    _stKit.streamerBase.videoCodec = KSYVideoCodec_AUTO;
+    _stKit.streamerBase.videoInitBitrate =  800;
+    _stKit.streamerBase.videoMaxBitrate  = 1000;
+    _stKit.streamerBase.videoMinBitrate  =    0;
+    _stKit.streamerBase.audiokBPS        =   48;
+    _stKit.streamerBase.shouldEnableKSYStatModule = YES;
+    _stKit.streamerBase.videoFPS = 15;
+    _stKit.streamerBase.logBlock = ^(NSString* str){
+    };
     //set stream url from uuid
     NSString *rtmpStr = @"rtmp://test.uplive.ks-cdn.com/live/ksyun";
     _hostURL = [NSURL URLWithString:rtmpStr];
@@ -113,7 +124,7 @@
     
     _ksyGpuToStr.videoProcessingCallback = ^(CVPixelBufferRef pixelbuffer, CMTime timeInfo){
         __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf->_kit.streamerBase processVideoPixelBuffer:pixelbuffer timeInfo:timeInfo];
+        [strongSelf->_stKit.streamerBase processVideoPixelBuffer:pixelbuffer timeInfo:timeInfo];
         
     };
     
@@ -125,11 +136,11 @@
         __strong typeof(self) strongSelf = weakSelf;
         [strongSelf->_stAudioMix processAudioSampleBuffer:sampleBuffer of:0];
         //        [strongSelf->_kit.streamerBase processAudioSampleBuffer:sampleBuffer];
-        NSLog(@"streame state is %lu \n encodeVKbps is %f \n encodeAKbps is %f", (unsigned long)strongSelf->_kit.streamerBase.streamState, strongSelf->_kit.streamerBase.encodeVKbps,strongSelf->_kit.streamerBase.encodeAKbps);
+        NSLog(@"streame state is %lu \n encodeVKbps is %f \n encodeAKbps is %f", (unsigned long)strongSelf->_stKit.streamerBase.streamState, strongSelf->_stKit.streamerBase.encodeVKbps,strongSelf->_stKit.streamerBase.encodeAKbps);
     };
     _stAudioMix.audioProcessingCallback = ^(CMSampleBufferRef buf){
         __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf->_kit.streamerBase processAudioSampleBuffer:buf];
+        [strongSelf->_stKit.streamerBase processAudioSampleBuffer:buf];
     };
     // mixer 的主通道为麦克风,时间戳以main通道为准
     _stAudioMix.mainTrack = 0;
@@ -137,27 +148,25 @@
 }
 //遇到的问题：开启预览后很卡
 - (IBAction)onCapture:(id)sender {
-    if (!_vCapDev.isRunning) {
-        _kit.videoOrientation = [[UIApplication sharedApplication] statusBarOrientation];
-        [_vCapDev startCameraCapture];
-        [_aCapDev startCapture];
+    if (!_stKit.vCapDev.isRunning) {
+        _stKit.videoOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+        [_stKit startPreview:self.view];
     }
     else{
-        [_vCapDev stopCameraCapture];
-        [_aCapDev stopCapture];
+        [_stKit stopPreview];
     }
 }
 
 - (IBAction)onStream:(id)sender {
-    if (_kit.streamerBase.streamState == KSYStreamStateIdle || _kit.streamerBase.streamState == KSYStreamStateError) {
-        [_kit.streamerBase startStream:_hostURL];
+    if (_stKit.streamerBase.streamState == KSYStreamStateIdle || _stKit.streamerBase.streamState == KSYStreamStateError) {
+        [_stKit.streamerBase startStream:_hostURL];
     }
     else{
-        [_kit.streamerBase stopStream];
+        [_stKit.streamerBase stopStream];
     }
 }
 - (IBAction)sticker:(id)sender {
-    [_stFilter stChangeSicker];
+    [_stKit.ksyStFilter stChangeSicker];
 }
 - (void)addObserver{
     
