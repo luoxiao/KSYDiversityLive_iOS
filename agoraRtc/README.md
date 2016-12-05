@@ -1,10 +1,13 @@
-﻿## 金山云推流＋agora连麦 ##
-IOS 连麦功能 （KSYLive_IOS + agora） 金山云开放平台，提供SDK全链路数据，可以和容易和第三方数据处理服务商合作。以下是金山直播SDK和agora实现的连麦功能。
+## 金山云推流＋agora连麦 ##
+IOS 连麦功能 （KSYLive_IOS + agora） 金山云开放平台，提供SDK全链路数据，可以和容易和第三方数据处理服务商合作。
 
+以下是[金山直播SDK](https://github.com/ksvc/KSYLive_iOS)和[声网Agora.io](http://www.agora.io/cn/)实现的连麦功能。
 
 ----------
-## 效果图 ##
-## 如何集成？##
+### 1.效果图 
+![rtc](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/agora/screenshot.png)
+
+### 2.如何集成？
 
  - 客户需要自己指定agora的appid填入：
 ```
@@ -28,14 +31,14 @@ pod 'libksygpulive/KSYGPUResource', :git =>
 > KSYAgoraClient.h/m
 > KSYAgoraStreamerKit.h/m
 ```
-## 代码结构 ##
+### 3.代码结构 
 
  - KSYAgoraClient类：封装agora sdk
  - KSYAgoraStreamerKit类：音视频渲染层
  - KSYRTCAgoraVC类：demo UI层
 
-## 采集＋推流＋连麦，你需要做的 ##
-### 采集 ###
+### 4.采集集＋推流＋连麦，你需要做的
+#### 4.1采集
 
  - 参数设置：
 ```
@@ -58,7 +61,7 @@ _kit.cameraPosition = [self.presetCfgView cameraPos];／／摄像头位置}
 
  - 开启闪光灯，摄像头切换等参看demo
 
-## 推流 ##
+#### 4.2推流
 
  - 参数设置：
 ```
@@ -78,7 +81,7 @@ _kit.cameraPosition = [self.presetCfgView cameraPos];／／摄像头位置}
      [_streamerBase startStream:self.hostURL];
      [_kit.streamerBase stopStream];
 ```
-## 连麦相关 ##
+#### 4.3连麦相关
 
  - 参数设置
 ```
@@ -99,7 +102,7 @@ _kit.cameraPosition = [self.presetCfgView cameraPos];／／摄像头位置}
 ```
  [_kit leaveChannel];
 ```
-## 深入了解？ ##
+### 5.深入了解？
 
  - 阅读KSYAgoraClient.h/m,KSYAgoraStreamerKit.h/m
  - 参看[金山云推流sdk][1]
