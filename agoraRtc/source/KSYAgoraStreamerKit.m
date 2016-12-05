@@ -29,8 +29,7 @@
  */
 - (instancetype) initWithDefaultCfg {
     self = [super initWithDefaultCfg];
-    _agoraKit = [[KSYAgoraClient alloc] initWithAppId:];    //客户请输入自己的APPID
-
+    _agoraKit = [[KSYAgoraClient alloc] initWithAppId:@"e58027d14ffa40c18deaab1754e2fc37"];
     _beautyOutput = nil;
     _callstarted = NO;
     _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height)];

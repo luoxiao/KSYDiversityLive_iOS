@@ -19,6 +19,10 @@
 		F221258A1D9D17C400796C7A /* KSYUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = F22125851D9D17C400796C7A /* KSYUIView.m */; };
 		F227F56D1D82B87B0008B04D /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F227F56C1D82B87B0008B04D /* libicucore.tbd */; };
 		F227F5781D82B8AB0008B04D /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F227F5771D82B8AB0008B04D /* GLKit.framework */; };
+		F2801B111DF5576A00C35636 /* KSYAgoraClient.h in Sources */ = {isa = PBXBuildFile; fileRef = F2801B0D1DF5576A00C35636 /* KSYAgoraClient.h */; };
+		F2801B121DF5576A00C35636 /* KSYAgoraClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = F2801B0E1DF5576A00C35636 /* KSYAgoraClient.mm */; };
+		F2801B131DF5576A00C35636 /* KSYAgoraStreamerKit.h in Sources */ = {isa = PBXBuildFile; fileRef = F2801B0F1DF5576A00C35636 /* KSYAgoraStreamerKit.h */; };
+		F2801B141DF5576A00C35636 /* KSYAgoraStreamerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F2801B101DF5576A00C35636 /* KSYAgoraStreamerKit.m */; };
 		F292E0E51D193D50007D10C8 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 064700681C5C8C1A00A31FC7 /* libstdc++.6.tbd */; };
 		F292E0E91D193DFF007D10C8 /* libpthread.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F292E0E81D193DFF007D10C8 /* libpthread.tbd */; };
 		F2C05C461D7420AB00AD3CFD /* KSYMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C05C3F1D7420AB00AD3CFD /* KSYMenuView.m */; };
@@ -34,7 +38,6 @@
 		F2CD74311DAA335800A9E708 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CD742C1DAA335800A9E708 /* main.m */; };
 		F2CD74361DAA343F00A9E708 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CD74321DAA343F00A9E708 /* LaunchScreen.storyboard */; };
 		F2CD74371DAA343F00A9E708 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CD74341DAA343F00A9E708 /* Main.storyboard */; };
-		F2CD743E1DAA3E5200A9E708 /* KSYAgoraClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = F2CD743D1DAA3E5200A9E708 /* KSYAgoraClient.mm */; };
 		F2CD74441DAA6AA500A9E708 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CD74431DAA6AA500A9E708 /* CoreMedia.framework */; };
 		F2CD74451DAA6BA700A9E708 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 064700661C5C8C1600A31FC7 /* VideoToolbox.framework */; };
 		F2CD74471DAA6BE500A9E708 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CD74461DAA6BE500A9E708 /* CoreTelephony.framework */; };
@@ -42,7 +45,6 @@
 		F2DADD821DED28B000B010BE /* KSYRTCAgoraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DADD811DED28B000B010BE /* KSYRTCAgoraVC.m */; };
 		F2DADD871DED2ADD00B010BE /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2DADD851DED2ADD00B010BE /* AgoraRtcEngineKit.framework */; };
 		F2DADD881DED2ADD00B010BE /* videoprp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2DADD861DED2ADD00B010BE /* videoprp.framework */; };
-		F2DADD911DED511E00B010BE /* KSYAgoraStreamerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DADD901DED511E00B010BE /* KSYAgoraStreamerKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,20 +53,12 @@
 		064700661C5C8C1600A31FC7 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		064700681C5C8C1A00A31FC7 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
 		0647006A1C5C8C2100A31FC7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		064700B41C5C9E1A00A31FC7 /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPUImage.framework; path = ../../../extra/GPUImage/build/GPUImage.framework; sourceTree = "<group>"; };
 		6BC15CBD206BA772C54F6281 /* Pods-KSYRTCAgoraDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYRTCAgoraDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-KSYRTCAgoraDemo/Pods-KSYRTCAgoraDemo.release.xcconfig"; sourceTree = "<group>"; };
 		D3C31283818A07ECEAE57404 /* Pods-KSYRTCAgoraDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYRTCAgoraDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KSYRTCAgoraDemo/Pods-KSYRTCAgoraDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		E3993F891C96961E00782FE6 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		E3F877831D38CBCB004FDB25 /* KSYRtcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYRtcView.h; sourceTree = "<group>"; };
 		E3F877841D38CBCB004FDB25 /* KSYRtcView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYRtcView.m; sourceTree = "<group>"; };
-		F20B34111D9BAD06001A0910 /* libksyrtclivedy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libksyrtclivedy.framework; path = ../../../build_rtc/libksyrtclivedy.framework; sourceTree = "<group>"; };
-		F20B34131D9BAD42001A0910 /* libksygpulive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libksygpulive.framework; path = ../../../build_rtc/libksygpulive.framework; sourceTree = "<group>"; };
-		F20B34151D9BAF4C001A0910 /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPUImage.framework; path = ../../../build_rtc/GPUImage.framework; sourceTree = "<group>"; };
 		F21B3E941D1AB7DA00B26EB5 /* libc++.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.1.dylib"; path = "/usr/lib/libc++.1.dylib"; sourceTree = "<absolute>"; };
-		F22125701D9D16E500796C7A /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPUImage.framework; path = ../framework/livegpu/GPUImage.framework; sourceTree = "<group>"; };
-		F22125711D9D16E500796C7A /* libksygpuliveDy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libksygpuliveDy.framework; path = ../framework/livegpu/libksygpuliveDy.framework; sourceTree = "<group>"; };
-		F22125721D9D16E500796C7A /* libksyrtclivedy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libksyrtclivedy.framework; path = ../framework/livegpu/libksyrtclivedy.framework; sourceTree = "<group>"; };
-		F22125761D9D178100796C7A /* libksygpuliveDy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libksygpuliveDy.framework; path = ../../framework/livegpu/libksygpuliveDy.framework; sourceTree = "<group>"; };
 		F221257C1D9D17C400796C7A /* KSYFileSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYFileSelector.h; sourceTree = "<group>"; };
 		F221257D1D9D17C400796C7A /* KSYFileSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYFileSelector.m; sourceTree = "<group>"; };
 		F221257E1D9D17C400796C7A /* KSYNameSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYNameSlider.h; sourceTree = "<group>"; };
@@ -78,7 +72,10 @@
 		F227F56C1D82B87B0008B04D /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		F227F5771D82B8AB0008B04D /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		F243BB0A1D3DF0E100906CD9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		F252DE591DAE1CC000180AE6 /* KSYAgoraStreamerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYAgoraStreamerKit.h; path = KSYKit/KSYAgoraStreamerKit.h; sourceTree = SOURCE_ROOT; };
+		F2801B0D1DF5576A00C35636 /* KSYAgoraClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KSYAgoraClient.h; path = ../source/KSYAgoraClient.h; sourceTree = "<group>"; };
+		F2801B0E1DF5576A00C35636 /* KSYAgoraClient.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = KSYAgoraClient.mm; path = ../source/KSYAgoraClient.mm; sourceTree = "<group>"; };
+		F2801B0F1DF5576A00C35636 /* KSYAgoraStreamerKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KSYAgoraStreamerKit.h; path = ../source/KSYAgoraStreamerKit.h; sourceTree = "<group>"; };
+		F2801B101DF5576A00C35636 /* KSYAgoraStreamerKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KSYAgoraStreamerKit.m; path = ../source/KSYAgoraStreamerKit.m; sourceTree = "<group>"; };
 		F292E0D61D193C8B007D10C8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		F292E0DF1D193D14007D10C8 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		F292E0E11D193D23007D10C8 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -104,17 +101,12 @@
 		F2CD74331DAA343F00A9E708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = KSYRTCAgoraDemo/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2CD74351DAA343F00A9E708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = KSYRTCAgoraDemo/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2CD74381DAA35D900A9E708 /* KSYRTCAgoraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYRTCAgoraVC.h; sourceTree = "<group>"; };
-		F2CD743C1DAA3E5200A9E708 /* KSYAgoraClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYAgoraClient.h; path = AgoraKit/KSYAgoraClient.h; sourceTree = SOURCE_ROOT; };
-		F2CD743D1DAA3E5200A9E708 /* KSYAgoraClient.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = KSYAgoraClient.mm; path = AgoraKit/KSYAgoraClient.mm; sourceTree = SOURCE_ROOT; };
-		F2CD743F1DAA3F3900A9E708 /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraRtcEngineKit.framework; path = ../framework/livegpu/AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
-		F2CD74411DAA3F4300A9E708 /* videoprp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = videoprp.framework; path = ../framework/livegpu/videoprp.framework; sourceTree = "<group>"; };
 		F2CD74431DAA6AA500A9E708 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		F2CD74461DAA6BE500A9E708 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		F2CD74481DAA6C0700A9E708 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		F2DADD811DED28B000B010BE /* KSYRTCAgoraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYRTCAgoraVC.m; sourceTree = "<group>"; };
 		F2DADD851DED2ADD00B010BE /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraRtcEngineKit.framework; path = ../framework/AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
 		F2DADD861DED2ADD00B010BE /* videoprp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = videoprp.framework; path = ../framework/videoprp.framework; sourceTree = "<group>"; };
-		F2DADD901DED511E00B010BE /* KSYAgoraStreamerKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYAgoraStreamerKit.m; path = KSYKit/KSYAgoraStreamerKit.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				064700401C5C8B0900A31FC7 /* KSYRTCStreamerDemo */,
+				F2801B151DF557EA00C35636 /* source */,
 				0647003F1C5C8B0900A31FC7 /* Products */,
 				F20B34101D9BAD06001A0910 /* Frameworks */,
 				F58054467B0BD6296C147BC3 /* Pods */,
@@ -228,14 +221,12 @@
 			children = (
 				F243BB0A1D3DF0E100906CD9 /* SystemConfiguration.framework */,
 				F21B3E941D1AB7DA00B26EB5 /* libc++.1.dylib */,
-				F22125761D9D178100796C7A /* libksygpuliveDy.framework */,
 				F227F5771D82B8AB0008B04D /* GLKit.framework */,
 				F292E0E81D193DFF007D10C8 /* libpthread.tbd */,
 				F292E0E11D193D23007D10C8 /* libstdc++.tbd */,
 				F292E0DF1D193D14007D10C8 /* libstdc++.6.0.9.tbd */,
 				F292E0D61D193C8B007D10C8 /* libc++.tbd */,
 				E3993F891C96961E00782FE6 /* libsqlite3.0.tbd */,
-				064700B41C5C9E1A00A31FC7 /* GPUImage.framework */,
 				0647006A1C5C8C2100A31FC7 /* libz.tbd */,
 				064700681C5C8C1A00A31FC7 /* libstdc++.6.tbd */,
 				064700661C5C8C1600A31FC7 /* VideoToolbox.framework */,
@@ -264,26 +255,25 @@
 				F2CD74481DAA6C0700A9E708 /* CoreMotion.framework */,
 				F2CD74461DAA6BE500A9E708 /* CoreTelephony.framework */,
 				F2CD74431DAA6AA500A9E708 /* CoreMedia.framework */,
-				F2CD74411DAA3F4300A9E708 /* videoprp.framework */,
-				F2CD743F1DAA3F3900A9E708 /* AgoraRtcEngineKit.framework */,
-				F22125701D9D16E500796C7A /* GPUImage.framework */,
-				F22125711D9D16E500796C7A /* libksygpuliveDy.framework */,
-				F22125721D9D16E500796C7A /* libksyrtclivedy.framework */,
-				F20B34151D9BAF4C001A0910 /* GPUImage.framework */,
-				F20B34131D9BAD42001A0910 /* libksygpulive.framework */,
-				F20B34111D9BAD06001A0910 /* libksyrtclivedy.framework */,
 				06401268D91642DE18AD70F8 /* Pods_KSYRTCAgoraDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F2801B151DF557EA00C35636 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				F2801B0D1DF5576A00C35636 /* KSYAgoraClient.h */,
+				F2801B0E1DF5576A00C35636 /* KSYAgoraClient.mm */,
+				F2801B0F1DF5576A00C35636 /* KSYAgoraStreamerKit.h */,
+				F2801B101DF5576A00C35636 /* KSYAgoraStreamerKit.m */,
+			);
+			name = source;
+			sourceTree = "<group>";
+		};
 		F2CD743B1DAA39BB00A9E708 /* Kit */ = {
 			isa = PBXGroup;
 			children = (
-				F252DE591DAE1CC000180AE6 /* KSYAgoraStreamerKit.h */,
-				F2DADD901DED511E00B010BE /* KSYAgoraStreamerKit.m */,
-				F2CD743C1DAA3E5200A9E708 /* KSYAgoraClient.h */,
-				F2CD743D1DAA3E5200A9E708 /* KSYAgoraClient.mm */,
 			);
 			name = Kit;
 			sourceTree = "<group>";
@@ -426,6 +416,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2801B111DF5576A00C35636 /* KSYAgoraClient.h in Sources */,
+				F2801B121DF5576A00C35636 /* KSYAgoraClient.mm in Sources */,
+				F2801B131DF5576A00C35636 /* KSYAgoraStreamerKit.h in Sources */,
+				F2801B141DF5576A00C35636 /* KSYAgoraStreamerKit.m in Sources */,
 				F22125861D9D17C400796C7A /* KSYFileSelector.m in Sources */,
 				F22125881D9D17C400796C7A /* KSYReachability.m in Sources */,
 				F22125891D9D17C400796C7A /* KSYUIVC.m in Sources */,
@@ -441,8 +435,6 @@
 				F2C05C571D74234000AD3CFD /* KSYCtrlView.m in Sources */,
 				F2DADD821DED28B000B010BE /* KSYRTCAgoraVC.m in Sources */,
 				F2CD742D1DAA335800A9E708 /* AppDelegate.m in Sources */,
-				F2CD743E1DAA3E5200A9E708 /* KSYAgoraClient.mm in Sources */,
-				F2DADD911DED511E00B010BE /* KSYAgoraStreamerKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
