@@ -4,7 +4,7 @@ IOS 连麦功能 （KSYLive_IOS + agora） 金山云开放平台，提供SDK全�
 
 ----------
 ## 效果图 ##
-## 集成说明 ##
+## 需要集成的头文件和库文件 ##
 
  - 客户需要自己指定agora的appid填入：
 
@@ -31,5 +31,79 @@ IOS 连麦功能 （KSYLive_IOS + agora） 金山云开放平台，提供SDK全�
 
  - KSYAgoraClient类：封装agora sdk
  - KSYAgoraStreamerKit类：音视频渲染层
- - KSYRTCAgoraVC类：UI层
+ - KSYRTCAgoraVC类：demo UI层
+
+## demo功能拆解 ##
+### 采集 ###
+
+ - 参数设置：
+
+    (void) setCaptureCfg {
+        _kit.capPreset = [self.presetCfgView capResolution];//分辨率
+        _kit.videoFPS       = [self.presetCfgView frameRate];／／帧率
+        _kit.cameraPosition = [self.presetCfgView cameraPos];／／摄像头位置
+    }
+
+ - 美颜设置：
+ 
+
+    (void) onFilterChange:(id)sender{
+            if (self.ksyFilterView.curFilter != _kit.filter){
+                 [_kit setupRtcFilter:self.ksyFilterView.curFilter];
+            }
+        }
+
+ - 启停预览
+
+    [_kit startPreview:self.view];
+    [_kit stopPreview];
+
+
+ - 开启闪光灯，摄像头切换等参看demo
+
+## 推流 ##
+
+ - 参数设置：
+
+    (void) setStreamerCfg {
+    if (_presetCfgView){
+        _streamerBase.videoCodec       = [_presetCfgView videoCodec];//视频编码格式
+        _streamerBase.videoInitBitrate = [_presetCfgView videoKbps]／／init码率
+        _streamerBase.videoMaxBitrate  = [_presetCfgView videoKbps];／／最大码率
+        _streamerBase.videoMinBitrate  = 0; //最小码率
+        _streamerBase.audiokBPS        = [_presetCfgView audioKbps];／／音频码率
+        _streamerBase.videoFPS         = [_presetCfgView frameRate];／／视频帧率
+        _hostURL = [NSURL URLWithString:[_presetCfgView hostUrl]];／／推流地址
+    }
+
+ - 启停推流：
+
+     [_streamerBase startStream:self.hostURL];
+     [_kit.streamerBase stopStream];
+
+## 连麦相关 ##
+
+ - 参数设置
+
+
+        - (void) setAgoraStreamerKitCfg {
+        _kit.selfInFront = NO;//小窗口显示自己还是对方
+        _kit.winRect = CGRectMake(0.6, 0.6, 0.3, 0.3);//设置小窗口大小
+        _kit.rtcLayer = 4;//设置小窗口图层，因为主版本占用了1~3，设置为4
+        _kit.onCallStart =^(int status){}//连麦接通后回调
+        _kit.onCallStop = ^(int status){}//连麦停止回调
+        _kit.onChannelJoin = ^(int status){}//加入通道回调
+    }
+
+ - 加入通道：
+ 
+    只有在同一个channel的才能通话：
+       [_kit joinChannel:@"ksy22"];
+ - 离开通道:
+
+ [_kit leaveChannel];
+
+   
+
+
 
