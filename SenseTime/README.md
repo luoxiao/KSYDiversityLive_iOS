@@ -53,7 +53,7 @@
 * QQ讨论群：574179720
 * Issues:https://github.com/ksvc/KSYDiversityLive_iOS/issues
 
-### 4.2 涂图
+### 4.2 商汤科技
 * 主页：[SenseMe](http://www.sensetime.com/aboutUs/)
 * 咨询电话：010-52725279（周一至周五 9:30 - 18:00）
 * 商务合作：business@sensetime.com

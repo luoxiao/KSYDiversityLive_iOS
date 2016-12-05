@@ -49,6 +49,7 @@
 1. 2016.10.20，基于Replaykit(iOS10+)的[游戏录屏体验版](KSYReplayKit)demo代码开放 
 1. 2016年10月28日，支持[Faceunity动态贴纸方案](FaceUnitySDK)；
 1. 2016年10月28日，支持[涂图SDK美颜方案](TuSDK)；
+1. 2016年12月2日，支持[商汤科技动态贴纸方案](SenseTime);
 
 ## 反馈与建议
 - 主页：[金山云](http://v.ksyun.com)
