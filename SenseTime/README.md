@@ -45,15 +45,18 @@
 
 ## 3. 资源获取
 
+## 4. 效果展示
 
-## 4. 反馈与建议
-### 4.1 金山云
+
+
+## 5. 反馈与建议
+### 5.1 金山云
 * 主页：[金山云](http://www.ksyun.com/)
 * 邮箱：<zengfanping@kingsoft.com>
 * QQ讨论群：574179720
 * Issues:https://github.com/ksvc/KSYDiversityLive_iOS/issues
 
-### 4.2 商汤科技
+### 5.2 商汤科技
 * 主页：[SenseMe](http://www.sensetime.com/aboutUs/)
 * 咨询电话：010-52725279（周一至周五 9:30 - 18:00）
 * 商务合作：business@sensetime.com
