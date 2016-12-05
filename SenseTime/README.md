@@ -46,6 +46,11 @@
 ## 3. 资源获取
 
 ## 4. 效果展示
+## 效果展示
+| | |
+| :---: | :---:|
+|sticker1| sticker2 |
+|![sticker1](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/sticker1.PNG)| ![sticker2](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/sticker2.2.PNG)|
 
 
 
