@@ -20,15 +20,14 @@
                           time:(CMTime)timeInfo;
 @end
 
-
 @interface KSYSTFilter : NSObject
 
 @property (nonatomic, weak) id<KSYSTFilterDelegate>delegate;
-
 - (id)initWithEAContext:(EAGLContext *)context;
 - (void)processSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 - (void)processPixelBuffer:(CVPixelBufferRef)pixelBuffer
                       time:(CMTime)timeInfo;
+
 - (void)stChangeSicker;
 - (void)setBeautifyLevel:(int)level;
 
