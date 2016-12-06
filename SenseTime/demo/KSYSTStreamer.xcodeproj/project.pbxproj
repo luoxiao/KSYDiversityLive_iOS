@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		58CDD54F266C6896321C9837 /* Pods_KSYSTStreamer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3B522890608E0967253AB3 /* Pods_KSYSTStreamer.framework */; };
+		E32CB8941DF6684200AE0FE8 /* KSYSTStreamerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E32CB8931DF6684200AE0FE8 /* KSYSTStreamerKit.m */; };
 		E369AE931DE2D12300D5078D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E369AE921DE2D12300D5078D /* main.m */; };
 		E369AE961DE2D12300D5078D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E369AE951DE2D12300D5078D /* AppDelegate.m */; };
 		E369AE991DE2D12300D5078D /* KSYSTController.m in Sources */ = {isa = PBXBuildFile; fileRef = E369AE981DE2D12300D5078D /* KSYSTController.m */; };
@@ -26,7 +27,6 @@
 		E369AED71DE2DB5F00D5078D /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E369AED61DE2DB5F00D5078D /* ZipArchive.framework */; };
 		E369AEDB1DE2DEF200D5078D /* STStickerLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E369AEDA1DE2DEF200D5078D /* STStickerLoader.m */; };
 		E389ABFB1DE6AC2C00E97561 /* KSYSTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E389ABFA1DE6AC2C00E97561 /* KSYSTFilter.m */; };
-		E389ABFE1DE6EDF500E97561 /* KSYSTStreamerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E389ABFD1DE6EDF500E97561 /* KSYSTStreamerKit.m */; };
 		E39C4D521DE408E9006FF0A2 /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E369AED61DE2DB5F00D5078D /* ZipArchive.framework */; };
 		E39C4D531DE408E9006FF0A2 /* ZipArchive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E369AED61DE2DB5F00D5078D /* ZipArchive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -66,6 +66,8 @@
 		2D3B522890608E0967253AB3 /* Pods_KSYSTStreamer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KSYSTStreamer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A91D8FDE1918B7DF7C2F5F /* Pods-KSYSTStreamer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYSTStreamer.release.xcconfig"; path = "Pods/Target Support Files/Pods-KSYSTStreamer/Pods-KSYSTStreamer.release.xcconfig"; sourceTree = "<group>"; };
 		D47C215A62623676A23F1250 /* Pods-KSYSTStreamer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYSTStreamer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KSYSTStreamer/Pods-KSYSTStreamer.debug.xcconfig"; sourceTree = "<group>"; };
+		E32CB8921DF6684200AE0FE8 /* KSYSTStreamerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYSTStreamerKit.h; path = ../../source/KSYSTStreamerKit.h; sourceTree = "<group>"; };
+		E32CB8931DF6684200AE0FE8 /* KSYSTStreamerKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYSTStreamerKit.m; path = ../../source/KSYSTStreamerKit.m; sourceTree = "<group>"; };
 		E369AE8E1DE2D12300D5078D /* KSYSTStreamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSYSTStreamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E369AE921DE2D12300D5078D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E369AE941DE2D12300D5078D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,8 +99,6 @@
 		E369AEDA1DE2DEF200D5078D /* STStickerLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STStickerLoader.m; path = StickerLoader/STStickerLoader.m; sourceTree = SOURCE_ROOT; };
 		E389ABF91DE6AC2C00E97561 /* KSYSTFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYSTFilter.h; path = ../../source/KSYSTFilter.h; sourceTree = "<group>"; };
 		E389ABFA1DE6AC2C00E97561 /* KSYSTFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYSTFilter.m; path = ../../source/KSYSTFilter.m; sourceTree = "<group>"; };
-		E389ABFC1DE6EDF500E97561 /* KSYSTStreamerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYSTStreamerKit.h; sourceTree = "<group>"; };
-		E389ABFD1DE6EDF500E97561 /* KSYSTStreamerKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYSTStreamerKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,8 +178,8 @@
 				E369AE951DE2D12300D5078D /* AppDelegate.m */,
 				E369AE971DE2D12300D5078D /* KSYSTController.h */,
 				E369AE981DE2D12300D5078D /* KSYSTController.m */,
-				E389ABFC1DE6EDF500E97561 /* KSYSTStreamerKit.h */,
-				E389ABFD1DE6EDF500E97561 /* KSYSTStreamerKit.m */,
+				E32CB8921DF6684200AE0FE8 /* KSYSTStreamerKit.h */,
+				E32CB8931DF6684200AE0FE8 /* KSYSTStreamerKit.m */,
 				E389ABF91DE6AC2C00E97561 /* KSYSTFilter.h */,
 				E389ABFA1DE6AC2C00E97561 /* KSYSTFilter.m */,
 				E369AE9A1DE2D12300D5078D /* Main.storyboard */,
@@ -438,7 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E389ABFE1DE6EDF500E97561 /* KSYSTStreamerKit.m in Sources */,
+				E32CB8941DF6684200AE0FE8 /* KSYSTStreamerKit.m in Sources */,
 				E369AE991DE2D12300D5078D /* KSYSTController.m in Sources */,
 				E369AE961DE2D12300D5078D /* AppDelegate.m in Sources */,
 				E389ABFB1DE6AC2C00E97561 /* KSYSTFilter.m in Sources */,
