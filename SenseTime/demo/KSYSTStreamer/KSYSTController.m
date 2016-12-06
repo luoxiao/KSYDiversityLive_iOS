@@ -37,7 +37,7 @@
 }
 - (void)setCapture{
     _stKit.capPreset = AVCaptureSessionPreset640x480;
-    _stKit.previewDimension = CGSizeMake(640, 360);
+    _stKit.previewDimension = CGSizeMake(1280, 720);
     _stKit.streamDimension = CGSizeMake(640, 360);
     _stKit.videoFPS       = 15;
     _stKit.cameraPosition = AVCaptureDevicePositionFront;
