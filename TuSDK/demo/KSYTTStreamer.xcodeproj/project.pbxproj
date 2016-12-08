@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8FCD805ED1F3DE53DE607605 /* libPods-KSYTTStreamer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D27F5A7A32F9786B5098A397 /* libPods-KSYTTStreamer.a */; };
-		D7BE4BD71AA89A93CEE6D8B8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA941B1C1F6EDDD8DDE5D9A6 /* libPods.a */; };
 		E315A9EB1DDD60F2008E31E2 /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = E315A9E81DDD60F1008E31E2 /* UIControl+YYAdd.m */; };
 		E315A9EC1DDD60F2008E31E2 /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = E315A9EA1DDD60F1008E31E2 /* UIView+YYAdd.m */; };
 		E315A9F51DDD6102008E31E2 /* FilterConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = E315A9EE1DDD6102008E31E2 /* FilterConfigView.m */; };
 		E315A9F61DDD6102008E31E2 /* KSYCameraSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E315A9F01DDD6102008E31E2 /* KSYCameraSource.m */; };
 		E315A9F71DDD6102008E31E2 /* KSYTTBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E315A9F21DDD6102008E31E2 /* KSYTTBaseVC.m */; };
 		E315A9F81DDD6102008E31E2 /* KSYTTDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E315A9F41DDD6102008E31E2 /* KSYTTDemoVC.m */; };
+		E34BED521DF9491A006C6098 /* KSYTuStreamerKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E34BED511DF9491A006C6098 /* KSYTuStreamerKit.m */; };
 		E38399261D7479EA00D12963 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E38399251D7479EA00D12963 /* main.m */; };
 		E38399291D7479EA00D12963 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E38399281D7479EA00D12963 /* AppDelegate.m */; };
 		E383992F1D7479EA00D12963 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E383992D1D7479EA00D12963 /* Main.storyboard */; };
@@ -67,6 +67,8 @@
 		E315A9F21DDD6102008E31E2 /* KSYTTBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYTTBaseVC.m; sourceTree = "<group>"; };
 		E315A9F31DDD6102008E31E2 /* KSYTTDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYTTDemoVC.h; sourceTree = "<group>"; };
 		E315A9F41DDD6102008E31E2 /* KSYTTDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYTTDemoVC.m; sourceTree = "<group>"; };
+		E34BED501DF9491A006C6098 /* KSYTuStreamerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYTuStreamerKit.h; path = ../../source/KSYTuStreamerKit.h; sourceTree = "<group>"; };
+		E34BED511DF9491A006C6098 /* KSYTuStreamerKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYTuStreamerKit.m; path = ../../source/KSYTuStreamerKit.m; sourceTree = "<group>"; };
 		E38399211D7479EA00D12963 /* KSYTTStreamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSYTTStreamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38399251D7479EA00D12963 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E38399271D7479EA00D12963 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,7 +99,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3F4BB301D7558BE0088A29E /* libc++.1.tbd in Frameworks */,
-				D7BE4BD71AA89A93CEE6D8B8 /* libPods.a in Frameworks */,
 				E3F4BB2A1D75568C0088A29E /* TuSDKFace.framework in Frameworks */,
 				E3F4BB291D75568C0088A29E /* TuSDK.framework in Frameworks */,
 				E3F4BB2B1D75568C0088A29E /* TuSDKVideo.framework in Frameworks */,
@@ -226,6 +227,8 @@
 				E315A9F21DDD6102008E31E2 /* KSYTTBaseVC.m */,
 				E315A9F31DDD6102008E31E2 /* KSYTTDemoVC.h */,
 				E315A9F41DDD6102008E31E2 /* KSYTTDemoVC.m */,
+				E34BED501DF9491A006C6098 /* KSYTuStreamerKit.h */,
+				E34BED511DF9491A006C6098 /* KSYTuStreamerKit.m */,
 			);
 			name = KSYTT;
 			sourceTree = "<group>";
@@ -311,7 +314,7 @@
 				TargetAttributes = {
 					E38399201D7479EA00D12963 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 36PUU93BJ2;
+						DevelopmentTeam = ZGJ54Q7R45;
 					};
 					E38399391D7479EA00D12963 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -433,6 +436,7 @@
 				E315A9F61DDD6102008E31E2 /* KSYCameraSource.m in Sources */,
 				E38399261D7479EA00D12963 /* main.m in Sources */,
 				E3C097AD1D7584E600B45C1D /* ViewController.m in Sources */,
+				E34BED521DF9491A006C6098 /* KSYTuStreamerKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +583,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZGJ54Q7R45;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -606,6 +611,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZGJ54Q7R45;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -2,6 +2,7 @@
 #import <TuSDK/TuSDK.h>
 #import <TuSDKVideo/TuSDKVideo.h>
 #import "ViewController.h"
+#import "KSYTTDemoVC.h"
 
 @interface AppDelegate ()
 
@@ -19,8 +20,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor clearColor];
     
+    KSYTTDemoVC *ttvc = [[KSYTTDemoVC alloc] init];
     // 初始化根控制器
-    self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[ViewController controller]];
+    self.window.rootViewController = ttvc;
     [self.window makeKeyAndVisible];
     return YES;
 }
