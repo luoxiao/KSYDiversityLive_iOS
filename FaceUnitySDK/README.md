@@ -6,7 +6,8 @@ IOS 贴纸功能 （KSYLive_IOS + faceunity）
 
 ## 效果
 
-脸萌视频效果请见：  
+脸萌视频效果请见以下视频链接：
+
 [![ScreenShot](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/faceunity-bilibili.png)](http://www.bilibili.com/video/av7054123/)
 
 
