@@ -130,6 +130,7 @@ typedef struct{
 	int tex;//<the texture bound to that FBO
 }TIOSFBO;
 #define FU_FORMAT_INTERNAL_IOS_FBO 10
+#define FU_FORMAT_INTERNAL_IOS_DUAL_OUTPUT 11
 ////////////
 /**\brief take a user-defined param and a a width / height pair and return a pointer to receive the image output*/
 typedef void*(*PFRECEIVE_RESULT)(void* param,int w,int h);

@@ -49,14 +49,6 @@
                       @"item0204",
                       @"hartshorn"];
     _resourceArray = [NSMutableArray arrayWithArray:array];
-//    NSString *str = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]stringByAppendingPathComponent:@"v2.bundle"];
-//    if (![[NSFileManager defaultManager] fileExistsAtPath:str]) {
-//        [self loadDataWithItem:@"v2.bundle"];
-//    }
-//    str = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]stringByAppendingPathComponent:@"ar.bundle"];
-//    if (![[NSFileManager defaultManager] fileExistsAtPath:str]) {
-//        [self loadDataWithItem:@"ar.bundle"];
-//    }
     
     _kit = [[KSYFaceunityKit alloc] initWithDefaultCfg];
     [self addSubViews];
@@ -290,10 +282,6 @@
     
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-//    NSString *fileName = [_resourceArray objectAtIndex:indexPath.row];
-//    if (![[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePathWithName:fileName]]) {
-//        [self loadDataWithItem:fileName];
-//    }
     UICollectionViewCell *cell = [collectionView  cellForItemAtIndexPath:indexPath];
     cell.backgroundColor = [UIColor blueColor];
     
@@ -401,7 +389,7 @@
         _kit.streamerBase.audiokBPS        =   48;
         _kit.streamerBase.videoFPS = 15;
         _kit.streamerBase.logBlock = ^(NSString* str){
-            NSLog(@"%@", str);
+//            NSLog(@"%@", str);
         };
     _hostURL = [NSURL URLWithString:@"rtmp://test.uplive.ksyun.com/live/823"];
 }

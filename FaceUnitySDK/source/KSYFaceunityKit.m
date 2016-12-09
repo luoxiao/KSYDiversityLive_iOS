@@ -3,6 +3,7 @@
 #include <sys/stat.h>
 #include "funama.h"
 #include "libyuv.h"
+#import "FURenderer.h"
 
 #define FLOAT_EQ( f0, f1 ) ( (f0 - f1 < 0.0001)&& (f0 - f1 > -0.0001) )
 
@@ -11,6 +12,7 @@
     NSLock   *       _quitLock;  // ensure capDev closed before dealloc
     GPUImagePicture *_textPic;
     KSYGPUPicOutput *_pipOut;
+    GLuint          *_texture;
 }
 @property (nonatomic, strong) KSYGPUYUVInput  *yuvInput;
 @end
@@ -90,7 +92,7 @@
         sumValue += value;
         static int frameCount = 0;
         frameCount++;
-        if (frameCount == 3000) {
+        if (frameCount == 150) {
             NSLog(@"average consuming %f", sumValue/frameCount);
         }
         //change rgbaToNV12
@@ -246,43 +248,21 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
     }
     if(!g_gl_context || ![EAGLContext setCurrentContext:g_gl_context]){
         NSLog(@"faceunity: failed to create / set a GLES2 context");
-        return pixelBuffer;
     }
     //  Init face recgonition and tracking
     if(!g_faceplugin_inited){
         intptr_t size = 0;
-        //        path = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]stringByAppendingPathComponent:@"v2.bundle"];
-        //        if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        //            return pixelBuffer;
-        //        }
         void* v2data = mmap_bundle(@"v2.bundle", &size);
-        //        path = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]stringByAppendingPathComponent:@"ar.bundle"];
-        //        if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        //            return pixelBuffer;
-        //        }
         void* ardata = mmap_bundle(@"ar.bundle", &size);
-        fuSetup(v2data, ardata, NULL, 0);
+        [[FURenderer shareRenderer] setupWithData:v2data ardata:ardata authPackage:NULL authSize:0];
         g_faceplugin_inited = 1;
     }
     //  Load item if needed
     if (g_need_reload_item){
-        //        path = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]stringByAppendingPathComponent:g_item_names[g_selected_item]];
-        //        if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        //            return pixelBuffer;
-        //        }
         [self fuReloadItem];
         g_need_reload_item = 0;
     }
-    ////////////////////////////
-    // Key draw functions
-    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
-    //int w = (int)CVPixelBufferGetWidth(pixelBuffer);
-    int h = (int)CVPixelBufferGetHeight(pixelBuffer);
-    int stride = (int)CVPixelBufferGetBytesPerRow(pixelBuffer);
-    int* img = (int*)CVPixelBufferGetBaseAddress(pixelBuffer);
-    fuRenderItems(0, img, stride/4, h, g_frame_id, g_items, n_items);
-    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
-    g_frame_id++;
+    pixelBuffer = [[FURenderer shareRenderer] renderPixelBuffer:pixelBuffer withFrameId:g_frame_id items:g_items itemCount:2];
     return pixelBuffer;
 }
 - (void)openSticker{
