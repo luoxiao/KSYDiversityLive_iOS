@@ -80,7 +80,19 @@
     __weak KSYFaceunityKit * kit = self;
     _pipOut.videoProcessingCallback = ^(CVPixelBufferRef pixelBuffer, CMTime timeInfo){
         //add faceunity
+        NSDate *startDate = [NSDate date];
+        NSTimeInterval start = [startDate timeIntervalSince1970];
         [kit addFaceunity:pixelBuffer time:timeInfo];
+        NSDate *endDate = [NSDate date];
+        NSTimeInterval end = [endDate timeIntervalSince1970];
+        NSTimeInterval value = end - start;
+        static NSTimeInterval sumValue = 0;
+        sumValue += value;
+        static int frameCount = 0;
+        frameCount++;
+        if (frameCount == 3000) {
+            NSLog(@"average consuming %f", sumValue/frameCount);
+        }
         //change rgbaToNV12
         [kit ARGBTONV12:pixelBuffer time:timeInfo];
     };
