@@ -30,9 +30,15 @@
 }
 // 组装视频通道
 - (void) setupVideoPath {
-    [self.vCapDev addTarget:_rgbOutput];
+     __weak typeof(self) weakSelf = self;
+    self.vCapDev.videoProcessingCallback = ^(CMSampleBufferRef buf){
+        [weakSelf.capToGpu processSampleBuffer:buf];
+        if ( weakSelf.videoProcessingCallback ){
+            weakSelf.videoProcessingCallback(buf);
+        }
+    };
+    [self.capToGpu addTarget:_rgbOutput];
     //textToBuffer --> stFilter
-    __weak typeof(self) weakSelf = self;
     _rgbOutput.videoProcessingCallback = ^(CVPixelBufferRef pixelbuffer, CMTime timeInfo){
         [weakSelf.ksyStFilter processPixelBuffer:pixelbuffer time:timeInfo];
     };
@@ -43,11 +49,6 @@
         }
         [weakSelf.streamerBase processVideoPixelBuffer:pixelBuffer timeInfo:timeInfo];
         NSLog(@"%@",NSStringFromCGSize([weakSelf captureDimension]));
-    };
-    self.vCapDev.videoProcessingCallback = ^(CMSampleBufferRef buf){
-        if ( weakSelf.videoProcessingCallback ){
-            weakSelf.videoProcessingCallback(buf);
-        }
     };
 }
 //set filter

@@ -96,6 +96,7 @@
 		E315AA0D1DDD6272008E31E2 /* KSYUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYUIView.h; path = KSYUIUtils/KSYUIView.h; sourceTree = SOURCE_ROOT; };
 		E315AA0E1DDD6272008E31E2 /* KSYUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYUIView.m; path = KSYUIUtils/KSYUIView.m; sourceTree = SOURCE_ROOT; };
 		E315AA141DDD627F008E31E2 /* libyuv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libyuv.h; sourceTree = SOURCE_ROOT; };
+		E3378AFE1DFFC17100EA683D /* FURenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FURenderer.h; sourceTree = "<group>"; };
 		E38546FA1DEAD8800049D09C /* BeagleDog.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = BeagleDog.bundle; path = ../framework/BeagleDog.bundle; sourceTree = "<group>"; };
 		E38546FB1DEAD8800049D09C /* ColorCrown.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = ColorCrown.bundle; path = ../framework/ColorCrown.bundle; sourceTree = "<group>"; };
 		E38546FC1DEAD8800049D09C /* Deer.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = Deer.bundle; path = ../framework/Deer.bundle; sourceTree = "<group>"; };
@@ -250,6 +251,7 @@
 				E3C9298B1DD1FB4C00D1072C /* eyeballs.bundle */,
 				E3C9298C1DD1FB4C00D1072C /* fox.bundle */,
 				E3C9298D1DD1FB4C00D1072C /* funama.h */,
+				E3378AFE1DFFC17100EA683D /* FURenderer.h */,
 				E3C9298E1DD1FB4C00D1072C /* kitty.bundle */,
 				E3C9298F1DD1FB4C00D1072C /* libnama.a */,
 				E3C929901DD1FB4C00D1072C /* mood.bundle */,

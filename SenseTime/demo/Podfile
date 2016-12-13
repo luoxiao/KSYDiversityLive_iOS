@@ -6,5 +6,5 @@ target 'KSYSTStreamer' do
   pod 'Bugly'
   pod 'GPUImage',  '0.1.7'
   pod 'libksygpulive/KSYGPUResource'
-  pod 'libksygpulive/libksygpulive', '1.9.0'
+  pod 'libksygpulive/libksygpulive', '1.9.2'
 end
