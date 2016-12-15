@@ -49,7 +49,7 @@ IOS 贴纸功能 （KSYLive_IOS + faceunity）
     
     **加速访问：**
     
-    可以从[oschina](git@git.oschina.net:ksvc/KSYDiversityLive_iOS.git)镜像下载。
+    可以从[oschina](http://git.oschina.net/ksvc/KSYDiversityLive_iOS)镜像下载。
     
 3. 资源加载方法
     
