@@ -23,8 +23,6 @@
 		06CA4B701D9C0203006F3AD3 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CA4B6E1D9C0203006F3AD3 /* MainInterface.storyboard */; };
 		06CA4B741D9C0203006F3AD3 /* KSYRKUploadExtUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 06CA4B661D9C0203006F3AD3 /* KSYRKUploadExtUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		06CA4B771D9C0203006F3AD3 /* KSYRKUploadExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 06CA4B561D9C0203006F3AD3 /* KSYRKUploadExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B121FF7A2BEA1C5A67C16868 /* Pods_KSYReplayKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F4CF6D2E57D59082CD77B1 /* Pods_KSYReplayKitDemo.framework */; };
-		D25B73ECD8BC4291057A71F7 /* Pods_KSYRKUploadExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC4689B3F66B9CB3C50C6C7 /* Pods_KSYRKUploadExt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,12 +82,6 @@
 		06CA4B6C1D9C0203006F3AD3 /* BroadcastViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastViewController.m; sourceTree = "<group>"; };
 		06CA4B6F1D9C0203006F3AD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		06CA4B711D9C0203006F3AD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0AC4689B3F66B9CB3C50C6C7 /* Pods_KSYRKUploadExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KSYRKUploadExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3693F229B8CADE29EA850FF4 /* Pods-KSYReplayKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYReplayKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KSYReplayKitDemo/Pods-KSYReplayKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		4586937722CE357EDC5725F3 /* Pods-KSYRKUploadExt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYRKUploadExt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KSYRKUploadExt/Pods-KSYRKUploadExt.debug.xcconfig"; sourceTree = "<group>"; };
-		83F4CF6D2E57D59082CD77B1 /* Pods_KSYReplayKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KSYReplayKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		90BF5B7B0F5525AF2378A6C6 /* Pods-KSYReplayKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYReplayKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-KSYReplayKitDemo/Pods-KSYReplayKitDemo.release.xcconfig"; sourceTree = "<group>"; };
-		9D1EC1E8B0E23DE412CE4203 /* Pods-KSYRKUploadExt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYRKUploadExt.release.xcconfig"; path = "Pods/Target Support Files/Pods-KSYRKUploadExt/Pods-KSYRKUploadExt.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B121FF7A2BEA1C5A67C16868 /* Pods_KSYReplayKitDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +97,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				06CA4B591D9C0203006F3AD3 /* ReplayKit.framework in Frameworks */,
-				D25B73ECD8BC4291057A71F7 /* Pods_KSYRKUploadExt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +121,6 @@
 				06CA4B6A1D9C0203006F3AD3 /* KSYRKUploadExtUI */,
 				06CA4B571D9C0203006F3AD3 /* Frameworks */,
 				06CA4B361D9BFA24006F3AD3 /* Products */,
-				D466E4CC0F954D030BB13FCA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,8 +163,6 @@
 			children = (
 				06CA4B581D9C0203006F3AD3 /* ReplayKit.framework */,
 				06CA4B681D9C0203006F3AD3 /* UIKit.framework */,
-				0AC4689B3F66B9CB3C50C6C7 /* Pods_KSYRKUploadExt.framework */,
-				83F4CF6D2E57D59082CD77B1 /* Pods_KSYReplayKitDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -203,17 +190,6 @@
 			path = KSYRKUploadExtUI;
 			sourceTree = "<group>";
 		};
-		D466E4CC0F954D030BB13FCA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4586937722CE357EDC5725F3 /* Pods-KSYRKUploadExt.debug.xcconfig */,
-				9D1EC1E8B0E23DE412CE4203 /* Pods-KSYRKUploadExt.release.xcconfig */,
-				3693F229B8CADE29EA850FF4 /* Pods-KSYReplayKitDemo.debug.xcconfig */,
-				90BF5B7B0F5525AF2378A6C6 /* Pods-KSYReplayKitDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,13 +197,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06CA4B4C1D9BFA24006F3AD3 /* Build configuration list for PBXNativeTarget "KSYReplayKitDemo" */;
 			buildPhases = (
-				F1DBD4DC37779FDBCB96FBDC /* [CP] Check Pods Manifest.lock */,
 				06CA4B311D9BFA24006F3AD3 /* Sources */,
 				06CA4B321D9BFA24006F3AD3 /* Frameworks */,
 				06CA4B331D9BFA24006F3AD3 /* Resources */,
 				06CA4B7E1D9C0203006F3AD3 /* Embed App Extensions */,
-				A1173EA7A7E7819D7ABF8DC0 /* [CP] Embed Pods Frameworks */,
-				BD689191A76EF3598E35B3EC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,11 +217,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06CA4B7B1D9C0203006F3AD3 /* Build configuration list for PBXNativeTarget "KSYRKUploadExt" */;
 			buildPhases = (
-				417CC69FB44AD4A03EFB16F9 /* [CP] Check Pods Manifest.lock */,
 				06CA4B521D9C0203006F3AD3 /* Sources */,
 				06CA4B531D9C0203006F3AD3 /* Frameworks */,
 				06CA4B541D9C0203006F3AD3 /* Resources */,
-				B8B120731C0D9312462F5652 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -349,84 +320,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		417CC69FB44AD4A03EFB16F9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A1173EA7A7E7819D7ABF8DC0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSYReplayKitDemo/Pods-KSYReplayKitDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B8B120731C0D9312462F5652 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSYRKUploadExt/Pods-KSYRKUploadExt-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BD689191A76EF3598E35B3EC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSYReplayKitDemo/Pods-KSYReplayKitDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F1DBD4DC37779FDBCB96FBDC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		06CA4B311D9BFA24006F3AD3 /* Sources */ = {
@@ -592,7 +485,6 @@
 		};
 		06CA4B4D1D9BFA24006F3AD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3693F229B8CADE29EA850FF4 /* Pods-KSYReplayKitDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZGJ54Q7R45;
@@ -605,7 +497,6 @@
 		};
 		06CA4B4E1D9BFA24006F3AD3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90BF5B7B0F5525AF2378A6C6 /* Pods-KSYReplayKitDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZGJ54Q7R45;
@@ -642,7 +533,6 @@
 		};
 		06CA4B7C1D9C0203006F3AD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4586937722CE357EDC5725F3 /* Pods-KSYRKUploadExt.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = ZGJ54Q7R45;
 				INFOPLIST_FILE = KSYRKUploadExt/Info.plist;
@@ -655,7 +545,6 @@
 		};
 		06CA4B7D1D9C0203006F3AD3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D1EC1E8B0E23DE412CE4203 /* Pods-KSYRKUploadExt.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = ZGJ54Q7R45;
 				INFOPLIST_FILE = KSYRKUploadExt/Info.plist;
