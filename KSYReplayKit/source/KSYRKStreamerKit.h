@@ -9,7 +9,6 @@
 #import <ReplayKit/ReplayKit.h>
 #import "libksygpulive/libksygpulive.h"
 
-
 @interface KSYRKStreamerKit : NSObject
 
 /** 单例 */
