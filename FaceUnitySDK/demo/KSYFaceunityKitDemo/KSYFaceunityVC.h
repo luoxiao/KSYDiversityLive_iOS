@@ -4,9 +4,8 @@
 #import "KSYUIVC.h"
 #import "KSYPresetCfgView.h"
 #import "KSYStateLableView.h"
-#import "KSYFaceunityKit.h"
 #import "KSYCtrlView.h"
-
+#import <libksygpulive/KSYGPUStreamerKit.h>
 
 @interface KSYFaceunityVC : KSYUIVC
 
@@ -24,7 +23,7 @@
 // presetCfgs
 @property (nonatomic, readonly) KSYPresetCfgView * presetCfgView;
 #pragma mark - kit instance
-@property (nonatomic, retain) KSYFaceunityKit * kit;
+@property (nonatomic, retain)  KSYGPUStreamerKit*   kit;
 /// 摄像头的基本控制视图
 @property (nonatomic, readonly) KSYCtrlView   * ctrlView;
 

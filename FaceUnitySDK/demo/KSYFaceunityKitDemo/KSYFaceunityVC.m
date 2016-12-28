@@ -1,6 +1,6 @@
 #import "KSYFaceunityVC.h"
 #import "KSYFaceunityKit.h"
-
+#import "KSYFaceunityFilter.h"
 
 
 @interface KSYFaceunityVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
@@ -10,6 +10,7 @@
     int64_t _seconds;
     NSMutableDictionary *_obsDict;
     NSMutableArray  *_resourceArray;
+    KSYFaceunityFilter * _faceUnityFilter;
 }
 @end
 
@@ -50,7 +51,7 @@
                       @"hartshorn"];
     _resourceArray = [NSMutableArray arrayWithArray:array];
     
-    _kit = [[KSYFaceunityKit alloc] initWithDefaultCfg];
+    _kit = [[KSYGPUStreamerKit alloc] initWithDefaultCfg];
     [self addSubViews];
     [self addSwipeGesture];
     // 采集相关设置初始化
@@ -63,7 +64,6 @@
     if (_kit) { // init with default filter
         _kit.videoOrientation = [[UIApplication sharedApplication] statusBarOrientation];
         [_kit startPreview:self.view];
-        [_kit openSticker];
     }
     [self iniWithUI];
 }
@@ -211,7 +211,6 @@
     if (!_kit.vCapDev.isRunning){
         _kit.videoOrientation = [[UIApplication sharedApplication] statusBarOrientation];
         [_kit startPreview:self.view];
-        [_kit openSticker];
     }
     else {
         [_kit stopPreview];
@@ -227,7 +226,6 @@
     }
 }
 - (void) onQuit{
-    [_kit closeSticker];
     [_kit stopPreview];
     _kit = nil;
     [self rmObservers];
@@ -286,7 +284,8 @@
     cell.backgroundColor = [UIColor blueColor];
     
     [self changeStickerName:indexPath.row];
-    [_kit selectSticker:indexPath.row];
+    NSString * bundleName =[_resourceArray[indexPath.row] stringByAppendingString:@".bundle"];
+    [_faceUnityFilter loadItem:bundleName];
 }
 - (void)changeStickerName:(NSInteger)idx{
     _ctrlView.lblNetwork.text = _resourceArray[idx];
@@ -358,6 +357,9 @@
     _kit.streamDimension  = [self.presetCfgView strResolutionSize ];
     _kit.videoFPS       = [self.presetCfgView frameRate];
     _kit.cameraPosition = [self.presetCfgView cameraPos];
+    
+    _faceUnityFilter = [[KSYFaceunityFilter alloc]init];
+    [_kit setupFilter:(GPUImageOutput<GPUImageInput>*)_faceUnityFilter];
     _kit.videoProcessingCallback = ^(CMSampleBufferRef buf){
     };
 }

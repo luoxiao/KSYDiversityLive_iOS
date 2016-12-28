@@ -47,7 +47,8 @@
 		E3C9299C1DD1FB4D00D1072C /* rabbit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3C929911DD1FB4D00D1072C /* rabbit.bundle */; };
 		E3C9299D1DD1FB4D00D1072C /* tears.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3C929921DD1FB4D00D1072C /* tears.bundle */; };
 		E3C9299E1DD1FB4D00D1072C /* v2.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3C929931DD1FB4D00D1072C /* v2.bundle */; };
-		E3C929BA1DD1FCB500D1072C /* KSYFaceunityKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C929B11DD1FCB500D1072C /* KSYFaceunityKit.m */; };
+		F2E828461E13985300DC9E9C /* KSYFaceunityFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E828451E13985300DC9E9C /* KSYFaceunityFilter.m */; };
+		F2E8284D1E13D9A400DC9E9C /* KSYFaceunityKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E8284C1E13D9A400DC9E9C /* KSYFaceunityKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,8 +131,10 @@
 		E3C929911DD1FB4D00D1072C /* rabbit.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = rabbit.bundle; path = ../framework/rabbit.bundle; sourceTree = "<group>"; };
 		E3C929921DD1FB4D00D1072C /* tears.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = tears.bundle; path = ../framework/tears.bundle; sourceTree = "<group>"; };
 		E3C929931DD1FB4D00D1072C /* v2.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = v2.bundle; path = ../framework/v2.bundle; sourceTree = "<group>"; };
-		E3C929B01DD1FCB500D1072C /* KSYFaceunityKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYFaceunityKit.h; path = ../../source/KSYFaceunityKit.h; sourceTree = "<group>"; };
-		E3C929B11DD1FCB500D1072C /* KSYFaceunityKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYFaceunityKit.m; path = ../../source/KSYFaceunityKit.m; sourceTree = "<group>"; };
+		F2E828441E13985300DC9E9C /* KSYFaceunityFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYFaceunityFilter.h; path = ../../source/KSYFaceunityFilter.h; sourceTree = "<group>"; };
+		F2E828451E13985300DC9E9C /* KSYFaceunityFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYFaceunityFilter.m; path = ../../source/KSYFaceunityFilter.m; sourceTree = "<group>"; };
+		F2E8284B1E13D9A400DC9E9C /* KSYFaceunityKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYFaceunityKit.h; path = ../../source/KSYFaceunityKit.h; sourceTree = "<group>"; };
+		F2E8284C1E13D9A400DC9E9C /* KSYFaceunityKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYFaceunityKit.m; path = ../../source/KSYFaceunityKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,14 +207,15 @@
 		E3142FAE1DC357AB00F88070 /* KSYFaceunityKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F2E8284B1E13D9A400DC9E9C /* KSYFaceunityKit.h */,
+				F2E8284C1E13D9A400DC9E9C /* KSYFaceunityKit.m */,
+				F2E828471E13985A00DC9E9C /* filter */,
 				E31430411DC6FA4E00F88070 /* KSYPressetCfg */,
 				E315AA141DDD627F008E31E2 /* libyuv.h */,
 				E3142FB21DC357AB00F88070 /* AppDelegate.h */,
 				E3142FB31DC357AB00F88070 /* AppDelegate.m */,
 				E3142FB51DC357AB00F88070 /* KSYFaceunityVC.h */,
 				E3142FB61DC357AB00F88070 /* KSYFaceunityVC.m */,
-				E3C929B01DD1FCB500D1072C /* KSYFaceunityKit.h */,
-				E3C929B11DD1FCB500D1072C /* KSYFaceunityKit.m */,
 				E3142FB81DC357AB00F88070 /* Main.storyboard */,
 				E3142FBB1DC357AB00F88070 /* Assets.xcassets */,
 				E3142FBD1DC357AB00F88070 /* LaunchScreen.storyboard */,
@@ -293,6 +297,15 @@
 				E315AA0E1DDD6272008E31E2 /* KSYUIView.m */,
 			);
 			name = KSYUIUtils;
+			sourceTree = "<group>";
+		};
+		F2E828471E13985A00DC9E9C /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				F2E828451E13985300DC9E9C /* KSYFaceunityFilter.m */,
+				F2E828441E13985300DC9E9C /* KSYFaceunityFilter.h */,
+			);
+			name = filter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,9 +528,10 @@
 				E385471C1DEAE4CE0049D09C /* KSYCtrlView.m in Sources */,
 				E385471F1DEAE4CE0049D09C /* KSYStateLableView.m in Sources */,
 				E315AA101DDD6272008E31E2 /* KSYNameSlider.m in Sources */,
+				F2E828461E13985300DC9E9C /* KSYFaceunityFilter.m in Sources */,
 				E385471D1DEAE4CE0049D09C /* KSYPresetCfgVC.m in Sources */,
 				E3142FB11DC357AB00F88070 /* main.m in Sources */,
-				E3C929BA1DD1FCB500D1072C /* KSYFaceunityKit.m in Sources */,
+				F2E8284D1E13D9A400DC9E9C /* KSYFaceunityKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -262,7 +262,7 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
         [self fuReloadItem];
         g_need_reload_item = 0;
     }
-    pixelBuffer = [[FURenderer shareRenderer] renderPixelBuffer:pixelBuffer withFrameId:g_frame_id items:g_items itemCount:2];
+    pixelBuffer = [[FURenderer shareRenderer] renderPixelBuffer:pixelBuffer withFrameId:g_frame_id items:g_items itemCount:1];
     return pixelBuffer;
 }
 - (void)openSticker{
