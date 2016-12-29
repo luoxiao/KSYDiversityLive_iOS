@@ -36,10 +36,13 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
 @interface KSYFaceunityFilter()
 {
     int _items[1];
+    
 }
 
 @property KSYGPUPicOutput* pipOut;
 @property EAGLContext* gl_context;
+@property NSString * itemName;
+@property BOOL reLoadItem;
 
 @end
 
@@ -55,7 +58,7 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
         _pipOut = [[KSYGPUPicOutput alloc]initWithOutFmt:kCVPixelFormatType_32BGRA];
         __weak KSYFaceunityFilter *weak_filter = self;
         _pipOut.videoProcessingCallback = ^(CVPixelBufferRef pixelBuffer, CMTime timeInfo ){
-            //[weak_filter renderFaceUnity:pixelBuffer timeInfo:timeInfo];
+            [weak_filter renderFaceUnity:pixelBuffer timeInfo:timeInfo];
         };
     }
     return self;
@@ -67,6 +70,12 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
 
 -(void)loadItem:(NSString *)itemName
 {
+    _itemName = itemName;
+    _reLoadItem = YES;
+   
+}
+
+-(void)reloadItem{
     if(_items[0]){
         NSLog(@"faceunity: destroy item");
         fuDestroyItem(_items[0]);
@@ -77,7 +86,7 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
     }
     
     intptr_t size;
-    void* data = mmap_bundle(itemName, &size);
+    void* data = mmap_bundle(_itemName, &size);
     _items[0] = fuCreateItemFromPackage(data, (int)size);
 }
 
@@ -88,12 +97,18 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
         NSLog(@"faceunity: failed to create / set a GLES2 context");
    }
     
-   CVPixelBufferRef output_pixelBuffer = [[FURenderer shareRenderer] renderPixelBuffer:pixelBuffer withFrameId:g_frame_id items:_items itemCount:2];
+    if(_reLoadItem){
+        [self reloadItem];
+        _reLoadItem = NO;
+    }
+    
+   CVPixelBufferRef output_pixelBuffer = [[FURenderer shareRenderer] renderPixelBuffer:pixelBuffer withFrameId:g_frame_id items:_items itemCount:1];
    [self processPixelBuffer:output_pixelBuffer time:timeInfo];
 }
 
 -(void)initFaceUnity
 {
+    _reLoadItem = NO;
     _gl_context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     if(![EAGLContext setCurrentContext:_gl_context]){
         NSLog(@"faceunity: failed to create / set a GLES2 context");

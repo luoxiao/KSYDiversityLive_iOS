@@ -26,3 +26,5 @@ project.xcworkspace/
 #build/
 *.log
 #framework/
+pods/
+Podfile.lock
