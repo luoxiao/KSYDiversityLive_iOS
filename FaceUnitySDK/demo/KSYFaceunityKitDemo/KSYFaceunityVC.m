@@ -49,6 +49,7 @@
                       @"HappyRabbi",
                       @"item0204",
                       @"hartshorn"];
+
     _resourceArray = [NSMutableArray arrayWithArray:array];
     
     _kit = [[KSYGPUStreamerKit alloc] initWithDefaultCfg];
@@ -284,8 +285,7 @@
     cell.backgroundColor = [UIColor blueColor];
     
     [self changeStickerName:indexPath.row];
-    NSString * bundleName =[_resourceArray[indexPath.row] stringByAppendingString:@".bundle"];
-    [_faceUnityFilter loadItem:bundleName];
+    _faceUnityFilter.choosedIndex = indexPath.row;
 }
 - (void)changeStickerName:(NSInteger)idx{
     _ctrlView.lblNetwork.text = _resourceArray[idx];
@@ -358,7 +358,29 @@
     _kit.videoFPS       = [self.presetCfgView frameRate];
     _kit.cameraPosition = [self.presetCfgView cameraPos];
     
-    _faceUnityFilter = [[KSYFaceunityFilter alloc]init];
+    NSArray * g_item_names = @[
+                               @"kitty.bundle",
+                               @"fox.bundle",
+                               @"evil.bundle",
+                               @"eyeballs.bundle",
+                               @"mood.bundle",
+                               @"tears.bundle",
+                               @"rabbit.bundle",
+                               @"cat.bundle",
+                               @"tiara.bundle",
+                               @"item0208.bundle",
+                               @"YellowEar.bundle",
+                               @"PrincessCrown.bundle",
+                               @"Mood.bundle" ,
+                               @"Deer.bundle" ,
+                               @"BeagleDog.bundle",
+                               @"item0501.bundle",
+                               @"ColorCrown.bundle",
+                               @"item0210.bundle",
+                               @"HappyRabbi.bundle",
+                               @"item0204.bundle",
+                               @"hartshorn.bundle"];
+    _faceUnityFilter = [[KSYFaceunityFilter alloc]initWithArray:g_item_names];
     [_kit setupFilter:(GPUImageOutput<GPUImageInput>*)_faceUnityFilter];
     _kit.videoProcessingCallback = ^(CMSampleBufferRef buf){
     };
