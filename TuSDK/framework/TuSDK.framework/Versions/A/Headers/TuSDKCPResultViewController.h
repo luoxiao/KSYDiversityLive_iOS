@@ -14,6 +14,12 @@
  *  处理结果视图控制器
  */
 @interface TuSDKCPResultViewController : TuSDKCPViewController
+{
+    @protected
+    //  是否显示Hub信息 (默认：开启)
+    BOOL _enableShowHub;
+}
+
 /**
  *  保存到临时文件 (默认不保存, 当设置为YES时, TuSDKResult.tmpFile, 处理完成后将自动清理原始图片)
  */
@@ -56,7 +62,7 @@
  *
  *  @param result SDK处理结果
  *
- *  @return 是否截断默认处理逻辑 (默认: false, 设置为True时使用自定义处理逻辑)
+ *  @return BOOL 是否截断默认处理逻辑 (默认: false, 设置为True时使用自定义处理逻辑)
  */
 - (BOOL)asyncNotifyProcessingWithResult:(TuSDKResult *)result;
 

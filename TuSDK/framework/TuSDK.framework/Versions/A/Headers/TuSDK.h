@@ -32,6 +32,7 @@
 #import "TuSDKTSScreen+Extend.h"
 #import "TuSDKTSString+Extend.h"
 #import "TuSDKTSUIColor+Extend.h"
+#import "TuSDKImageCache.h"
 
 #import "TuSDKICAlertView.h"
 #import "TuSDKICEmptyView.h"
@@ -59,6 +60,8 @@
 #import "TuSDKCPFocusTouchViewBase.h"
 #import "TuSDKCPGroupFilterBarBase.h"
 #import "TuSDKCPGroupFilterBaseView.h"
+#import "TuSDKCPStackFilterTableView.h"
+#import "TuSDKCPStackFilterBarBase.h"
 #import "TuSDKCPGroupFilterItemCellBase.h"
 #import "TuSDKCPImageResultOptions.h"
 #import "TuSDKCPOnlineController.h"
@@ -70,7 +73,9 @@
 
 #import "TuSDKPFAlbumViewControllerBase.h"
 #import "TuSDKPFAlbumMultipleViewControllerBase.h"
+#import "TuSDKPFPhotoPreviewControllerBase.h"
 #import "TuSDKPFCameraViewControllerBase.h"
+#import "TuSDKPFCameraPreviewControllerBase.h"
 #import "TuSDKPFEditAdjustControllerBase.h"
 #import "TuSDKPFEditApertureControllerBase.h"
 #import "TuSDKPFEditCuterControllerBase.h"
@@ -89,6 +94,7 @@
 #import "TuSDKPFStickerOnlineControllerBase.h"
 #import "TuSDKPFEditSmudgeControllerBase.h"
 #import "TuSDKPFEditWipeAndFilterControllerBase.h"
+#import "TuSDKPFEditTabBarControllerBase.h"
 
 #import "TuSDKPFCameraFilterGroupViewBase.h"
 #import "TuSDKPFEditFilterGroupViewBase.h"
@@ -216,21 +222,21 @@ extern NSString * const lsqFilterSampleExtension;
 /**
  *  应用临时目录
  *
- *  @return 应用临时目录
+ *  @return appTempPath 应用临时目录
  */
 + (NSString *)appTempPath;
 
 /**
  *  应用下载目录
  *
- *  @return 应用下载目录
+ *  @return appDownloadPath 应用下载目录
  */
 + (NSString *)appDownloadPath;
 
 /**
  *  滤镜代号列表
  *
- *  @return 滤镜代号列表
+ *  @return filterCodes 滤镜代号列表
  */
 + (NSArray *)filterCodes;
 
@@ -238,7 +244,7 @@ extern NSString * const lsqFilterSampleExtension;
  *  滤镜管理器
  *  @see-http://tusdk.com/docs/ios/api/Classes/TuSDKFilterManager.html
  *
- *  @return 滤镜管理器
+ *  @return filterManager 滤镜管理器
  */
 + (TuSDKFilterManager *)filterManager;
 
@@ -246,7 +252,7 @@ extern NSString * const lsqFilterSampleExtension;
  *  贴纸管理器
  *  @see-http://tusdk.com/docs/ios/api/Classes/TuSDKPFStickerLocalPackage.html
  *
- *  @return 贴纸管理器
+ *  @return stickerManager 贴纸管理器
  */
 + (TuSDKPFStickerLocalPackage *)stickerManager;
 

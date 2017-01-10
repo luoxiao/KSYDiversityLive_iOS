@@ -13,6 +13,12 @@
  *  颜色调整控制器基础类
  */
 @interface TuSDKPFEditAdjustControllerBase : TuSDKCPFilterResultController
+{
+    @protected
+    // 是否显示多功能调整
+    BOOL _isMultiAdjust;
+}
+
 /**
  *  选中一个参数动作
  *
@@ -33,4 +39,11 @@
  *  @param isHidden 是否隐藏
  */
 - (void)setConfigViewHiddenState:(BOOL)isHidden;
+
+/**
+ *  配置返回无保存
+ *
+ *  @param view     参数配置视图
+ */
+- (void)onTuSDKCPParameterConfigBackNotSave:(UIView<TuSDKCPParameterConfigViewInterface> *)view;
 @end

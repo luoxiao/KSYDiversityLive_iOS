@@ -66,7 +66,7 @@
     CGSize _outputSize;
     
     /**
-     *  输出 PixelBuffer 格式，可选: lsqFormatTypeBGRA | lsqFormatTypeYUV420F | lsqFormatTypeRawData
+     *  输出 PixelBuffer 格式，可选: lsqFormatTypeBGRA | lsqFormatTypeYUV420F | lsqFormatTypeYUVI420 | lsqFormatTypeRawData
      *  默认:lsqFormatTypeBGRA
      */
     lsqFrameFormatType _pixelFormatType;
@@ -80,18 +80,20 @@
 /**
  *  初始化实时处理器
  *
- *  @param videoOutput    视频输出对象
- *  @param cameraView     预览视图
+ *  @param captureSesssion  视频捕获会话
+ *  @param videoOutput      视频输出对象
+ *  @param cameraView       预览视图
  *
  *  @return
  */
-- (instancetype)initWithVideoDataOutput:(AVCaptureVideoDataOutput *)videoOutput
-                             cameraView:(UIView *)cameraView;
+- (instancetype)initWithCaptureSession:(AVCaptureSession *)captureSesssion
+                       VideoDataOutput:(AVCaptureVideoDataOutput *)videoOutput
+                            cameraView:(UIView *)cameraView;
 
 /**
  *  处理器事件委托
  */
-@property (nonatomic, assign) id<TuSDKLiveVideoProcessorDelegate> delegate;
+@property (nonatomic, weak) id<TuSDKLiveVideoProcessorDelegate> delegate;
 
 #pragma mark - TuSDKVideoCameraInterface
 
@@ -99,6 +101,11 @@
  *  相机帧采样缓冲委托
  */
 @property (nonatomic, weak) id<TuSDKVideoCameraSampleBufferDelegate> sampleBufferDelegate;
+
+/**
+ *  系统捕获会话
+ */
+@property (nonatomic, readonly) AVCaptureSession *captureSession;
 
 /**
  *  系统相机对象

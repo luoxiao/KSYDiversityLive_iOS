@@ -33,20 +33,18 @@
  *
  *  @return 返回查找到的人脸
  */
-+ (NSArray<TuSDKFaceAligment *> *) markFaceWithImage:(UIImage *)image;
++ (NSArray<TuSDKFaceAligment *> *)markFaceWithImage:(UIImage *)image;
 
 /**
  *  对检测到的人脸进行识别
  *
  *  @param sampleBuffer CMSampleBufferRef
  *  @param rotation     旋转角度
- *  @param faceFeature  人脸位置信息
  *  @param angle        设备旋转角度
  *
  *  @return 返回查找到的人脸
  */
 + (NSArray<TuSDKFaceAligment *> *)markFaceWithSampleBuffer:(CMSampleBufferRef)sampleBuffer
                                                   rotation:(UIImageOrientation)rotation
-                                              faceFeatures:(NSArray<TuSDKTSFaceFeature *> *)faceFeatures
                                                      angle:(float)angle;
 @end

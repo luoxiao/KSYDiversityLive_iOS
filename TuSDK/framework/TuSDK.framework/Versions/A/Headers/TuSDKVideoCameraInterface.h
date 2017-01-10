@@ -83,8 +83,20 @@ typedef NS_ENUM(NSInteger, lsqCameraState)
  *
  *  @param sampleBuffer 帧采样缓冲
  *  @param rotation     原始图像方向
+ *  @param previewSize  预览尺寸
+ *  @param angle        设备角度
  */
-- (void)onProcessVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer rotation:(UIImageOrientation)rotation angle:(float)angle;
+- (void)onProcessVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer rotation:(UIImageOrientation)rotation previewSize:(CGSize)previewSize angle:(float)angle;
+
+@optional
+/**
+ *  原始帧采样缓冲数据
+ *
+ *  @param pixelBuffer  帧采样缓冲
+ *  @param rotation     原始图像方向
+ *  @param angle        设备角度
+ */
+- (void)onProcessVideoPixelBuffer:(CVPixelBufferRef)pixelBuffer rotation:(UIImageOrientation)rotation angle:(float)angle;
 @end
 
 @protocol TuSDKVideoCameraExtendViewInterface;
@@ -198,7 +210,7 @@ typedef NS_ENUM(NSInteger, lsqCameraState)
 /**
  *  视频相机前置或后置
  *
- *  @return 视频相机前置或后置
+ *  @return cameraPosition 视频相机前置或后置
  */
 - (AVCaptureDevicePosition)cameraPosition;
 
@@ -207,7 +219,7 @@ typedef NS_ENUM(NSInteger, lsqCameraState)
  *
  *  @param focusMode 对焦模式
  *
- *  @return 是否支持对焦
+ *  @return BOOL 是否支持对焦
  */
 - (BOOL)isSupportFocusWithMode:(AVCaptureFocusMode)focusMode;
 
@@ -216,7 +228,7 @@ typedef NS_ENUM(NSInteger, lsqCameraState)
  *
  *  @param focusMode 曝光模式
  *
- *  @return 是否支持曝光模式
+ *  @return BOOL 是否支持曝光模式
  */
 - (BOOL)isSupportExposureWithMode:(AVCaptureExposureMode)exposureMode;
 
@@ -230,7 +242,7 @@ typedef NS_ENUM(NSInteger, lsqCameraState)
 /**
  *  是否存在闪关灯
  *
- *  @return 是否存在闪关灯
+ *  @return BOOL 是否存在闪关灯
  */
 - (BOOL)hasFlash;
 
@@ -274,7 +286,7 @@ typedef NS_ENUM(NSInteger, lsqCameraState)
  *
  *  @param code 滤镜代号
  *
- *  @return 是否成功切换滤镜
+ *  @return BOOL 是否成功切换滤镜
  */
 - (BOOL)switchFilterWithCode:(NSString *)code;
 

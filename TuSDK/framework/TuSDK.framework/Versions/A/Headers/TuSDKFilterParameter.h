@@ -108,7 +108,7 @@
 /**
  *  滤镜配置选项
  *
- *  @return 滤镜配置选项
+ *  @return parameter 滤镜配置选项
  */
 + (instancetype)parameter;
 
@@ -117,7 +117,7 @@
  *
  *  @param args 自定义参数
  *
- *  @return 滤镜配置选项
+ *  @return args 滤镜配置选项
  */
 + (instancetype)parameterWithArgs:(NSDictionary *)args;
 
@@ -148,7 +148,7 @@
  *
  *  @param key 参数键名
  *
- *  @return 滤镜参数
+ *  @return key 滤镜参数
  */
 - (TuSDKFilterArg *)argWithKey:(NSString *)key;
 
@@ -157,7 +157,7 @@
  *
  *  @param key 参数键名
  *
- *  @return 参数值
+ *  @return key 参数值
  */
 - (CGFloat)argWithDefaultKey:(NSString *)key;
 

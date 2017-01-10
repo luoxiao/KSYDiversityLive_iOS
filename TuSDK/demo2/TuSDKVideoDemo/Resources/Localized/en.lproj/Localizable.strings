@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  TuSDKLiveVideoDemo
+
+  Created by Yanlin on 3/7/16.
+  Copyright © 2016 tusdk.com. All rights reserved.
+*/
+
+"app_name" = "TuSDK Video Demo";
+
+"live_camera_sample" = "Live camera sample";
+"live_processor_sample" = "Image process engine";
+"record_camera_sample" = "Record camera sample";
+"record_camera_square_sample" = "Record camera sample (Square)";
+"record_camera_circle_sample" = "Record camera sample (Circle)";
+
+"beauty_on" = "Beauty Mode On";
+"beauty_off" = "Beauty Mode Off";
+
+"lsq_filter_VideoFair" = "Nature";
+"lsq_filter_VideoYoungGirl" = "Pink";
+"lsq_filter_VideoWhiteSkin" = "WhiteSkin";
+"lsq_filter_VideoFaceu01" = "Faceu 01";
+"lsq_filter_VideoHuaJiao" = "HuaJiao";
+"lsq_filter_VideoJelly" = "Jelly";
+
+"lsq_reset" = "Reset";
+"lsq_filter_set_smoothing" = "Smoothing";
+"lsq_filter_set_whitening" = "Whitening";
+"lsq_filter_set_blurSize" = "Blur Size";
+"lsq_filter_set_mixied" = "Mixed";
+"lsq_filter_set_distanceFactor" = "Radius";
+"lsq_filter_set_eyeSize" = "Eye";
+"lsq_filter_set_chinSize" = "Chin";

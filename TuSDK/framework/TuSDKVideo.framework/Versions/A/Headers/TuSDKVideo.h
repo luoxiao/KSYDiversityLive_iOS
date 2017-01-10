@@ -17,6 +17,8 @@
 #import "TuSDKFilterConfigProtocol.h"
 #import "TuSDKFilterConfigViewBase.h"
 
+#import "TuSDKVideoResult.h"
+
 /** Video版本号 */
 extern NSString * const lsqVideoVersion;
 

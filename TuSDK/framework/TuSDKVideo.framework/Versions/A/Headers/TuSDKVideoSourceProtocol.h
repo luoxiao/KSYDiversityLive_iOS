@@ -6,6 +6,8 @@
 //  Copyright © 2016 TuSDK. All rights reserved.
 //
 
+#import "TuSDKVideoCameraBase.h"
+
 /**
  *  视频输出协议
  */
@@ -45,8 +47,43 @@
 /**
  *  更新脸部信息
  *
- *  @param points
+ *  @param points    特征点数据
+ *  @param imageRect 视图尺寸
  */
-- (void)updateFaceFeatures:(NSArray<NSValue *> *)points;
+- (void)updateFaceFeatures:(NSArray<NSValue *> *)points imageRect:(CGRect)imageRect;
+
+@end
+
+#pragma mark - TuSDKVideoOutputWriter
+
+/**
+ *  视频输出接口
+ */
+@protocol TuSDKVideoOutputWriter <GPUImageInput>
+
+/**
+ *  相机对象
+ */
+@property (nonatomic, assign) id<TuSDKVideoCameraInterface> camera;
+
+/**
+ *  相机位置发生改变
+ */
+- (void)onCameraPositionChanged;
+
+/**
+ *  开始视频录制
+ */
+- (void)startRecording;
+
+/**
+ *  完成视频录制
+ */
+- (void)finishRecording;
+
+/**
+ *  终止录制
+ */
+- (void)cancelRecording;
 
 @end

@@ -8,6 +8,12 @@
 
 #import <GPUImage/GPUImage.h>
 #import "TuSDKVideoImport.h"
+#import "TuSDKVideoResult.h"
+
+/**
+ *  贴纸可以同时使用的的最大数量
+ */
+#define LSQ_SMART_STICKER_MAX_NUM 5
 
 /**
  *  输出帧格式类型
@@ -19,7 +25,7 @@ typedef NS_ENUM(NSInteger, lsqFrameFormatType)
      */
     lsqFormatTypeBGRA,
     /**
-     *  输出 YUV 格式 (kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)
+     *  输出 YUV 格式 (kCVPixelFormatType_420YpCbCr8BiPlanarFullRange，即 NV21， Two Plane)
      */
     lsqFormatTypeYUV420F,
     /**
@@ -27,40 +33,6 @@ typedef NS_ENUM(NSInteger, lsqFrameFormatType)
      */
     lsqFormatTypeRawData,
 };
-
-#pragma mark - TuSDKVideoOutputWriter
-
-/**
- *  视频输出接口
- */
-@protocol TuSDKVideoOutputWriter <GPUImageInput>
-
-/**
- *  相机对象
- */
-@property (nonatomic, assign) id<TuSDKVideoCameraInterface> camera;
-
-/**
- *  相机位置发生改变
- */
-- (void)onCameraPositionChanged;
-
-/**
- *  开始视频录制
- */
-- (void)startRecording;
-
-/**
- *  完成视频录制
- */
-- (void)finishRecording;
-
-/**
- *  终止录制
- */
-- (void)cancelRecording;
-
-@end
 
 #pragma mark - TuSDKVideoCameraBase
 
@@ -89,6 +61,11 @@ typedef NS_ENUM(NSInteger, lsqFrameFormatType)
  *  相机状态
  */
 @property (nonatomic, readonly) lsqCameraState state;
+
+/**
+ *  采集尺寸
+ */
+@property (nonatomic, readonly) CGSize captureSize;
 
 /**
  *  选区范围算法
@@ -165,7 +142,7 @@ typedef NS_ENUM(NSInteger, lsqFrameFormatType)
 @property (nonatomic) BOOL enableFaceDetection;
 
 /**
- *  是否开启智能美颜 (默认: 直播相机 YES)
+ *  是否开启智能美颜和智能贴纸 (默认: 直播相机 NO)
  */
 @property (nonatomic) BOOL enableFaceAutoBeauty;
 
@@ -248,6 +225,57 @@ typedef NS_ENUM(NSInteger, lsqFrameFormatType)
  *  @param newState 新的状态
  */
 - (void)onCameraStateChanged:(lsqCameraState)newState;
+
+/**
+ *  更新滤镜输出配置
+ */
+- (void)updateOutputFilter;
+
+#pragma mark - smart sticker
+
+/**
+ *  显示一组动态贴纸。当显示一组贴纸时，会清除画布上的其它贴纸
+ *
+ *  @param groupSticker 动态贴纸对象
+ */
+- (void)showGroupSticker:(TuSDKPFStickerGroup *)groupSticker;
+
+/**
+ *  动态贴纸组是否已在使用
+ *
+ *  @param groupSticker 动态贴纸组对象
+ *  @return 　是否使用
+ */
+- (BOOL)isGroupStickerUsed:(TuSDKPFStickerGroup *)groupSticker;
+
+/**
+ *  显示动态贴纸
+ *
+ *  @param liveSticker 动态贴纸对象
+ */
+- (void)addLiveSticker:(TuSDKPFSticker *)liveSticker;
+
+/**
+ *  动态贴纸是否已在使用
+ *
+ *  @param liveSticker 动态贴纸组对象
+ *  @return 　是否使用
+ */
+- (BOOL)isLiveStickerUsed:(TuSDKPFSticker *)liveSticker;
+
+/**
+ *  从相机移除动态贴纸
+ *
+ *  @param liveSticker 动态贴纸对象
+ */
+- (void)removeLiveSticker:(TuSDKPFSticker *)liveSticker;
+
+/**
+ *  清除动态贴纸
+ */
+- (void)removeAllLiveSticker;
+
+#pragma mark - destory
 
 /**
  *  销毁

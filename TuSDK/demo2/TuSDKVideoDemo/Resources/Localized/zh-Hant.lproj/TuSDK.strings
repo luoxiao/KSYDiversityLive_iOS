@@ -1,0 +1,14 @@
+/* 
+  TuSDK.strings
+  TuSDKVideoDemo
+
+  Created by Yanlin Qiu on 24/10/2016.
+  Copyright © 2016 TuSDK. All rights reserved.
+*/
+
+"lsq_sticker_loading" = "正在加載貼紙...";
+"lsq_sticker_load_unexsit" = "貼紙不存在，請換一個試試";
+"lsq_sticker_over_limit%ld" = "OMG, 同時僅允許使用 %ld 張貼紙";
+
+"lsq_save_saveToAlbum_succeed" = "保存成功";
+"lsq_save_saveToAlbum_failed" = "保存到相冊失敗";

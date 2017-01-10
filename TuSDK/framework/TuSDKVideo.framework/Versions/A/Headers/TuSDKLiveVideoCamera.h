@@ -64,7 +64,7 @@
 /**
  *  相机事件委托
  */
-@property (nonatomic, assign) id<TuSDKLiveVideoCameraDelegate> videoDelegate;
+@property (nonatomic, weak) id<TuSDKLiveVideoCameraDelegate> videoDelegate;
 
 /**
  *  输出 PixelBuffer 格式，可选: lsqFormatTypeBGRA | lsqFormatTypeYUV420F | lsqFormatTypeRawData

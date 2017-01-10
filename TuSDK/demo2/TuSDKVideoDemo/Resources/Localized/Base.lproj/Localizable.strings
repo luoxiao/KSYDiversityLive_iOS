@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  TuSDKLiveVideoDemo
+
+  Created by Yanlin on 3/7/16.
+  Copyright © 2016 tusdk.com. All rights reserved.
+*/
+
+"app_name" = "涂图 - TuSDK Video Demo";
+
+"live_camera_sample" = "直播相机示例";
+"live_processor_sample" = "图像引擎示例";
+"record_camera_sample" = "视频录制示例";
+"record_camera_square_sample" = "视频录制示例 - 正方画幅";
+"record_camera_circle_sample" = "视频录制示例 - 圆画幅";
+
+"beauty_on" = "美颜已开启";
+"beauty_off" = "美颜已关闭";
+
+"lsq_filter_VideoFair" = "自然";
+"lsq_filter_VideoYoungGirl" = "粉嫩";
+"lsq_filter_VideoWhiteSkin" = "美白";
+"lsq_filter_VideoFaceu01" = "Faceu 01";
+"lsq_filter_VideoHuaJiao" = "仿花椒";
+"lsq_filter_VideoJelly" = "果冻";
+
+"lsq_reset" = "重置";
+"lsq_filter_set_smoothing" = "润滑";
+"lsq_filter_set_whitening" = "白皙";
+"lsq_filter_set_blurSize" = "强度";
+"lsq_filter_set_mixied" = "效果";
+"lsq_filter_set_distanceFactor" = "半径";
+"lsq_filter_set_eyeSize" = "大眼";
+"lsq_filter_set_chinSize" = "瘦脸";

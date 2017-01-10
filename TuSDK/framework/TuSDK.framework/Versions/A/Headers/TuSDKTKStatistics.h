@@ -60,6 +60,11 @@ typedef NS_ENUM(NSInteger, TuSDKTKComponentType) {
     tkc_photoListFragment = 0x202000,
     
     /**
+     * 相册照片预览控制器
+     */
+    tkc_photoListPreviewFragment = 0x202001,
+    
+    /**
      * 头像设置组件
      */
     tkc_avatarComponent = 0x300000,
@@ -210,9 +215,19 @@ typedef NS_ENUM(NSInteger, TuSDKTKComponentType) {
     tkc_editHolyLightFragment = 0x409700,
     
     /**
+     * 编辑控制器
+     */
+    tkc_multipleEditFragment = 0x409800,
+    
+    /**
      * 相机控制器
      */
     tkc_cameraFragment = 0x500000,
+    
+    /**
+     * 相机预览控制器
+     */
+    tkc_cameraPreviewFragment = 0x500010,
     
     /**
      * 相机控制器 拍照动作
@@ -273,6 +288,21 @@ typedef NS_ENUM(NSInteger, TuSDKTKComponentType) {
      * 相机控制器 显示比例 1_1
      */
     tkc_camera_action_ratio_1_1 = 0x501044,
+    
+    /**
+     * 相机控制器 显示比例 3_2
+     */
+    tkc_camera_action_ratio_3_2 = 0x501045,
+    
+    /**
+     * 相机控制器 显示比例 4_3
+     */
+    tkc_camera_action_ratio_4_3 = 0x501046,
+    
+    /**
+     * 相机控制器 显示比例 16_9
+     */
+    tkc_camera_action_ratio_16_9 = 0x501047,
     
     /**
      * 本地贴纸控制器

@@ -17,11 +17,10 @@
 /**
  *  视频录制完成
  *
- *  @param camerea    相机
- *  @param duration   录制时长
- *  @param videoAsset Asset对象
+ *  @param camerea 相机
+ *  @param result  TuSDKVideoResult 对象
  */
-- (void)onVideoCamera:(TuSDKRecordVideoCamera *)camerea movieRecordCompleted:(CMTime)duration asset:(id<TuSDKTSAssetInterface>)videoAsset;
+- (void)onVideoCamera:(TuSDKRecordVideoCamera *)camerea result:(TuSDKVideoResult *)result;
 
 /**
  *  视频录制出错
@@ -53,12 +52,17 @@
 /**
  *  相机事件委托
  */
-@property (nonatomic, assign) id<TuSDKRecordVideoCameraDelegate> videoDelegate;
+@property (nonatomic, weak) id<TuSDKRecordVideoCameraDelegate> videoDelegate;
 
 /**
- *  录制视频的总时长. 达到指定时长后，自动停止录制 (默认: 10s)
+ *  录制视频的总时长. 达到指定时长后，自动停止录制 (默认: 10s，如设置为 0，则需要手动终止)
  */
 @property (nonatomic, assign) NSUInteger limitDuration;
+
+/**
+ *  保存到系统相册 (默认保存, 当设置为NO时, 保存到临时目录)
+ */
+@property (nonatomic) BOOL saveToAlbum;
 
 /**
  *  保存到系统相册的相册名称
