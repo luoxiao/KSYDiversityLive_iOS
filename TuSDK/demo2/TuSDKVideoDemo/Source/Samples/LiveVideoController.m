@@ -28,7 +28,8 @@
     // 测试视图
     UIImageView *_previewView;
 }
-
+// 推流地址 完整的URL
+@property NSURL * hostURL;
 @end
 
 #pragma mark - LiveVideoController
@@ -96,28 +97,52 @@
 
 - (void)initSettingsAndStartPreview
 {
-    
     //kit initialized
     _kit = [[KSYGPUStreamerKit alloc] initWithDefaultCfg];
-    
-    // 预先设定几组编码质量，之后可以切换
-    CGSize videoSize = CGSizeMake(320, 480);
-    
     // Off | On | Auto
     self.flashModeIndex = 0;
     [self updateFlashModeStatus];
     
-    AVCaptureDevicePosition pos = [AVCaptureDevice lsqFirstFrontCameraPosition];
+    [self setCaptureCfg];
+    [self setStreamCfg];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(streamStateChange) name:KSYStreamStateDidChangeNotification object:nil];
+    
+    [_cameraSource startRunning];
+    [_kit.aCapDev startCapture];
+}
+- (void) streamStateChange{
+    if (_kit.streamerBase){
+        [self.mSettingButton setTitle:[_kit.streamerBase getCurStreamStateName] forState:UIControlStateNormal];
+    }
+}
+- (void)setCaptureCfg{
+    _kit.previewDimension = [self.cfgview capResolutionSize];
+    _kit.streamDimension  = [self.cfgview strResolutionSize ];
+    AVCaptureDevicePosition pos = [AVCaptureDevice lsqFirstFrontCameraPosition];
     if (!pos)
     {
         pos = [AVCaptureDevice lsqFirstBackCameraPosition];
     }
-    
-    _cameraSource = [[TuSDKLiveCameraSource alloc] initWithCameraPosition:pos cameraView:_cameraView videoSize:videoSize];
+    _cameraSource = [[TuSDKLiveCameraSource alloc] initWithCameraPosition:pos cameraView:_cameraView videoSize:[self.cfgview capResolutionSize]];
     _cameraSource.delegate = self;
-    [_cameraSource startRunning];
-    [_kit.aCapDev startCapture];
+}
+- (void)setStreamCfg{
+    if (_cfgview) {
+        _kit.streamerBase.videoCodec       = [_cfgview videoCodec];
+        _kit.streamerBase.videoInitBitrate = [_cfgview videoKbps]*6/10;//60%
+        _kit.streamerBase.videoMaxBitrate  = [_cfgview videoKbps];
+        _kit.streamerBase.videoMinBitrate  = 0; //
+        _kit.streamerBase.audioCodec       = [_cfgview audioCodec];
+        _kit.streamerBase.audiokBPS        = [_cfgview audioKbps];
+        _kit.streamerBase.videoFPS         = [_cfgview frameRate];
+        _kit.streamerBase.bwEstimateMode   = [_cfgview bwEstMode];
+        _kit.streamerBase.shouldEnableKSYStatModule = YES;
+        _kit.streamerBase.logBlock = ^(NSString* str){
+            //NSLog(@"%@", str);
+        };
+        _hostURL = [NSURL URLWithString:[_cfgview hostUrl]];
+    }
 }
 
 - (void)switchFilter:(NSString *)code
@@ -129,6 +154,7 @@
 
 - (void)dealloc {
     self.sessionQueue = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_kit.aCapDev stopCapture];
     [_cameraSource stopRunning];
     _kit = nil;
@@ -172,7 +198,7 @@
     {
         self.mSettingButton.selected = !self.mSettingButton.selected;
         if (self.mSettingButton.selected) {
-            [_kit.streamerBase startStream:[NSURL URLWithString:@"rtmp://test.uplive.ks-cdn.com/live/ksyun"]];
+            [_kit.streamerBase startStream:_hostURL];
         }else{
             [_kit.streamerBase stopStream];
         }

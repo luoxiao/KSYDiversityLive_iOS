@@ -24,6 +24,12 @@
 		E38A04111E24B7D1009F2094 /* TuSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E38A040C1E24B7D1009F2094 /* TuSDK.framework */; };
 		E38A04121E24B7D1009F2094 /* TuSDKFace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E38A040D1E24B7D1009F2094 /* TuSDKFace.framework */; };
 		E38A04131E24B7D1009F2094 /* TuSDKVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E38A040E1E24B7D1009F2094 /* TuSDKVideo.framework */; };
+		E38A046A1E2607BE009F2094 /* KSYNameSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E38A045F1E2607BE009F2094 /* KSYNameSlider.m */; };
+		E38A046B1E2607BE009F2094 /* KSYPresetCfgVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E38A04611E2607BE009F2094 /* KSYPresetCfgVC.m */; };
+		E38A046C1E2607BE009F2094 /* KSYPresetCfgView.m in Sources */ = {isa = PBXBuildFile; fileRef = E38A04631E2607BE009F2094 /* KSYPresetCfgView.m */; };
+		E38A046D1E2607BE009F2094 /* KSYReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E38A04651E2607BE009F2094 /* KSYReachability.m */; };
+		E38A046E1E2607BE009F2094 /* KSYUIVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E38A04671E2607BE009F2094 /* KSYUIVC.m */; };
+		E38A046F1E2607BE009F2094 /* KSYUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = E38A04691E2607BE009F2094 /* KSYUIView.m */; };
 		F82325951CC503FC00E154FC /* icon_beauty_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F823256F1CC503FC00E154FC /* icon_beauty_off@2x.png */; };
 		F82325961CC503FC00E154FC /* icon_beauty_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F82325701CC503FC00E154FC /* icon_beauty_off@3x.png */; };
 		F82325971CC503FC00E154FC /* icon_beauty_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F82325711CC503FC00E154FC /* icon_beauty_on@2x.png */; };
@@ -111,6 +117,18 @@
 		E38A040E1E24B7D1009F2094 /* TuSDKVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TuSDKVideo.framework; path = ../framework/TuSDKVideo.framework; sourceTree = "<group>"; };
 		E38A04141E24BCD4009F2094 /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGPUImage.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/TuSDKVideoDemo-aeznulxhinyrtrgxdoiwfsfugglu/Build/Products/Debug-iphoneos/GPUImage/libGPUImage.a"; sourceTree = "<group>"; };
 		E38A04161E24BCDD009F2094 /* liblibksygpulive.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibksygpulive.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/TuSDKVideoDemo-aeznulxhinyrtrgxdoiwfsfugglu/Build/Products/Debug-iphoneos/libksygpulive/liblibksygpulive.a"; sourceTree = "<group>"; };
+		E38A045E1E2607BE009F2094 /* KSYNameSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYNameSlider.h; path = TuSDKVideoDemo/KSYConfigVC/KSYNameSlider.h; sourceTree = SOURCE_ROOT; };
+		E38A045F1E2607BE009F2094 /* KSYNameSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYNameSlider.m; path = TuSDKVideoDemo/KSYConfigVC/KSYNameSlider.m; sourceTree = SOURCE_ROOT; };
+		E38A04601E2607BE009F2094 /* KSYPresetCfgVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYPresetCfgVC.h; path = TuSDKVideoDemo/KSYConfigVC/KSYPresetCfgVC.h; sourceTree = SOURCE_ROOT; };
+		E38A04611E2607BE009F2094 /* KSYPresetCfgVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYPresetCfgVC.m; path = TuSDKVideoDemo/KSYConfigVC/KSYPresetCfgVC.m; sourceTree = SOURCE_ROOT; };
+		E38A04621E2607BE009F2094 /* KSYPresetCfgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYPresetCfgView.h; path = TuSDKVideoDemo/KSYConfigVC/KSYPresetCfgView.h; sourceTree = SOURCE_ROOT; };
+		E38A04631E2607BE009F2094 /* KSYPresetCfgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYPresetCfgView.m; path = TuSDKVideoDemo/KSYConfigVC/KSYPresetCfgView.m; sourceTree = SOURCE_ROOT; };
+		E38A04641E2607BE009F2094 /* KSYReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYReachability.h; path = TuSDKVideoDemo/KSYConfigVC/KSYReachability.h; sourceTree = SOURCE_ROOT; };
+		E38A04651E2607BE009F2094 /* KSYReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYReachability.m; path = TuSDKVideoDemo/KSYConfigVC/KSYReachability.m; sourceTree = SOURCE_ROOT; };
+		E38A04661E2607BE009F2094 /* KSYUIVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYUIVC.h; path = TuSDKVideoDemo/KSYConfigVC/KSYUIVC.h; sourceTree = SOURCE_ROOT; };
+		E38A04671E2607BE009F2094 /* KSYUIVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYUIVC.m; path = TuSDKVideoDemo/KSYConfigVC/KSYUIVC.m; sourceTree = SOURCE_ROOT; };
+		E38A04681E2607BE009F2094 /* KSYUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYUIView.h; path = TuSDKVideoDemo/KSYConfigVC/KSYUIView.h; sourceTree = SOURCE_ROOT; };
+		E38A04691E2607BE009F2094 /* KSYUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYUIView.m; path = TuSDKVideoDemo/KSYConfigVC/KSYUIView.m; sourceTree = SOURCE_ROOT; };
 		F823256F1CC503FC00E154FC /* icon_beauty_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_beauty_off@2x.png"; sourceTree = "<group>"; };
 		F82325701CC503FC00E154FC /* icon_beauty_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_beauty_off@3x.png"; sourceTree = "<group>"; };
 		F82325711CC503FC00E154FC /* icon_beauty_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_beauty_on@2x.png"; sourceTree = "<group>"; };
@@ -212,6 +230,18 @@
 		E30F04C31E23E8E00062927C /* KSYConfigVC */ = {
 			isa = PBXGroup;
 			children = (
+				E38A045E1E2607BE009F2094 /* KSYNameSlider.h */,
+				E38A045F1E2607BE009F2094 /* KSYNameSlider.m */,
+				E38A04601E2607BE009F2094 /* KSYPresetCfgVC.h */,
+				E38A04611E2607BE009F2094 /* KSYPresetCfgVC.m */,
+				E38A04621E2607BE009F2094 /* KSYPresetCfgView.h */,
+				E38A04631E2607BE009F2094 /* KSYPresetCfgView.m */,
+				E38A04641E2607BE009F2094 /* KSYReachability.h */,
+				E38A04651E2607BE009F2094 /* KSYReachability.m */,
+				E38A04661E2607BE009F2094 /* KSYUIVC.h */,
+				E38A04671E2607BE009F2094 /* KSYUIVC.m */,
+				E38A04681E2607BE009F2094 /* KSYUIView.h */,
+				E38A04691E2607BE009F2094 /* KSYUIView.m */,
 			);
 			name = KSYConfigVC;
 			sourceTree = "<group>";
@@ -548,8 +578,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E38A046E1E2607BE009F2094 /* KSYUIVC.m in Sources */,
 				3303C7271DB8A52400C4BDFA /* StickerListCell.m in Sources */,
 				E30F04E81E24A05F0062927C /* TuSDKRecordCameraSource.m in Sources */,
+				E38A046C1E2607BE009F2094 /* KSYPresetCfgView.m in Sources */,
 				F8DDFBAA1CE062BF00D1F097 /* LiveProcessorController.m in Sources */,
 				E30F04E11E247D870062927C /* SimpleVideoController.m in Sources */,
 				F8DDFBAB1CE062BF00D1F097 /* LiveVideoController.m in Sources */,
@@ -557,8 +589,12 @@
 				F82325BC1CC507EF00E154FC /* TuSDKLiveCameraSource.m in Sources */,
 				E30F04E71E24A05F0062927C /* TuSDKLocalSmartStickerDataSource.m in Sources */,
 				F874C6281C8AF92900BD702D /* MainViewController.m in Sources */,
+				E38A046F1E2607BE009F2094 /* KSYUIView.m in Sources */,
 				E30F04E01E247D870062927C /* RecordVideoController.m in Sources */,
 				F82325F21CC9D78900E154FC /* FilterConfigView.m in Sources */,
+				E38A046B1E2607BE009F2094 /* KSYPresetCfgVC.m in Sources */,
+				E38A046A1E2607BE009F2094 /* KSYNameSlider.m in Sources */,
+				E38A046D1E2607BE009F2094 /* KSYReachability.m in Sources */,
 				F874C5F81C8AF72C00BD702D /* main.m in Sources */,
 				F82325D91CC7674A00E154FC /* TuSDKVideoProcessor.m in Sources */,
 			);

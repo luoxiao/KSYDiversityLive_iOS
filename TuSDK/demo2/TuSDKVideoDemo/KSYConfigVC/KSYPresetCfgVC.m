@@ -9,7 +9,7 @@
 
 #import "KSYPresetCfgVC.h"
 #import "KSYUIView.h"
-#import "KSYStreamerVC.h"
+#import "LiveVideoController.h"
 
 
 #ifdef KSYSTREAMER_DEMO
@@ -93,10 +93,9 @@
 - (IBAction)btnFunc:(id)sender {
     UIViewController *vc = nil;
     if ( sender == _cfgView.btn0) { // kit demo
-        NSString * btnName = _cfgView.btn0.currentTitle;
-        KSYStreamerVC * strVC = [[KSYStreamerVC alloc] initWithCfg:_cfgView];
-        [strVC.ctrlView.btnStream setTitle:btnName forState:UIControlStateNormal];
-        vc = strVC;
+        LiveVideoController *vc = [LiveVideoController new];
+        vc.cfgview = self.cfgView;
+        [self presentViewController:vc animated:YES completion:nil];
     }
     else if ( sender == _cfgView.btn2) { // tests
 #ifdef KSYSTREAMER_DEMO

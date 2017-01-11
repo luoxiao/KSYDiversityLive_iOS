@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TuSDKFramework.h"
 #import "MainViewController.h"
+#import "KSYPresetCfgVC.h"
 
 @interface AppDelegate ()
 
@@ -38,7 +39,8 @@
     self.window.backgroundColor = [UIColor clearColor];
     
     // 初始化根控制器
-    self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[MainViewController controller]];
+    KSYPresetCfgVC *presetCfg = [[KSYPresetCfgVC alloc] init];
+    self.window.rootViewController = presetCfg;
     [self.window makeKeyAndVisible];
     
     return YES;
