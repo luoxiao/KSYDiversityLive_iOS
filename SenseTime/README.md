@@ -31,6 +31,10 @@
 重要功能类介绍：
 
 
+KSYSTFilter: 封装了商汤美颜和动态贴纸功能；
+
+
+KSYSTKit：实现了音视频的采集，编码、推流功能；
 
 依赖库导入：(https://github.com/ksvc/KSYLive_iOS/wiki/dylib)
 
