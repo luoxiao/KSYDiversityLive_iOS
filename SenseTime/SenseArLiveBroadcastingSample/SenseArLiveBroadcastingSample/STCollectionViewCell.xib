@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="STCollectionViewCell" id="gTV-IL-0wX" customClass="STCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="145.5" height="163.5"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="145.5" height="163.5"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Npk-gK-wKy" userLabel="thumbnail">
+                        <rect key="frame" x="12.5" y="20" width="120.5" height="120.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Npk-gK-wKy" secondAttribute="height" multiplier="1:1" id="mpV-PC-yAC"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download.png" translatesAutoresizingMaskIntoConstraints="NO" id="UUy-QT-gVz">
+                        <rect key="frame" x="113.5" y="120" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="BVf-Jq-88Y"/>
+                            <constraint firstAttribute="height" constant="20" id="jWZ-y5-QW2"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="sHX-cZ-894">
+                        <rect key="frame" x="12.5" y="150.5" width="120.5" height="13"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.94117647059999998" green="0.85490196080000003" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uxS-rB-7V9">
+                        <rect key="frame" x="54.5" y="62" width="37" height="37"/>
+                        <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </activityIndicatorView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6yG-I7-E8c" userLabel="adType">
+                        <rect key="frame" x="0.0" y="150.5" width="13" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="6yG-I7-E8c" secondAttribute="height" multiplier="1:1" id="0Lm-W2-oV0"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="6yG-I7-E8c" firstAttribute="top" secondItem="Npk-gK-wKy" secondAttribute="bottom" constant="10" id="450-Z9-T2X"/>
+                <constraint firstItem="uxS-rB-7V9" firstAttribute="centerY" secondItem="Npk-gK-wKy" secondAttribute="centerY" id="5H7-zo-Wql"/>
+                <constraint firstItem="6yG-I7-E8c" firstAttribute="trailing" secondItem="Npk-gK-wKy" secondAttribute="leading" id="MWb-2K-3wZ"/>
+                <constraint firstItem="Npk-gK-wKy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="OgO-y1-xdD"/>
+                <constraint firstItem="6yG-I7-E8c" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bEF-ES-zbc"/>
+                <constraint firstItem="uxS-rB-7V9" firstAttribute="centerX" secondItem="Npk-gK-wKy" secondAttribute="centerX" id="bVF-JM-VDh"/>
+                <constraint firstItem="Npk-gK-wKy" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" constant="-25" id="eNJ-iT-erM"/>
+                <constraint firstItem="UUy-QT-gVz" firstAttribute="bottom" secondItem="Npk-gK-wKy" secondAttribute="bottom" id="k6a-4O-YS5"/>
+                <constraint firstItem="sHX-cZ-894" firstAttribute="top" secondItem="Npk-gK-wKy" secondAttribute="bottom" constant="10" id="lJI-FL-zhY"/>
+                <constraint firstItem="sHX-cZ-894" firstAttribute="height" secondItem="6yG-I7-E8c" secondAttribute="height" id="mCG-62-6gM"/>
+                <constraint firstItem="Npk-gK-wKy" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="n9d-4W-aj7"/>
+                <constraint firstItem="sHX-cZ-894" firstAttribute="leading" secondItem="6yG-I7-E8c" secondAttribute="trailing" id="rjv-Xg-bWg"/>
+                <constraint firstItem="sHX-cZ-894" firstAttribute="width" secondItem="Npk-gK-wKy" secondAttribute="width" id="tQD-cy-ZnK"/>
+                <constraint firstItem="UUy-QT-gVz" firstAttribute="trailing" secondItem="Npk-gK-wKy" secondAttribute="trailing" id="uA7-la-0yH"/>
+            </constraints>
+            <size key="customSize" width="224.5" height="279.5"/>
+            <connections>
+                <outlet property="adTypeView" destination="6yG-I7-E8c" id="jF3-Xm-0uc"/>
+                <outlet property="downloadSign" destination="UUy-QT-gVz" id="9K5-bN-NcY"/>
+                <outlet property="lblInfo" destination="sHX-cZ-894" id="OGY-2J-JO5"/>
+                <outlet property="loadingIndicator" destination="uxS-rB-7V9" id="5c3-f0-Uqc"/>
+                <outlet property="thumbnail" destination="Npk-gK-wKy" id="y10-KG-mDt"/>
+            </connections>
+            <point key="canvasLocation" x="353.75" y="243.75"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="download.png" width="14" height="14"/>
+    </resources>
+</document>
