@@ -1,0 +1,465 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E32815DB1E2E8AA300399E94 /* KSYSTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E32815DA1E2E8AA300399E94 /* KSYSTVC.m */; };
+		E32815DE1E2F3D6900399E94 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32815DC1E2F3D6900399E94 /* GPUImage.framework */; };
+		E32815DF1E2F3D6900399E94 /* libksygpulive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32815DD1E2F3D6900399E94 /* libksygpulive.framework */; };
+		E32815E01E2F3D7600399E94 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32815DC1E2F3D6900399E94 /* GPUImage.framework */; };
+		E32815E11E2F3D7600399E94 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E32815DC1E2F3D6900399E94 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E32815E21E2F3D7600399E94 /* libksygpulive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32815DD1E2F3D6900399E94 /* libksygpulive.framework */; };
+		E32815E31E2F3D7600399E94 /* libksygpulive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E32815DD1E2F3D6900399E94 /* libksygpulive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E32815F21E2F3D9700399E94 /* action3.1.0.model in Resources */ = {isa = PBXBuildFile; fileRef = E32815E41E2F3D9700399E94 /* action3.1.0.model */; };
+		E32815F31E2F3D9700399E94 /* libSenseAr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E32815E51E2F3D9700399E94 /* libSenseAr.a */; };
+		E32815F41E2F3D9700399E94 /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = E32815F11E2F3D9700399E94 /* SENSEME.lic */; };
+		E329BF7C1E29D4B300DD72EF /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E329BF7A1E29D4B300DD72EF /* GPUImage.framework */; };
+		E329BF7D1E29D4B300DD72EF /* libksygpulive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E329BF7B1E29D4B300DD72EF /* libksygpulive.framework */; };
+		E329BF901E2A7B7100DD72EF /* KSYSTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E329BF8F1E2A7B7100DD72EF /* KSYSTFilter.m */; };
+		E329BF961E2E05DB00DD72EF /* KSYSTKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E329BF951E2E05DB00DD72EF /* KSYSTKit.m */; };
+		F75008481D5B680D0004D150 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F75008471D5B680D0004D150 /* icon@2x.png */; };
+		F7FFB41A1D2FB9FB00E7DD2D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FFB4191D2FB9FB00E7DD2D /* main.m */; };
+		F7FFB41D1D2FB9FB00E7DD2D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FFB41C1D2FB9FB00E7DD2D /* AppDelegate.m */; };
+		F7FFB4231D2FB9FB00E7DD2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7FFB4211D2FB9FB00E7DD2D /* Main.storyboard */; };
+		F7FFB4251D2FB9FB00E7DD2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7FFB4241D2FB9FB00E7DD2D /* Assets.xcassets */; };
+		F7FFB4281D2FB9FB00E7DD2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7FFB4261D2FB9FB00E7DD2D /* LaunchScreen.storyboard */; };
+		F7FFB4301D2FBA4900E7DD2D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7FFB42F1D2FBA4900E7DD2D /* Default-568h@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E329BF821E29D4BD00DD72EF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E32815E11E2F3D7600399E94 /* GPUImage.framework in Embed Frameworks */,
+				E32815E31E2F3D7600399E94 /* libksygpulive.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E32815D91E2E8AA300399E94 /* KSYSTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYSTVC.h; sourceTree = "<group>"; };
+		E32815DA1E2E8AA300399E94 /* KSYSTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYSTVC.m; sourceTree = "<group>"; };
+		E32815DC1E2F3D6900399E94 /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPUImage.framework; path = ../../framework/GPUImage.framework; sourceTree = "<group>"; };
+		E32815DD1E2F3D6900399E94 /* libksygpulive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libksygpulive.framework; path = ../../framework/libksygpulive.framework; sourceTree = "<group>"; };
+		E32815E41E2F3D9700399E94 /* action3.1.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; name = action3.1.0.model; path = ../../source/action3.1.0.model; sourceTree = "<group>"; };
+		E32815E51E2F3D9700399E94 /* libSenseAr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSenseAr.a; path = ../../source/libSenseAr.a; sourceTree = "<group>"; };
+		E32815E61E2F3D9700399E94 /* SenseAr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseAr.h; path = ../../source/SenseAr.h; sourceTree = "<group>"; };
+		E32815E71E2F3D9700399E94 /* SenseArAudienceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseArAudienceClient.h; path = ../../source/SenseArAudienceClient.h; sourceTree = "<group>"; };
+		E32815E81E2F3D9700399E94 /* SenseArBroadcasterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseArBroadcasterClient.h; path = ../../source/SenseArBroadcasterClient.h; sourceTree = "<group>"; };
+		E32815E91E2F3D9700399E94 /* SenseArClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseArClient.h; path = ../../source/SenseArClient.h; sourceTree = "<group>"; };
+		E32815EA1E2F3D9700399E94 /* SenseArFrameActionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseArFrameActionInfo.h; path = ../../source/SenseArFrameActionInfo.h; sourceTree = "<group>"; };
+		E32815EB1E2F3D9700399E94 /* SenseArMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseArMaterial.h; path = ../../source/SenseArMaterial.h; sourceTree = "<group>"; };
+		E32815EC1E2F3D9700399E94 /* SenseArMaterialGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseArMaterialGroup.h; path = ../../source/SenseArMaterialGroup.h; sourceTree = "<group>"; };
+		E32815ED1E2F3D9700399E94 /* SenseArMaterialPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseArMaterialPart.h; path = ../../source/SenseArMaterialPart.h; sourceTree = "<group>"; };
+		E32815EE1E2F3D9700399E94 /* SenseArMaterialRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseArMaterialRender.h; path = ../../source/SenseArMaterialRender.h; sourceTree = "<group>"; };
+		E32815EF1E2F3D9700399E94 /* SenseArMaterialService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseArMaterialService.h; path = ../../source/SenseArMaterialService.h; sourceTree = "<group>"; };
+		E32815F01E2F3D9700399E94 /* SenseArShortVideoClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseArShortVideoClient.h; path = ../../source/SenseArShortVideoClient.h; sourceTree = "<group>"; };
+		E32815F11E2F3D9700399E94 /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SENSEME.lic; path = ../../source/SENSEME.lic; sourceTree = "<group>"; };
+		E329BF7A1E29D4B300DD72EF /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPUImage.framework; path = /Users/sunjian/Desktop/SenseAR_iOS_SDK/samples/ksylive/GPUImage.framework; sourceTree = "<absolute>"; };
+		E329BF7B1E29D4B300DD72EF /* libksygpulive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libksygpulive.framework; path = /Users/sunjian/Desktop/SenseAR_iOS_SDK/samples/ksylive/libksygpulive.framework; sourceTree = "<absolute>"; };
+		E329BF8E1E2A7B7100DD72EF /* KSYSTFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYSTFilter.h; sourceTree = "<group>"; };
+		E329BF8F1E2A7B7100DD72EF /* KSYSTFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYSTFilter.m; sourceTree = "<group>"; };
+		E329BF941E2E05DB00DD72EF /* KSYSTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYSTKit.h; sourceTree = "<group>"; };
+		E329BF951E2E05DB00DD72EF /* KSYSTKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYSTKit.m; sourceTree = "<group>"; };
+		F72F11361DC21A0E00CDC860 /* libSenseAr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSenseAr.a; path = "../Build/Products/Debug-iphoneos/libSenseAr.a"; sourceTree = "<group>"; };
+		F75008471D5B680D0004D150 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		F795BD4B1DF842C300BC7CC4 /* libSenseAr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSenseAr.a; path = "../SenseAr/build/Release-iphoneos/libSenseAr.a"; sourceTree = "<group>"; };
+		F7FFB4151D2FB9FB00E7DD2D /* SenseArLiveBroadcastingSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SenseArLiveBroadcastingSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7FFB4191D2FB9FB00E7DD2D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F7FFB41B1D2FB9FB00E7DD2D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F7FFB41C1D2FB9FB00E7DD2D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F7FFB4221D2FB9FB00E7DD2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F7FFB4241D2FB9FB00E7DD2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F7FFB4271D2FB9FB00E7DD2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F7FFB4291D2FB9FB00E7DD2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7FFB42F1D2FBA4900E7DD2D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F7FFB4121D2FB9FB00E7DD2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E329BF7D1E29D4B300DD72EF /* libksygpulive.framework in Frameworks */,
+				E32815DE1E2F3D6900399E94 /* GPUImage.framework in Frameworks */,
+				E32815DF1E2F3D6900399E94 /* libksygpulive.framework in Frameworks */,
+				E32815F31E2F3D9700399E94 /* libSenseAr.a in Frameworks */,
+				E32815E21E2F3D7600399E94 /* libksygpulive.framework in Frameworks */,
+				E329BF7C1E29D4B300DD72EF /* GPUImage.framework in Frameworks */,
+				E32815E01E2F3D7600399E94 /* GPUImage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E329BF791E29D47A00DD72EF /* ksylive */ = {
+			isa = PBXGroup;
+			children = (
+				E32815DC1E2F3D6900399E94 /* GPUImage.framework */,
+				E32815DD1E2F3D6900399E94 /* libksygpulive.framework */,
+			);
+			name = ksylive;
+			sourceTree = "<group>";
+		};
+		F71FAEE81DB9B5A900BFCDFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F795BD4B1DF842C300BC7CC4 /* libSenseAr.a */,
+				F72F11361DC21A0E00CDC860 /* libSenseAr.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F71FAEED1DB9B60100BFCDFE /* SenseAr */ = {
+			isa = PBXGroup;
+			children = (
+				E32815E41E2F3D9700399E94 /* action3.1.0.model */,
+				E32815E51E2F3D9700399E94 /* libSenseAr.a */,
+				E32815E61E2F3D9700399E94 /* SenseAr.h */,
+				E32815E71E2F3D9700399E94 /* SenseArAudienceClient.h */,
+				E32815E81E2F3D9700399E94 /* SenseArBroadcasterClient.h */,
+				E32815E91E2F3D9700399E94 /* SenseArClient.h */,
+				E32815EA1E2F3D9700399E94 /* SenseArFrameActionInfo.h */,
+				E32815EB1E2F3D9700399E94 /* SenseArMaterial.h */,
+				E32815EC1E2F3D9700399E94 /* SenseArMaterialGroup.h */,
+				E32815ED1E2F3D9700399E94 /* SenseArMaterialPart.h */,
+				E32815EE1E2F3D9700399E94 /* SenseArMaterialRender.h */,
+				E32815EF1E2F3D9700399E94 /* SenseArMaterialService.h */,
+				E32815F01E2F3D9700399E94 /* SenseArShortVideoClient.h */,
+				E32815F11E2F3D9700399E94 /* SENSEME.lic */,
+			);
+			name = SenseAr;
+			sourceTree = "<group>";
+		};
+		F7FFB40C1D2FB9FB00E7DD2D = {
+			isa = PBXGroup;
+			children = (
+				F7FFB4171D2FB9FB00E7DD2D /* SenseArLiveBroadcastingSample */,
+				F7FFB4161D2FB9FB00E7DD2D /* Products */,
+				F71FAEE81DB9B5A900BFCDFE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F7FFB4161D2FB9FB00E7DD2D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7FFB4151D2FB9FB00E7DD2D /* SenseArLiveBroadcastingSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7FFB4171D2FB9FB00E7DD2D /* SenseArLiveBroadcastingSample */ = {
+			isa = PBXGroup;
+			children = (
+				E329BF791E29D47A00DD72EF /* ksylive */,
+				F71FAEED1DB9B60100BFCDFE /* SenseAr */,
+				F7FFB41B1D2FB9FB00E7DD2D /* AppDelegate.h */,
+				F7FFB41C1D2FB9FB00E7DD2D /* AppDelegate.m */,
+				E32815D91E2E8AA300399E94 /* KSYSTVC.h */,
+				E32815DA1E2E8AA300399E94 /* KSYSTVC.m */,
+				E329BF941E2E05DB00DD72EF /* KSYSTKit.h */,
+				E329BF951E2E05DB00DD72EF /* KSYSTKit.m */,
+				E329BF8E1E2A7B7100DD72EF /* KSYSTFilter.h */,
+				E329BF8F1E2A7B7100DD72EF /* KSYSTFilter.m */,
+				F7FFB4211D2FB9FB00E7DD2D /* Main.storyboard */,
+				F7FFB4241D2FB9FB00E7DD2D /* Assets.xcassets */,
+				F7FFB4261D2FB9FB00E7DD2D /* LaunchScreen.storyboard */,
+				F7FFB4291D2FB9FB00E7DD2D /* Info.plist */,
+				F7FFB4181D2FB9FB00E7DD2D /* Supporting Files */,
+			);
+			path = SenseArLiveBroadcastingSample;
+			sourceTree = "<group>";
+		};
+		F7FFB4181D2FB9FB00E7DD2D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F75008471D5B680D0004D150 /* icon@2x.png */,
+				F7FFB42F1D2FBA4900E7DD2D /* Default-568h@2x.png */,
+				F7FFB4191D2FB9FB00E7DD2D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F7FFB4141D2FB9FB00E7DD2D /* SenseArLiveBroadcastingSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7FFB42C1D2FB9FB00E7DD2D /* Build configuration list for PBXNativeTarget "SenseArLiveBroadcastingSample" */;
+			buildPhases = (
+				F7FFB4111D2FB9FB00E7DD2D /* Sources */,
+				F7FFB4121D2FB9FB00E7DD2D /* Frameworks */,
+				F7FFB4131D2FB9FB00E7DD2D /* Resources */,
+				E329BF821E29D4BD00DD72EF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SenseArLiveBroadcastingSample;
+			productName = SARALiveBroadcastingSample;
+			productReference = F7FFB4151D2FB9FB00E7DD2D /* SenseArLiveBroadcastingSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F7FFB40D1D2FB9FB00E7DD2D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = SenseTime;
+				TargetAttributes = {
+					F7FFB4141D2FB9FB00E7DD2D = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ZGJ54Q7R45;
+					};
+				};
+			};
+			buildConfigurationList = F7FFB4101D2FB9FB00E7DD2D /* Build configuration list for PBXProject "SenseArLiveBroadcastingSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F7FFB40C1D2FB9FB00E7DD2D;
+			productRefGroup = F7FFB4161D2FB9FB00E7DD2D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F7FFB4141D2FB9FB00E7DD2D /* SenseArLiveBroadcastingSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F7FFB4131D2FB9FB00E7DD2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7FFB4281D2FB9FB00E7DD2D /* LaunchScreen.storyboard in Resources */,
+				F7FFB4301D2FBA4900E7DD2D /* Default-568h@2x.png in Resources */,
+				E32815F21E2F3D9700399E94 /* action3.1.0.model in Resources */,
+				F7FFB4251D2FB9FB00E7DD2D /* Assets.xcassets in Resources */,
+				F7FFB4231D2FB9FB00E7DD2D /* Main.storyboard in Resources */,
+				F75008481D5B680D0004D150 /* icon@2x.png in Resources */,
+				E32815F41E2F3D9700399E94 /* SENSEME.lic in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F7FFB4111D2FB9FB00E7DD2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7FFB41D1D2FB9FB00E7DD2D /* AppDelegate.m in Sources */,
+				E329BF901E2A7B7100DD72EF /* KSYSTFilter.m in Sources */,
+				E32815DB1E2E8AA300399E94 /* KSYSTVC.m in Sources */,
+				E329BF961E2E05DB00DD72EF /* KSYSTKit.m in Sources */,
+				F7FFB41A1D2FB9FB00E7DD2D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F7FFB4211D2FB9FB00E7DD2D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7FFB4221D2FB9FB00E7DD2D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F7FFB4261D2FB9FB00E7DD2D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7FFB4271D2FB9FB00E7DD2D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F7FFB42A1D2FB9FB00E7DD2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F7FFB42B1D2FB9FB00E7DD2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F7FFB42D1D2FB9FB00E7DD2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZGJ54Q7R45;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = ../framework;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "$(SRCROOT)/SenseArLiveBroadcastingSample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = ../source;
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-lsqlite3",
+					"-liconv",
+					"-lresolv.9",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ksyun.ios.KSYLiveDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		F7FFB42E1D2FB9FB00E7DD2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZGJ54Q7R45;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = ../framework;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "$(SRCROOT)/SenseArLiveBroadcastingSample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = ../source;
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-lsqlite3",
+					"-liconv",
+					"-lresolv.9",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ksyun.ios.KSYLiveDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F7FFB4101D2FB9FB00E7DD2D /* Build configuration list for PBXProject "SenseArLiveBroadcastingSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7FFB42A1D2FB9FB00E7DD2D /* Debug */,
+				F7FFB42B1D2FB9FB00E7DD2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7FFB42C1D2FB9FB00E7DD2D /* Build configuration list for PBXNativeTarget "SenseArLiveBroadcastingSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7FFB42D1D2FB9FB00E7DD2D /* Debug */,
+				F7FFB42E1D2FB9FB00E7DD2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F7FFB40D1D2FB9FB00E7DD2D /* Project object */;
+}
