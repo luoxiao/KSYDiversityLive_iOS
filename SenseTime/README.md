@@ -131,6 +131,18 @@ _kit = [[KSYGPUStreamerKit alloc] initWithDefaultCfg];
 
 TuSDK初始化：
 ![TuSDK initialized.png](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/TuSDK initialized.png)
+[详细文档介绍](https://ks3-cn-beijing.ksyun.com/ksy.vcloud.sdk/Ios/%E7%89%B9%E6%95%88%E8%B4%B4%E7%BA%B8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3%20v3.2.2.pdf)
+## 4. 效果展示
+## 效果展示
+| | |
+| :---: | :---:|
+|sticker1| sticker2 |
+|![sticker1](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/IMG_0245.PNG )| ![sticker2](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/IMG_0246.PNG )|
+|sticker3| sticker4 |
+|![sticker3](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/IMG_0247.PNG)| ![sticker4](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/IMG_0249.PNG)|
+|sticker5| sticker6|
+|![sticker3](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/IMG_0251.PNG)| ![sticker4](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/IMG_0252.PNG)|
+
 
 添加资源到项目中：
 
