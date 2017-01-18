@@ -59,7 +59,12 @@ SenseME_Sticker 使用了 license 文件授权方式支持 SDK 离线激活，�
 | | |
 | :---: | :---:|
 |sticker1| sticker2 |
-|![sticker1](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/sticker1.PNG)| ![sticker2](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/sticker2.2.PNG)|
+|![sticker1](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/IMG_0245.PNG )| ![sticker2](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/IMG_0246.PNG )|
+|sticker3| sticker4 |
+|![sticker3](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/IMG_0247.PNG)| ![sticker4](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/IMG_0249.PNG)|
+|sticker5| sticker6|
+|![sticker3](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/IMG_0251.PNG)| ![sticker4](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/IMG_0252.PNG)|
+
 
 
 
