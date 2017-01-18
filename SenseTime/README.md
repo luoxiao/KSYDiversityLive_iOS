@@ -49,6 +49,10 @@
                           time:(CMTime)timeInfo;
 ```
 
+依赖库导入：(https://github.com/ksvc/KSYLive_iOS/wiki/dylib)
+
+
+
 
 ## 3. 资源获取
 SenseME_Sticker 使用了 license 文件授权方式支持 SDK 离线激活，用户在授权 期限内激活 SDK 就可永久使用该版本的功能。如需延长或调整 SDK 授权期限， 通过替换 license 文件即可。
