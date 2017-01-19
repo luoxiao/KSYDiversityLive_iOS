@@ -1,6 +1,5 @@
 #import "KSYFaceunityVC.h"
-#import "KSYFaceunityKit.h"
-
+#import "KSYFaceunityFilter.h"
 
 
 @interface KSYFaceunityVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
@@ -10,6 +9,7 @@
     int64_t _seconds;
     NSMutableDictionary *_obsDict;
     NSMutableArray  *_resourceArray;
+    KSYFaceunityFilter * _faceUnityFilter;
 }
 @end
 
@@ -27,43 +27,37 @@
     [super viewDidLoad];
     //NSArray *array = [NSArray arrayWithObjects:@"open",@"kitty.bundle", @"fox.bundle", @"evil.bundle", @"eyeballs.bundle", @"mood.bundle", @"tears.bundle", @"rabbit.bundle", @"cat.bundle", @"close", nil];
     NSArray *array = @[
-                      @"kitty",
-                      @"fox",
-                      @"evil",
-                      @"eyeballs",
-                      @"mood",
-                      @"tears",
-                      @"rabbit",
-                      @"cat",
-                      @"tiara",
-                      @"item0208",
-                      @"YellowEar",
-                      @"PrincessCrown",
-                      @"Mood",
-                      @"Deer",
-                      @"BeagleDog",
-                      @"item0501",
-                      @"ColorCrown",
-                      @"item0210",
-                      @"HappyRabbi",
-                      @"item0204",
-                      @"hartshorn"];
+                       @"tiara",
+                       @"item0208",
+                       @"YellowEar",
+                       @"PrincessCrown",
+                       @"Mood" ,
+                       @"Deer" ,
+                       @"BeagleDog",
+                       @"item0501",
+                       @"ColorCrown",
+                       @"item0210",
+                       @"HappyRabbi",
+                       @"item0204",
+                       @"hartshorn"];
+
     _resourceArray = [NSMutableArray arrayWithArray:array];
     
-    _kit = [[KSYFaceunityKit alloc] initWithDefaultCfg];
+    _kit = [[KSYGPUStreamerKit alloc] initWithDefaultCfg];
     [self addSubViews];
     [self addSwipeGesture];
     // 采集相关设置初始化
     [self setCaptureCfg];
     //推流相关设置初始化
     [self setStreamerCfg];
+    //设置贴纸相关
+    [self setupFaceUnity];
     // 打印版本号信息
     NSLog(@"version: %@", [_kit getKSYVersion]);
     
     if (_kit) { // init with default filter
         _kit.videoOrientation = [[UIApplication sharedApplication] statusBarOrientation];
         [_kit startPreview:self.view];
-        [_kit openSticker];
     }
     [self iniWithUI];
 }
@@ -211,7 +205,6 @@
     if (!_kit.vCapDev.isRunning){
         _kit.videoOrientation = [[UIApplication sharedApplication] statusBarOrientation];
         [_kit startPreview:self.view];
-        [_kit openSticker];
     }
     else {
         [_kit stopPreview];
@@ -227,7 +220,6 @@
     }
 }
 - (void) onQuit{
-    [_kit closeSticker];
     [_kit stopPreview];
     _kit = nil;
     [self rmObservers];
@@ -286,7 +278,7 @@
     cell.backgroundColor = [UIColor blueColor];
     
     [self changeStickerName:indexPath.row];
-    [_kit selectSticker:indexPath.row];
+    _faceUnityFilter.choosedIndex = indexPath.row;
 }
 - (void)changeStickerName:(NSInteger)idx{
     _ctrlView.lblNetwork.text = _resourceArray[idx];
@@ -301,7 +293,7 @@
 }
 //返回每个分区的item个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 21;
+    return 13;
 }
 //获取cell
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -360,6 +352,47 @@
     _kit.cameraPosition = [self.presetCfgView cameraPos];
     _kit.videoProcessingCallback = ^(CMSampleBufferRef buf){
     };
+}
+
+-(void)setupFaceUnity
+{
+    NSArray * g_item_names = @[
+                               @"tiara.bundle",
+                               @"item0208.bundle",
+                               @"YellowEar.bundle",
+                               @"PrincessCrown.bundle",
+                               @"Mood.bundle" ,
+                               @"Deer.bundle" ,
+                               @"BeagleDog.bundle",
+                               @"item0501.bundle",
+                               @"ColorCrown.bundle",
+                               @"item0210.bundle",
+                               @"HappyRabbi.bundle",
+                               @"item0204.bundle",
+                               @"hartshorn.bundle"];
+    _faceUnityFilter = [[KSYFaceunityFilter alloc]initWithArray:g_item_names];
+    
+    GPUImageOutput<GPUImageInput>* beautifilter = [[KSYGPUBeautifyPlusFilter alloc]init];
+    
+//    [_faceUnityFilter addTarget:beautifilter];
+//    
+//    // 用滤镜组 将 滤镜 串联成整体
+//    GPUImageFilterGroup * fg = [[GPUImageFilterGroup alloc] init];
+//    [fg addFilter:_faceUnityFilter];
+//    [fg addFilter:beautifilter];
+    
+    
+        [beautifilter addTarget:_faceUnityFilter];
+    
+        // 用滤镜组 将 滤镜 串联成整体
+        GPUImageFilterGroup * fg = [[GPUImageFilterGroup alloc] init];
+        [fg addFilter:_faceUnityFilter];
+        [fg addFilter:beautifilter];
+    
+    [fg setInitialFilters:[NSArray arrayWithObject:beautifilter]];
+    [fg setTerminalFilter:_faceUnityFilter];
+
+    [_kit setupFilter:fg];
 }
 - (void) setStreamerCfg { // must set after capture
     if (_kit.streamerBase == nil) {
