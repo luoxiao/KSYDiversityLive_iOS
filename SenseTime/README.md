@@ -4,9 +4,13 @@
 
 金山视频云拥有功能全面的推流和拉流解决方案，商汤在图像识别和图像处理有多年的技术积累，两家在各自领域的强者结合一定会产生出不一样的效果，下面我们就介绍一下，集成了金山采集、编码、推流功能和商汤人脸识别、图像处理功能的例子。
 
-商汤动态贴纸效果视频请点击一下链接：
+商汤科技动态贴纸效果(脸部识别)视频请点击一下链接：
 
 [![ScreenShot](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/st/st_bi.jpg)](http://www.bilibili.com/video/av7410986/)
+
+商汤科技动态贴纸效果(肢体识别)视频请点击一下链接：
+
+[![ScreenShot](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/st/stbodyios_bilibili.jpg)](http://www.bilibili.com/video/av8063572/)
 
 
 ##2.集成
