@@ -91,7 +91,10 @@
         
         self.arrStickers = arrStickers;
         
-        [self changeSticker:0];
+        if(_fetchListFinishCallback)
+        {
+            _fetchListFinishCallback(self.arrStickers.count);
+        }
     } onFailure:^(int iErrorCode, NSString *strMessage) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
@@ -105,7 +108,7 @@
     [_textureInput addTarget:newTarget];
 }
 - (void)addTarget:(id<GPUImageInput>)newTarget atTextureLocation:(NSInteger)textureLocation{
-    [_textureInput addTarget:newTarget];
+    [_textureInput addTarget:newTarget atTextureLocation:textureLocation];
 }
 
 - (NSString *)getSHA1StringWithData:(NSData *)data
@@ -225,6 +228,18 @@
         
         [EAGLContext setCurrentContext:context];
     }
+}
+
+- (void)changeSticker:(int) index
+            onSuccess:(void (^)(SenseArMaterial *))completeSuccess
+            onFailure:(void (^)(SenseArMaterial *, int, NSString *))completeFailure
+           onProgress:(void (^)(SenseArMaterial *, float, int64_t))processingCallBack
+{
+    if ( index <_arrStickers.count) {
+            _currentMaterial = _arrStickers[index];
+    }
+    
+    [self.service downloadMaterial:_arrStickers[index] onSuccess:completeSuccess onFailure:completeFailure onProgress:processingCallBack];
 }
 
 - (void)setupSenseArServiceAndBroadcasterWithAppID:(NSString*)appid
@@ -510,11 +525,6 @@ void ksy_activeAndBindTexture(GLenum textureActive,
     return iRotate;
 }
 
-- (void)changeSticker:(int) index{
-    if ( index <_arrStickers.count) {
-        _currentMaterial = _arrStickers[index];
-    }
-}
 #pragma GPUImageInput
 - (void)newFrameReadyAtTime:(CMTime)frameTime atIndex:(NSInteger)textureIndex {
     [_textureOutput newFrameReadyAtTime:frameTime atIndex:textureIndex];

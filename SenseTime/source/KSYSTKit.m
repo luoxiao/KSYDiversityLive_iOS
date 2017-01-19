@@ -44,7 +44,7 @@ static int count = 74;
     };
 }
 - (void)stickerChanger{
-    [_ksySTFitler changeSticker:i];
+    [_ksySTFitler changeSticker:i onSuccess:nil onFailure:nil onProgress:nil];
     i = i + 1;
     i = i%count;
 }

@@ -15,6 +15,14 @@
 -(id)initWithAppid:(NSString *)appID
             appKey:(NSString *)appKey;
 
-//下载素材
-- (void)changeSticker:(int)index;
+//获取资源列表，完成回调下载数量
+@property(nonatomic, copy) void(^fetchListFinishCallback)(NSUInteger count);
+
+//选择该资源，通过下载列表的
+- (void)changeSticker:(int) index
+            onSuccess:(void (^)(SenseArMaterial *))completeSuccess
+            onFailure:(void (^)(SenseArMaterial *, int, NSString *))completeFailure
+           onProgress:(void (^)(SenseArMaterial *, float, int64_t))processingCallBack;
+
+
 @end
