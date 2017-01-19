@@ -10,9 +10,11 @@
 #import "senseAr.h"
 
 @interface KSYSTFilter : GPUImageOutput<GPUImageInput>
-@property (nonatomic , readwrite) SenseArMaterial *currentMaterial;
-@property (nonatomic , readwrite) NSMutableArray  *arrStickers;
+
+//初始化appid
+-(id)initWithAppid:(NSString *)appID
+            appKey:(NSString *)appKey;
+
 //下载素材
-- (void)downLoadMetarials;
-- (void)changeSticker;
+- (void)changeSticker:(int)index;
 @end

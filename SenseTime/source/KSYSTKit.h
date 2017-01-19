@@ -11,5 +11,4 @@
 
 @interface KSYSTKit : KSYGPUStreamerKit
 - (void)stickerChanger;
-- (void)metarialsDown;
 @end

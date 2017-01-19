@@ -13,10 +13,13 @@
 }
 @end
 
+static int i = 0;
+static int count = 74;
+
 @implementation KSYSTKit
 - (instancetype)init {
     if (self = [super init]) {
-        _ksySTFitler = [[KSYSTFilter alloc]init];
+        _ksySTFitler = [[KSYSTFilter alloc]initWithAppid:@"7f76ce6bd292444b9368a7ba436c39fd" appKey:@"fa8e3603044c41ff8dbbd5531624ab0d"];
     }
     return self;
 }
@@ -41,10 +44,8 @@
     };
 }
 - (void)stickerChanger{
-    [_ksySTFitler changeSticker];
-    NSLog(@"click sticer change");
-}
-- (void)metarialsDown{
-    [_ksySTFitler downLoadMetarials];
+    [_ksySTFitler changeSticker:i];
+    i = i + 1;
+    i = i%count;
 }
 @end
