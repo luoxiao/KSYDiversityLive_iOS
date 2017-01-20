@@ -56,9 +56,7 @@
 - (IBAction)changeSticer:(id)sender {
     [_kit stickerChanger];
 }
-- (IBAction)downLoad:(id)sender {
-    [_kit metarialsDown];
-}
+
 
 
 @end

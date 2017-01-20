@@ -10,9 +10,19 @@
 #import "senseAr.h"
 
 @interface KSYSTFilter : GPUImageOutput<GPUImageInput>
-@property (nonatomic , readwrite) SenseArMaterial *currentMaterial;
-@property (nonatomic , readwrite) NSMutableArray  *arrStickers;
-//下载素材
-- (void)downLoadMetarials;
-- (void)changeSticker;
+
+//初始化appid
+-(id)initWithAppid:(NSString *)appID
+            appKey:(NSString *)appKey;
+
+//获取资源列表，完成回调下载数量
+@property(nonatomic, copy) void(^fetchListFinishCallback)(NSUInteger count);
+
+//选择该资源，通过下载列表的
+- (void)changeSticker:(int) index
+            onSuccess:(void (^)(SenseArMaterial *))completeSuccess
+            onFailure:(void (^)(SenseArMaterial *, int, NSString *))completeFailure
+           onProgress:(void (^)(SenseArMaterial *, float, int64_t))processingCallBack;
+
+
 @end

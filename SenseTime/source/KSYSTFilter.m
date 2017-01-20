@@ -21,15 +21,20 @@
 @property (nonatomic , strong) SenseArMaterialRender *render;
 @property (nonatomic , strong) SenseArMaterialService *service;
 @property (nonatomic , strong) SenseArBroadcasterClient *broadcaster;
+@property (nonatomic , readwrite) SenseArMaterial *currentMaterial;
+@property (nonatomic , readwrite) NSMutableArray  *arrStickers;
+
 @end
 
 @implementation KSYSTFilter
 
-- (id)init{
+-(id)initWithAppid:(NSString *)appID
+            appKey:(NSString *)appKey
+{
     if (self = [super init]) {
         [self checkActiveCode];
         [self setupMaterialRender];
-        [self setupSenseArServiceAndBroadcaster];
+        [self setupSenseArServiceAndBroadcasterWithAppID:appID appKey:appKey];
         _textureOutput = [[KSYGPUPicOutput alloc] initWithOutFmt:kCVPixelFormatType_32BGRA];
         __weak typeof(self) weakSelf = self;
         _textureOutput.videoProcessingCallback = ^(CVPixelBufferRef pixelBuffer, CMTime timeInfo){
@@ -39,6 +44,7 @@
         _textureInput = [[GPUImageTextureInput alloc] initWithTexture:textureStickerOut size:CGSizeMake(360, 640)];
     }
     return self;
+
 }
 - (void)downLoadMetarials{
     // 获取素材分组列表
@@ -85,7 +91,10 @@
         
         self.arrStickers = arrStickers;
         
-        
+        if(_fetchListFinishCallback)
+        {
+            _fetchListFinishCallback(self.arrStickers.count);
+        }
     } onFailure:^(int iErrorCode, NSString *strMessage) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
@@ -94,13 +103,12 @@
         
         [alert show];
     }];
-    [self changeSticker];
 }
 - (void)addTarget:(id<GPUImageInput>)newTarget{
     [_textureInput addTarget:newTarget];
 }
 - (void)addTarget:(id<GPUImageInput>)newTarget atTextureLocation:(NSInteger)textureLocation{
-    [_textureInput addTarget:newTarget];
+    [_textureInput addTarget:newTarget atTextureLocation:textureLocation];
 }
 
 - (NSString *)getSHA1StringWithData:(NSData *)data
@@ -222,13 +230,26 @@
     }
 }
 
-- (void)setupSenseArServiceAndBroadcaster
+- (void)changeSticker:(int) index
+            onSuccess:(void (^)(SenseArMaterial *))completeSuccess
+            onFailure:(void (^)(SenseArMaterial *, int, NSString *))completeFailure
+           onProgress:(void (^)(SenseArMaterial *, float, int64_t))processingCallBack
+{
+    if ( index <_arrStickers.count) {
+            _currentMaterial = _arrStickers[index];
+    }
+    
+    [self.service downloadMaterial:_arrStickers[index] onSuccess:completeSuccess onFailure:completeFailure onProgress:processingCallBack];
+}
+
+- (void)setupSenseArServiceAndBroadcasterWithAppID:(NSString*)appid
+                                            appKey:(NSString *)appKey
 {
     // 初始化服务
     self.service = [SenseArMaterialService shareInstnce];
     // 使用AppID , AppKey 进行授权 , 如果不授权将无法使用 SenseArMaterialService 相关接口 .
-    [self.service authorizeWithAppID:@"7f76ce6bd292444b9368a7ba436c39fd"
-                              appKey:@"fa8e3603044c41ff8dbbd5531624ab0d"
+    [self.service authorizeWithAppID:appid
+                              appKey:appKey
                            onSuccess:^{
                                
                                self.broadcaster = [[SenseArBroadcasterClient alloc] init];
@@ -266,8 +287,7 @@
                                    [alert show];
                                }
                                
-                               
-                               
+                               [self downLoadMetarials];
                            } onFailure:^(SenseArAuthorizeError iErrorCode) {
                                
                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"服务初始化失败" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
@@ -505,14 +525,6 @@ void ksy_activeAndBindTexture(GLenum textureActive,
     return iRotate;
 }
 
-- (void)changeSticker{
-    if (_arrStickers.count) {
-        static int i = 0;
-        i = i % (_arrStickers.count-(_arrStickers.count - 5));
-        _currentMaterial = _arrStickers[i];
-        i++;
-    }
-}
 #pragma GPUImageInput
 - (void)newFrameReadyAtTime:(CMTime)frameTime atIndex:(NSInteger)textureIndex {
     [_textureOutput newFrameReadyAtTime:frameTime atIndex:textureIndex];
