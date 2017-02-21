@@ -20,10 +20,8 @@ videoprp.framework
 ```
  - pod方式导入库文件：
 ```
-pod 'libksygpulive/KSYGPUResource', :git =>
-'https://github.com/ksvc/KSYLive_iOS.git', :tag => 'v1.8.7’    pod
-'libksygpulive/libksygpulive', :git =>
-'https://github.com/ksvc/KSYLive_iOS.git', :tag => 'v1.8.7’
+pod 'libksygpulive/KSYGPUResource', 
+pod 'libksygpulive/libksygpulive',
 ```
  - 手动导入文件列表：
 ```
