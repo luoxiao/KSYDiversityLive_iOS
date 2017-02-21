@@ -9,7 +9,7 @@
 #import "KSYAgoraStreamerKit.h"
 #import "KSYAgoraClient.h"
 
-#import <libksygpulive/libksygpuimage.h>
+#import <libksygpulive/libksystreamerengine.h>
 #import <libksygpulive/KSYGPUStreamerKit.h>
 #import "KSYRTCAgoraVC.h"
 #import <sys/socket.h>

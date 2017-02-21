@@ -143,7 +143,7 @@ private:
     [_videoSource Attach];
     
     //        //设置video profile
-    [_rtcEngine setVideoProfile:AgoraRtc_VideoProfile_360P_4];
+    //[_rtcEngine setVideoProfile:AgoraRtc_VideoProfile_360P_4];
     [_rtcEngine joinChannelByKey:nil channelName:channelName info:nil uid:0 joinSuccess:_internJoinChannelBlock];
     
 }

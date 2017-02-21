@@ -3,8 +3,8 @@ inhibit_all_warnings!
 use_frameworks!
 
 target 'KSYRTCAgoraDemo' do
-   pod 'libksygpulive/KSYGPUResource', :git => 'https://github.com/ksvc/KSYLive_iOS.git', :tag => 'v1.8.7’
-   pod 'libksygpulive/libksygpulive', :git => 'https://github.com/ksvc/KSYLive_iOS.git', :tag => 'v1.8.7’
+   pod 'libksygpulive/KSYGPUResource'
+   pod 'libksygpulive/libksygpulive'
 end
 
 post_install do |installer|

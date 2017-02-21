@@ -1,6 +1,6 @@
 
 #import <libksygpulive/KSYGPUPicOutput.h>
-#import <libksygpulive/libksygpuimage.h>
+#import <libksygpulive/libksystreamerengine.h>
 #import <libksygpulive/KSYGPUStreamerKit.h>
 #import "KSYAgoraClient.h"
 #import <GPUImage/GPUImage.h>
@@ -172,13 +172,16 @@
         return;
     }
     // 采集的图像先经过前处理
-    [self.vCapDev     removeAllTargets];
-    GPUImageOutput* src = self.vCapDev;
-    if (self.cropfilter) {
-        [self.cropfilter removeAllTargets];
-        [src addTarget:self.cropfilter];
-        src = self.cropfilter;
+    [self.capToGpu     removeAllTargets];
+    GPUImageOutput* src = self.capToGpu;
+    
+    if(filter)
+    {
+        [self.filter removeAllTargets];
+        [src addTarget:self.filter];
+        src = self.filter;
     }
+    
     if (filter) {
         [self.filter removeAllTargets];
         [src addTarget:filter];
