@@ -137,7 +137,6 @@
         _kit.streamerBase.audiokBPS        = [_cfgview audioKbps];
         _kit.streamerBase.videoFPS         = [_cfgview frameRate];
         _kit.streamerBase.bwEstimateMode   = [_cfgview bwEstMode];
-        _kit.streamerBase.shouldEnableKSYStatModule = YES;
         _kit.streamerBase.logBlock = ^(NSString* str){
             //NSLog(@"%@", str);
         };

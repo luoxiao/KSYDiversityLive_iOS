@@ -407,7 +407,6 @@
         _kit.streamerBase.audiokBPS        = [_presetCfgView audioKbps];
         _kit.streamerBase.videoFPS         = [_presetCfgView frameRate];
         _kit.streamerBase.bwEstimateMode   = [_presetCfgView bwEstMode];
-        _kit.streamerBase.shouldEnableKSYStatModule = YES;
         _kit.streamerBase.logBlock = ^(NSString* str){ };
         _hostURL = [NSURL URLWithString:[_presetCfgView hostUrl]];
     }

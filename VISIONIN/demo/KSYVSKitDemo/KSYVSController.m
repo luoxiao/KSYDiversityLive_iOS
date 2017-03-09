@@ -218,7 +218,6 @@
         _vsBase.audiokBPS        = [_presetCfgView audioKbps];
         _vsBase.videoFPS         = [_presetCfgView frameRate];
         _vsBase.bwEstimateMode   = [_presetCfgView bwEstMode];
-        _vsBase.shouldEnableKSYStatModule = YES;
         _vsBase.logBlock = ^(NSString* str){
             //NSLog(@"%@", str);
         };
@@ -235,7 +234,6 @@
     _vsBase.videoMaxBitrate  = 1000;
     _vsBase.videoMinBitrate  =    0;
     _vsBase.audiokBPS        =   48;
-    _vsBase.shouldEnableKSYStatModule = YES;
     _vsBase.videoFPS = 15;
     _vsBase.logBlock = ^(NSString* str){
     };
