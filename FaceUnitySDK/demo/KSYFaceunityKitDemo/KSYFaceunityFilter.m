@@ -36,12 +36,19 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
 
 @interface KSYFaceunityFilter()
 {
-    int _items[100];
+    
+    int _lastItem;
+    
+    // items' bundle name
+    NSArray *itemArray;
+    
+    NSLock *_lock;
 }
 
 @property KSYGPUPicOutput* pipOut;
 @property EAGLContext* gl_context;
-
+@property (nonatomic, assign) int curItem;
+@property (nonatomic, retain) dispatch_queue_t queue;
 @end
 
 @implementation KSYFaceunityFilter
@@ -53,9 +60,13 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
     
     if(self)
     {
+        _queue = dispatch_queue_create("com.ksyun.faceunity.queue", DISPATCH_QUEUE_SERIAL);
+        
+        itemArray = [items copy];
+        
         [self initFaceUnity];
         
-        [self loadItems:items];
+        [self loadItem:items.firstObject];
         
         _pipOut = [[KSYGPUPicOutput alloc]initWithOutFmt:kCVPixelFormatType_32BGRA];
         __weak KSYFaceunityFilter *weak_filter = self;
@@ -72,37 +83,45 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
 
 -(void)dealloc{
     _pipOut = nil;
+    _lock = nil;
+    fuDestroyAllItems();
 }
 
--(void)loadItems:(NSArray *) items
-{
-    for (int i = 0;i<items.count;i ++){
-        [self loadItem:items[i] index:i];
-    }
-    _choosedIndex = 0;
+-(void)loadItem:(NSString *)itemName{
+    dispatch_sync(self.queue, ^{
+        if(![EAGLContext setCurrentContext:_gl_context]){
+            NSLog(@"faceunity: failed to create / set a GLES2 context");
+        }
+        
+        intptr_t size;
+        void* data = mmap_bundle(itemName, &size);
+        int itemId = fuCreateItemFromPackage(data, (int)size);
+        
+        [_lock lock];
+        _lastItem = _curItem;
+        _curItem = itemId;
+        [_lock unlock];
+    });
 }
 
--(void)loadItem:(NSString *)itemName
-          index:(int)index
-{
-    if(![EAGLContext setCurrentContext:_gl_context]){
-        NSLog(@"faceunity: failed to create / set a GLES2 context");
-    }
-    
-    intptr_t size;
-    void* data = mmap_bundle(itemName, &size);
-    _items[index] = fuCreateItemFromPackage(data, (int)size);
+- (void)destroyItem:(int)item {
+    dispatch_sync(self.queue, ^{
+        fuDestroyItem(item);
+    });
 }
 
 -(void)renderFaceUnity:(CVPixelBufferRef)pixelBuffer
               timeInfo:(CMTime)timeInfo
 {
-   if(![EAGLContext setCurrentContext:_gl_context]){
-        NSLog(@"faceunity: failed to create / set a GLES2 context");
-   }
-    
-   CVPixelBufferRef output_pixelBuffer = [[FURenderer shareRenderer] renderPixelBuffer:pixelBuffer withFrameId:g_frame_id items:&_items[_choosedIndex] itemCount:1];
-   [self processPixelBuffer:output_pixelBuffer time:timeInfo];
+    dispatch_sync(self.queue, ^{
+        if(![EAGLContext setCurrentContext:_gl_context]){
+            NSLog(@"faceunity: failed to create / set a GLES2 context");
+        }
+        
+        CVPixelBufferRef output_pixelBuffer = [[FURenderer shareRenderer] renderPixelBuffer:pixelBuffer withFrameId:g_frame_id items:&_curItem itemCount:1];
+        ++g_frame_id;
+        [self processPixelBuffer:output_pixelBuffer time:timeInfo];
+    });
 }
 
 -(void)initFaceUnity
@@ -160,6 +179,16 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
 }
 - (void)setCurrentlyReceivingMonochromeInput:(BOOL)newValue {
     
+}
+
+- (void)setChoosedIndex:(int)choosedIndex{
+    if (_choosedIndex == choosedIndex) {
+        return;
+    }
+    _choosedIndex = choosedIndex;
+    
+    [self loadItem:itemArray[choosedIndex]];
+    [self destroyItem:_lastItem];
 }
 
 @end
