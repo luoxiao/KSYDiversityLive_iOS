@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "KSYUIView.h"
+#import "KSYStateLableView.h"
 @class KSYMenuView;
 
 @interface KSYCtrlView : KSYUIView
@@ -18,6 +19,6 @@
 @property UIButton * btnQuit;
 @property UIButton * btnStream;
 @property UIButton * btnCapture;
-@property UILabel  * lblStat;
+@property KSYStateLableView  * lblStat;
 @property UILabel  * lblNetwork;
 @end

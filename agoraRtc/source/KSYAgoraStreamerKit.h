@@ -12,6 +12,8 @@
  @warning kit只支持单实例推流，构造多个实例会出现异常
  */
 - (instancetype) initWithDefaultCfg;
+
+#pragma 声网sdk相关
 /**
  @abstract rtc接口类
  */
@@ -28,8 +30,21 @@
  @abstract 加入channel回调
  */
 @property (nonatomic, copy)void (^onChannelJoin)(int status);
+/*
+ @abstract 呼叫开始
+ */
+@property (nonatomic, readwrite) BOOL callstarted;
+/*
+ @abstract 加入通道
+ */
+-(void)joinChannel:(NSString *)channelName;
+/*
+ @abstract 离开通道
+ */
+-(void)leaveChannel;
 
-#pragma 小窗口相关配置
+
+#pragma 窗口相关配置
 /*
  @abstract 小窗口图层
  */
@@ -50,31 +65,22 @@
  @abstract 自定义图层母类，可往里addview
  */
 @property (nonatomic, readwrite)UIView * contentView;
-
+/**
+ @abstract 主窗口和小窗口切换
+ */
+@property (nonatomic, readwrite) BOOL selfInFront;
+/**
+ @abstract 圆角的图片
+ */
+@property GPUImagePicture *  maskPicture;
+#pragma 美颜相关
 /*
  @abstract 美颜滤镜
  */
 @property GPUImageOutput<GPUImageInput>* curfilter;
 /**
- @abstract 主窗口和小窗口切换
- */
-@property (nonatomic, readwrite) BOOL selfInFront;
-
-@property (nonatomic, readwrite) BOOL   callstarted;
-#pragma 操作函数
-/**
  @abstract 加入rtc窗口滤镜
  */
 - (void) setupRtcFilter:(GPUImageOutput<GPUImageInput> *) filter;
-
-/*
- @abstract 加入通道
- */
--(void)joinChannel:(NSString *)channelName;
-/*
- @abstract 离开通道
- */
--(void)leaveChannel;
-
 @end
 

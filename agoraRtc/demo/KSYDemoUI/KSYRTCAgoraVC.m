@@ -63,6 +63,12 @@
 
 }
 
+- (void)onTimer:(NSTimer *)theTimer{
+    if (_kit.streamerBase.streamState == KSYStreamStateConnected ) {
+        [self.ctrlView.lblStat updateState: _kit.streamerBase];
+    }
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.ctrlView.btnQuit setTitle: @"退出kit"
@@ -127,6 +133,7 @@
 - (void) setAgoraStreamerKitCfg {
     
     _kit.selfInFront = NO;
+    _kit.agoraKit.videoProfile = AgoraRtc_VideoProfile_720P;
     //设置小窗口属性
     _kit.winRect = CGRectMake(0.6, 0.6, 0.3, 0.3);//设置小窗口属性
     _kit.rtcLayer = 4;//设置小窗口图层，因为主版本占用了1~3，建议设置为4
@@ -136,6 +143,9 @@
     _kit.customViewLayer = 5;
 //    UIView * customView = [self createUIView];
 //    [_kit.contentView addSubview:customView];
+    
+    //特性2:圆角小窗口
+    _kit.maskPicture = [[GPUImagePicture alloc] initWithImage:[UIImage imageNamed:@"mask.png"]];
 
     __weak KSYRTCAgoraVC *weak_demo = self;
     //kit回调，（option）
@@ -175,7 +185,7 @@
 
 -(void)onJoinChannelBtn
 {
-    [_kit joinChannel:@"ksy22"];
+    [_kit joinChannel:@"ksy24"];
 }
 
 -(void)onLeaveChannelBtn
@@ -223,6 +233,15 @@
     {
         _kit.selfInFront = !_kit.selfInFront;
     }
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    CGPoint origin = [[touches anyObject] locationInView:self.view];
+    CGPoint location;
+    location.x = origin.x/self.view.frame.size.width;
+    location.y = origin.y/self.view.frame.size.height;
+    [self onSwitchRtcView:location];
 }
 
 -(void)panAction:(UIPanGestureRecognizer *)sender

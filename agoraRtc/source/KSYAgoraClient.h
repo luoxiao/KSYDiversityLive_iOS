@@ -7,18 +7,27 @@
 //
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <AgoraRtcEngineKit/AgoraRtcEngineKit.h>
 
 @class AgoraRtcStats;
 
 typedef void (^RTCVideoDataBlock)(CVPixelBufferRef pixelBuffer);
-typedef void (^RTCAudioDataBlock)(void* buffer,int sampleRate,int samples,int bytesPerSample,int channels);
+typedef void (^RTCAudioDataBlock)(void* buffer,int sampleRate,int samples,int bytesPerSample,int channels,int64_t pts);
 
 
 @interface KSYAgoraClient:NSObject
 
 -(instancetype)initWithAppId:(NSString *)appId;
 
+/*
+ @abstract 是否静音
+ */
 @property (assign, nonatomic) BOOL isMuted;
+
+/*
+ @abstract 设置视频的profile，具体参看声网的定义
+ */
+@property (assign, nonatomic) AgoraRtcVideoProfile videoProfile;
 
 /*
  @abstract 加入通道
@@ -34,6 +43,9 @@ typedef void (^RTCAudioDataBlock)(void* buffer,int sampleRate,int samples,int by
 
 @property(nonatomic, copy) void(^leaveChannelBlock)(AgoraRtcStats* stat);
 
+
+@property(nonatomic, copy) void(^remoteLeaveChannelBlock)(AgoraRtcUserOfflineReason reason);
+
 /*
  @abstract 发送视频数据到云端
  */
@@ -48,7 +60,11 @@ typedef void (^RTCAudioDataBlock)(void* buffer,int sampleRate,int samples,int by
 /*
   @abstract 远端音频数据回调
  */
-@property (nonatomic, copy)RTCAudioDataBlock audioDataCallback;
+@property (nonatomic, copy)RTCAudioDataBlock remoteAudioDataCallback;
 
+/*
+ @abstract 本地音频数据回调
+ */
+@property (nonatomic, copy)RTCAudioDataBlock localAudioDataCallback;
 
 @end

@@ -48,12 +48,17 @@ public:
     };
     virtual bool onRecordAudioFrame(AudioFrame& audioFrame) override
     {
+        if(_kit.localAudioDataCallback){
+            _kit.localAudioDataCallback(audioFrame.buffer,audioFrame.samplesPerSec,audioFrame.samples*audioFrame.bytesPerSample,audioFrame.bytesPerSample,audioFrame.channels,audioFrame.renderTimeMs);
+        }
         return true;
     }
     virtual bool onPlaybackAudioFrame(AudioFrame& audioFrame) override
     {
-        _kit.audioDataCallback(audioFrame.buffer,audioFrame.samplesPerSec,audioFrame.samples*audioFrame.bytesPerSample,audioFrame.bytesPerSample,audioFrame.channels);
-        return true;
+        if(_kit.remoteAudioDataCallback){
+            _kit.remoteAudioDataCallback(audioFrame.buffer,audioFrame.samplesPerSec,audioFrame.samples*audioFrame.bytesPerSample,audioFrame.bytesPerSample,audioFrame.channels,audioFrame.renderTimeMs);
+        }
+       return true;
     }
     virtual bool onPlaybackAudioFrameBeforeMixing(unsigned int uid, AudioFrame& audioFrame) override
     {
@@ -103,6 +108,7 @@ private:
         _leaveChannelBlock = nil;
         _joined = NO;
         _isMuted = NO;
+        _videoProfile = AgoraRtc_VideoProfile_DEFAULT;
         _videoBufferSize = 1920 * 1088 * 3 / 2;
         _videoBuffer = (unsigned char *)malloc(_videoBufferSize);
         _videoDataCallback = nil;
@@ -130,6 +136,10 @@ private:
         return;
     }
     [_rtcEngine enableVideo];
+    [_rtcEngine setRecordingAudioFrameParametersWithSampleRate:44100 channel:1 mode:AgoraRtc_RawAudioFrame_OpMode_ReadOnly samplesPerCall:1024];
+    [_rtcEngine adjustRecordingSignalVolume:100];
+    [_rtcEngine setPlaybackAudioFrameParametersWithSampleRate:44100 channel:1 mode:AgoraRtc_RawAudioFrame_OpMode_ReadOnly samplesPerCall:1024];
+    [_rtcEngine adjustPlaybackSignalVolume:100];
     
     //register rtcengine
     _audioFrameObserver = new AgoraAudioFrameObserver(weak_self);
@@ -143,7 +153,7 @@ private:
     [_videoSource Attach];
     
     //        //设置video profile
-    //[_rtcEngine setVideoProfile:AgoraRtc_VideoProfile_360P_4];
+    [_rtcEngine setVideoProfile:_videoProfile swapWidthAndHeight:NO];
     [_rtcEngine joinChannelByKey:nil channelName:channelName info:nil uid:0 joinSuccess:_internJoinChannelBlock];
     
 }
@@ -496,6 +506,14 @@ void AgoraNV21ToI420(const unsigned char *nv21,
     }
     CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
     CFRelease(pixelBuffer);
+}
+
+#pragma AgoraRtcEngineDelegate
+
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine didOfflineOfUid:(NSUInteger)uid reason:(AgoraRtcUserOfflineReason)reason
+{
+    if(_remoteLeaveChannelBlock)
+        _remoteLeaveChannelBlock(reason);
 }
 
 @end

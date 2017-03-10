@@ -15,17 +15,11 @@
 #import "KSYMenuView.h"
 #import "KSYFilterView.h"
 #import "KSYRtcView.h"
+#import "KSYStateLableView.h"
 
 #import <libksygpulive/libksystreamerengine.h>
 #import <libksygpulive/KSYGPUStreamerKit.h>
 #import "libksygpulive/KSYMoviePlayerController.h"
-
-typedef struct _StreamState {
-    double    timeSecond;   // 更新时间
-    int       uploadKByte;  // 上传的字节数(KB)
-    int       encodedFrames;// 编码的视频帧数
-    int       droppedVFrames; // 丢弃的视频帧数
-} StreamState;
 
 
 @interface KSYStreamerVC : KSYUIVC

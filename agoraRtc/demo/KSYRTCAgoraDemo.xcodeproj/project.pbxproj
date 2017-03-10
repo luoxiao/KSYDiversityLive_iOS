@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0647006B1C5C8C2100A31FC7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0647006A1C5C8C2100A31FC7 /* libz.tbd */; };
-		22BE27B4EC97A42CA924409C /* Pods_KSYRTCAgoraDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943387573041BDFA126F12A4 /* Pods_KSYRTCAgoraDemo.framework */; };
 		E3993F8A1C96961E00782FE6 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E3993F891C96961E00782FE6 /* libsqlite3.0.tbd */; };
 		E3F877851D38CBCB004FDB25 /* KSYRtcView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F877841D38CBCB004FDB25 /* KSYRtcView.m */; };
 		F21B3E951D1AB7DA00B26EB5 /* libc++.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F21B3E941D1AB7DA00B26EB5 /* libc++.1.dylib */; };
@@ -32,6 +31,8 @@
 		F2C05C4C1D7420B500AD3CFD /* KSYStreamerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C05C4B1D7420B500AD3CFD /* KSYStreamerVC.m */; };
 		F2C05C571D74234000AD3CFD /* KSYCtrlView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C05C531D74234000AD3CFD /* KSYCtrlView.m */; };
 		F2C05C581D74234000AD3CFD /* KSYFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C05C551D74234000AD3CFD /* KSYFilterView.m */; };
+		F2C93F041E684B7C0098533A /* KSYStateLableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C93F031E684B7C0098533A /* KSYStateLableView.m */; };
+		F2CABC191E64144A0013A091 /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = F2CABC181E64144A0013A091 /* mask.png */; };
 		F2CD742D1DAA335800A9E708 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CD74281DAA335800A9E708 /* AppDelegate.m */; };
 		F2CD742E1DAA335800A9E708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2CD74291DAA335800A9E708 /* Assets.xcassets */; };
 		F2CD742F1DAA335800A9E708 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = F2CD742A1DAA335800A9E708 /* Base.lproj */; };
@@ -52,9 +53,6 @@
 		064700661C5C8C1600A31FC7 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		064700681C5C8C1A00A31FC7 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
 		0647006A1C5C8C2100A31FC7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		0B5441EE665E00D77F1370D8 /* Pods-KSYRTCAgoraDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYRTCAgoraDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KSYRTCAgoraDemo/Pods-KSYRTCAgoraDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		943387573041BDFA126F12A4 /* Pods_KSYRTCAgoraDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KSYRTCAgoraDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBD4BBD16E7A3A7E1B3843DE /* Pods-KSYRTCAgoraDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYRTCAgoraDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-KSYRTCAgoraDemo/Pods-KSYRTCAgoraDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E3993F891C96961E00782FE6 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		E3F877831D38CBCB004FDB25 /* KSYRtcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYRtcView.h; sourceTree = "<group>"; };
 		E3F877841D38CBCB004FDB25 /* KSYRtcView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYRtcView.m; sourceTree = "<group>"; };
@@ -92,6 +90,9 @@
 		F2C05C531D74234000AD3CFD /* KSYCtrlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYCtrlView.m; sourceTree = "<group>"; };
 		F2C05C541D74234000AD3CFD /* KSYFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYFilterView.h; sourceTree = "<group>"; };
 		F2C05C551D74234000AD3CFD /* KSYFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYFilterView.m; sourceTree = "<group>"; };
+		F2C93F021E684B7C0098533A /* KSYStateLableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYStateLableView.h; sourceTree = "<group>"; };
+		F2C93F031E684B7C0098533A /* KSYStateLableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYStateLableView.m; sourceTree = "<group>"; };
+		F2CABC181E64144A0013A091 /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mask.png; path = KSYRTCAgoraDemo/mask.png; sourceTree = SOURCE_ROOT; };
 		F2CD74271DAA335800A9E708 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = KSYRTCAgoraDemo/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		F2CD74281DAA335800A9E708 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = KSYRTCAgoraDemo/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		F2CD74291DAA335800A9E708 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = KSYRTCAgoraDemo/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -127,7 +128,6 @@
 				F292E0E51D193D50007D10C8 /* libstdc++.6.tbd in Frameworks */,
 				E3993F8A1C96961E00782FE6 /* libsqlite3.0.tbd in Frameworks */,
 				0647006B1C5C8C2100A31FC7 /* libz.tbd in Frameworks */,
-				22BE27B4EC97A42CA924409C /* Pods_KSYRTCAgoraDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +176,6 @@
 				F2801B151DF557EA00C35636 /* source */,
 				0647003F1C5C8B0900A31FC7 /* Products */,
 				F20B34101D9BAD06001A0910 /* Frameworks */,
-				2C23E17FE68F9E1B00D73664 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +201,7 @@
 		064700411C5C8B0900A31FC7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F2CABC181E64144A0013A091 /* mask.png */,
 				F2CD74271DAA335800A9E708 /* AppDelegate.h */,
 				F2CD74321DAA343F00A9E708 /* LaunchScreen.storyboard */,
 				F2CD74341DAA343F00A9E708 /* Main.storyboard */,
@@ -236,6 +236,8 @@
 		06FBBD8D1D2E21D10065ED55 /* subviews */ = {
 			isa = PBXGroup;
 			children = (
+				F2C93F021E684B7C0098533A /* KSYStateLableView.h */,
+				F2C93F031E684B7C0098533A /* KSYStateLableView.m */,
 				F2C05C521D74234000AD3CFD /* KSYCtrlView.h */,
 				F2C05C531D74234000AD3CFD /* KSYCtrlView.m */,
 				F2C05C541D74234000AD3CFD /* KSYFilterView.h */,
@@ -246,15 +248,6 @@
 			name = subviews;
 			sourceTree = "<group>";
 		};
-		2C23E17FE68F9E1B00D73664 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0B5441EE665E00D77F1370D8 /* Pods-KSYRTCAgoraDemo.debug.xcconfig */,
-				DBD4BBD16E7A3A7E1B3843DE /* Pods-KSYRTCAgoraDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		F20B34101D9BAD06001A0910 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,7 +256,6 @@
 				F2CD74481DAA6C0700A9E708 /* CoreMotion.framework */,
 				F2CD74461DAA6BE500A9E708 /* CoreTelephony.framework */,
 				F2CD74431DAA6AA500A9E708 /* CoreMedia.framework */,
-				943387573041BDFA126F12A4 /* Pods_KSYRTCAgoraDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -286,12 +278,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 064700551C5C8B0900A31FC7 /* Build configuration list for PBXNativeTarget "KSYRTCAgoraDemo" */;
 			buildPhases = (
-				4FDE8A19CFDF98AAAE98F221 /* [CP] Check Pods Manifest.lock */,
 				0647003A1C5C8B0900A31FC7 /* Sources */,
 				0647003B1C5C8B0900A31FC7 /* Frameworks */,
 				0647003C1C5C8B0900A31FC7 /* Resources */,
-				8F837EBDF0EC8C8F5270E6FB /* [CP] Embed Pods Frameworks */,
-				22BBBC297A8097B7528031C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -350,58 +339,11 @@
 				F2CD742E1DAA335800A9E708 /* Assets.xcassets in Resources */,
 				F2CD742F1DAA335800A9E708 /* Base.lproj in Resources */,
 				F2CD74301DAA335800A9E708 /* Info.plist in Resources */,
+				F2CABC191E64144A0013A091 /* mask.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		22BBBC297A8097B7528031C7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSYRTCAgoraDemo/Pods-KSYRTCAgoraDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4FDE8A19CFDF98AAAE98F221 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		8F837EBDF0EC8C8F5270E6FB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSYRTCAgoraDemo/Pods-KSYRTCAgoraDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0647003A1C5C8B0900A31FC7 /* Sources */ = {
@@ -413,6 +355,7 @@
 				F2801B131DF5576A00C35636 /* KSYAgoraStreamerKit.h in Sources */,
 				F2801B141DF5576A00C35636 /* KSYAgoraStreamerKit.m in Sources */,
 				F22125861D9D17C400796C7A /* KSYFileSelector.m in Sources */,
+				F2C93F041E684B7C0098533A /* KSYStateLableView.m in Sources */,
 				F22125881D9D17C400796C7A /* KSYReachability.m in Sources */,
 				F22125891D9D17C400796C7A /* KSYUIVC.m in Sources */,
 				F2C05C581D74234000AD3CFD /* KSYFilterView.m in Sources */,
@@ -540,7 +483,6 @@
 		};
 		064700561C5C8B0900A31FC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B5441EE665E00D77F1370D8 /* Pods-KSYRTCAgoraDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -576,7 +518,6 @@
 		};
 		064700571C5C8B0900A31FC7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DBD4BBD16E7A3A7E1B3843DE /* Pods-KSYRTCAgoraDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

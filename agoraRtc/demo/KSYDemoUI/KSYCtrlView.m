@@ -22,8 +22,9 @@
     _lblNetwork=  [self addLable:@""  ];
     _btnStream =  [self addButton:@"推流"  ];
     _btnCapture=  [self addButton:@"采集"  ];
-    _lblStat   =  [self addLable:@""  ];
-    
+    _lblStat   =  [[KSYStateLableView alloc] init];
+    _lblStat.text = @"";
+    [self addSubview:_lblStat];
     
     // stat string  formats
     _lblStat.backgroundColor = [UIColor clearColor];
