@@ -7,27 +7,38 @@
 //
 
 #import "KSYSTVC.h"
-#import "KSYSTKit.h"
+#import <libksygpulive/libksygpulive.h>
+#import <libksygpulive/KSYGPUStreamerKit.h>
+#import "KSYSTFilter.h"
 
+static int i = 1;
+static int count = 74;
 
 @interface KSYSTVC ()
-@property (nonatomic, strong) KSYSTKit *kit;
+@property (nonatomic, strong) KSYGPUStreamerKit *kit;
+@property (nonatomic, strong) KSYSTFilter * ksySTFitler;
 @property NSURL *hostURL;
 @property NSString *strRTMPURL;
 @end
 
 @implementation KSYSTVC
+- (IBAction)openSticker:(id)sender {
+    UISwitch* stick = (UISwitch*)sender;
+    _ksySTFitler.enableSticker = stick.on;
+}
+- (IBAction)openBeauty:(id)sender {
+    UISwitch* stick = (UISwitch*)sender;
+    _ksySTFitler.enableBeauty = stick.on;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //ksy initialized
-    _kit = [[KSYSTKit alloc] init];
-    // 创建美颜和贴纸的结果纹理
+    _kit = [[KSYGPUStreamerKit alloc] init];
+
     [self setCapture];
     [self setStream];
-    if (_kit) {
-        [_kit startPreview:self.view];
-    }
+    [self setFilter];
+    [_kit startPreview:self.view];
 }
 #pragma - mark -
 #pragma - mark KSYStreamer capture & stream config
@@ -37,6 +48,26 @@
 }
 - (void)setStream{
     _strRTMPURL = @"rtmp://test.uplive.ks-cdn.com/live/123";
+}
+
+- (void)setFilter{
+    _ksySTFitler = [[KSYSTFilter alloc]initWithAppid:@"7f76ce6bd292444b9368a7ba436c39fd" appKey:@"fa8e3603044c41ff8dbbd5531624ab0d"];
+    
+    __weak typeof(self) wVC = self;
+    void (^completeCallback)(SenseArMaterial *) = ^(SenseArMaterial * m){
+        NSLog(@"download SenseArMaterial finish");
+    };
+    void (^failCallback)(SenseArMaterial *, int, NSString *)= ^(SenseArMaterial * m , int error, NSString * errorMessage){
+        NSLog(@"download SenseArMaterial failed,error:%d,errorMessage:%@",error,errorMessage);
+    };
+    void (^processCallback)(SenseArMaterial *material , float fProgress , int64_t iSize) = ^(SenseArMaterial *material , float fProgress , int64_t iSize){
+        NSLog(@"downloading SenseArMaterial,fProgress:%f,iSize:%lld",fProgress,iSize);
+    };
+    _ksySTFitler.fetchListFinishCallback=^(NSUInteger count){
+        [wVC.ksySTFitler changeSticker:0 onSuccess:completeCallback onFailure:failCallback onProgress:processCallback];
+    };
+    [_kit setupFilter:_ksySTFitler];
+
 }
 - (IBAction)onBtnSreaming:(id)sender {
     if (_kit.streamerBase.streamState == KSYStreamStateIdle ||
@@ -54,7 +85,19 @@
 }
 
 - (IBAction)changeSticer:(id)sender {
-    [_kit stickerChanger];
+    void (^completeCallback)(SenseArMaterial *) = ^(SenseArMaterial * m){
+        NSLog(@"download SenseArMaterial finish");
+        [_ksySTFitler startShowingMaterial];
+    };
+    void (^failCallback)(SenseArMaterial *, int, NSString *)= ^(SenseArMaterial * m , int error, NSString * errorMessage){
+        NSLog(@"download SenseArMaterial failed,error:%d,errorMessage:%@",error,errorMessage);
+    };
+    void (^processCallback)(SenseArMaterial *material , float fProgress , int64_t iSize) = ^(SenseArMaterial *material , float fProgress , int64_t iSize){
+        NSLog(@"downloading SenseArMaterial,fProgress:%f,iSize:%lld",fProgress,iSize);
+    };
+    [_ksySTFitler changeSticker:i onSuccess:completeCallback onFailure:failCallback onProgress:processCallback];
+    i = i + 1;
+    i = i%count;
 }
 
 

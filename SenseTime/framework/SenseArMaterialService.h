@@ -234,13 +234,6 @@ FOUNDATION_EXTERN const int SENSEAR_CACHE_SIZE_MAX;
 
 
 /**
- 设置素材缓存大小 , 默认 100M 超过限制会遵循LRU淘汰规则删除已有素材包 . 如果不需要设置最大缓存可以设置为 SENSEAR_CACHE_SIZE_MAX 来禁用 LRU 淘汰规则 .
- 
- @param iSize 缓存大小 (Byte)
- */
-- (void)setMaxCacheSize:(int64_t)iSize;
-
-/**
  下载素材
  
  @param material        下载的素材
@@ -255,12 +248,32 @@ FOUNDATION_EXTERN const int SENSEAR_CACHE_SIZE_MAX;
 
 
 
+/**
+ 设置素材缓存大小 , 默认 100M 超过限制会遵循LRU淘汰规则删除已有素材包 . 如果不需要设置最大缓存可以设置为 SENSEAR_CACHE_SIZE_MAX 来禁用 LRU 淘汰规则 .
+ 
+ @param iSize 缓存大小 (Byte)
+ */
+- (void)setMaxCacheSize:(int64_t)iSize;
+
+/**
+ 获取素材缓存所占用的空间
+
+ @return 素材缓存所占用的空间 (单位:Byte)
+ */
+- (int64_t)getMaterialCacheSize;
+
+/**
+ 清除缓存 , 清除内存缓存和素材磁盘缓存 , 但是会保留必要的数据库文件等 .
+ */
+- (void)clearCache;
 
 
+/**
+ 获取 SDK 版本号
 
-
-
-
+ @return SDK 版本号
+ */
++ (NSString *)getSdkVersion;
 
 
 

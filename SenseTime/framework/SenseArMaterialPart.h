@@ -22,6 +22,7 @@ FOUNDATION_EXTERN const uint32_t SENSEAR_HAND_PALM;         ///<  手掌
 FOUNDATION_EXTERN const uint32_t SENSEAR_HAND_LOVE;         ///<  爱心
 FOUNDATION_EXTERN const uint32_t SENSEAR_HAND_HOLDUP;       ///<  托手
 FOUNDATION_EXTERN const uint32_t SENSEAR_HAND_CONGRATULATE; ///<  恭贺(抱拳)
+FOUNDATION_EXTERN const uint32_t SENSEAR_HAND_FINGER_HEART;   ///<  单手比爱心
 
 
 @interface SenseArMaterialPart : NSObject

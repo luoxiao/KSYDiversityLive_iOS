@@ -70,7 +70,11 @@ typedef enum : NSUInteger {
     HAND_LOVE,
     
     // 恭贺(抱拳)
-    HAND_CONGRATULATE
+    HAND_CONGRATULATE,
+    
+    // 单手比爱心
+    HAND_FINGER_HEART
+    
     
 } SenseArTriggerAction;
 
@@ -148,6 +152,10 @@ typedef enum : NSUInteger {
 @property (nonatomic , copy) NSString *strPrice;
 
 
+/**
+ *  扩展信息
+ */
+@property (nonatomic , copy) NSString *strExtendInfo;
 
 
 @end

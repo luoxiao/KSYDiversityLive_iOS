@@ -24,5 +24,13 @@
             onFailure:(void (^)(SenseArMaterial *, int, NSString *))completeFailure
            onProgress:(void (^)(SenseArMaterial *, float, int64_t))processingCallBack;
 
+//如果资源没有下载，需要在success回调里显式回调
+- (void)startShowingMaterial;
+
+//打开贴纸
+@property(nonatomic, assign) int enableSticker;
+
+//打开美颜
+@property(nonatomic, assign) BOOL enableBeauty;
 
 @end

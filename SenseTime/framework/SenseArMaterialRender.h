@@ -52,7 +52,7 @@ typedef enum : NSUInteger {
     
     /*
      缩下巴比例 [0 , 1.0]
-    */
+     */
     BEAUTIFY_SHRINK_JAW_RATIO
     
 } BeautifyType;
@@ -67,6 +67,16 @@ typedef enum : NSUInteger {
      未授权
      */
     RENDER_NOT_AUTHORIZED = 0,
+    
+    /**
+     素材文件不被当前版本支持或格式不正确
+     */
+    RENDER_UNSUPPORTED_MATERIAL,
+    
+    /**
+     素材文件不存在
+     */
+    RENDER_MATERIAL_NOT_EXIST,
     
     /**
      不可知状态
@@ -159,16 +169,16 @@ typedef enum : NSUInteger {
 
 /**
  创建渲染模块
-
+ 
  @param strModelPath 模型路径
  @param iConfig      开启功能的配置
  @param context      渲染使用的 OpenGL 环境
-
+ 
  @return 渲染模块实例
  */
 + (SenseArMaterialRender *)instanceWithModelPath:(NSString *)strModelPath
                                           config:(int)iConfig
-                                       context:(EAGLContext *)context;
+                                         context:(EAGLContext *)context;
 
 
 
@@ -187,18 +197,18 @@ typedef enum : NSUInteger {
 
 /**
  获取点击热链接区域触发的 URL
-
+ 
  @param clickPosition           点击视图的点
  @param imageSize               图像的尺寸
  @param previewSize             视图的尺寸
  @param previewOriginPosition   视图左上角相对于屏幕左上角的坐标
-
+ 
  @return 热链接的 URL
  */
 - (NSURL *)getURLWithClickedPosition:(CGPoint)clickPosition
                            imageSize:(CGSize)imageSize
                          previewSize:(CGSize)previewSize
-                 previewOriginPosition:(CGPoint)previewOriginPosition;
+               previewOriginPosition:(CGPoint)previewOriginPosition;
 
 
 
@@ -206,7 +216,7 @@ typedef enum : NSUInteger {
 
 /**
  设置图像大小
-
+ 
  @param iWidth  图像宽度
  @param iHeight 图像高度
  @param iStride 图像跨度
@@ -216,18 +226,27 @@ typedef enum : NSUInteger {
 
 /**
  设置美颜参数
-
+ 
  @param fValue        参数大小
  @param iBeautifyType 参数类型
-
+ 
  @return 是否设置成功
  */
 - (BOOL)setBeautifyValue:(float)fValue forBeautifyType:(BeautifyType)iBeautifyType;
 
 
 /**
- 对图像进行美颜 , 获取图像绘制信息
+ 设置当前素材
+ 
+ @param strMaterialID 当前素材ID
+ @return 返回状态
+ */
+- (SenseArRenderStatus)setMaterial:(NSString *)strMaterialID;
 
+
+/**
+ 对图像进行美颜 , 获取图像绘制信息
+ 
  @param pFrameInfo      返回的图像绘制信息 , 需要用户分配内存 , 建议分配 10KB .
  @param pLength         返回的信息长度
  @param iPixelFormatIn  输入图像格式
@@ -242,42 +261,40 @@ typedef enum : NSUInteger {
  @return 渲染模块的状态
  */
 - (SenseArRenderStatus)beautifyAndGenerateFrameInfo:(Byte *)pFrameInfo
-                     frameInfoLength:(int *)pLength
-                   withPixelFormatIn:(SenseArPixelFormat)iPixelFormatIn
-                             imageIn:(Byte *)pImageIn
-                           textureIn:(GLuint)iTextureIn
-                          rotateType:(SenseArRotateType)iRotateType
-                      needsMirroring:(BOOL)bNeedsMirroring
-                      pixelFormatOut:(SenseArPixelFormat)iPixelFormatOut
-                            imageOut:(Byte *)pImageOut
-                          textureOut:(GLuint)iTextureOut;
+                                    frameInfoLength:(int *)pLength
+                                  withPixelFormatIn:(SenseArPixelFormat)iPixelFormatIn
+                                            imageIn:(Byte *)pImageIn
+                                          textureIn:(GLuint)iTextureIn
+                                         rotateType:(SenseArRotateType)iRotateType
+                                     needsMirroring:(BOOL)bNeedsMirroring
+                                     pixelFormatOut:(SenseArPixelFormat)iPixelFormatOut
+                                           imageOut:(Byte *)pImageOut
+                                         textureOut:(GLuint)iTextureOut;
 
 
 /**
  渲染 Material 效果并根据需求可以输出渲染后的图像
-
- @param strMaterialID 需要渲染的素材 ID
+ 
  @param pFrameInfo    渲染素材需要的绘制信息 (beautifyAndGenerateFrameInfo 结果)
  @param iTextureIdIn  输入 textureID
  @param iTextureIdOut 输出 textureID
  @param iPixelFormat  输出的图像格式
  @param pImageOut     输出的图像 , 传 NULL 表示不输出图像 , 性能会更好一些 .
-
+ 
  @return 渲染的状态
  */
-- (SenseArRenderStatus)renderMaterial:(NSString *)strMaterialID
-                     withFrameInfo:(Byte *)pFrameInfo
-                   frameInfoLength:(int)iLength
-                         textureIn:(GLuint)iTextureIdIn
-                        textureOut:(GLuint)iTextureIdOut
-                       pixelFormat:(SenseArPixelFormat)iPixelFormat
-                          imageOut:(Byte *)pImageOut;
+- (SenseArRenderStatus)renderMaterialWithFrameInfo:(Byte *)pFrameInfo
+                                   frameInfoLength:(int)iLength
+                                         textureIn:(GLuint)iTextureIdIn
+                                        textureOut:(GLuint)iTextureIdOut
+                                       pixelFormat:(SenseArPixelFormat)iPixelFormat
+                                          imageOut:(Byte *)pImageOut;
 
 
 
 /**
  获取当前素材所有 part 信息 , 必须在 renderMaterial: 之后调用
-
+ 
  @return 当前素材所有 part 信息 , 按照 zposition 排序
  */
 - (NSArray <SenseArMaterialPart *>*)getMaterialParts;
@@ -285,7 +302,7 @@ typedef enum : NSUInteger {
 
 /**
  设置每个 part 是否被渲染 , 顺序需要与 getMaterialParts: 获得的 parts 顺序一致 .
-
+ 
  @param arrMaterialParts part 序列
  */
 - (void)enableMaterialParts:(NSArray <SenseArMaterialPart *>*)arrMaterialParts;
@@ -293,7 +310,7 @@ typedef enum : NSUInteger {
 
 /**
  获取当前帧中的人脸、手势、背景的动作行为信息 , 需要在 beautifyAndGenerateFrameInfo: 之后调用,否则可能返回上一帧数据.
-
+ 
  @return 当前帧中的人脸、手势、背景的动作行为信息
  */
 - (SenseArFrameActionInfo *)getCurrentFrameActionInfo;

@@ -8,13 +8,15 @@
 
 #import "KSYSTFilter.h"
 #import <libksygpulive/libksygpulive.h>
-#import <libksygpulive/libksygpuimage.h>
+#import <libksygpulive/libksystreamerengine.h>
 #import <CommonCrypto/CommonDigest.h>
 
 @interface KSYSTFilter(){
+    dispatch_queue_t   setMaterialQueue;
     GLuint               textureStickerOut;
     dispatch_semaphore_t dataUpdateSemaphore;
     GPUImageTextureInput *_textureInput;
+    Byte *pFrameInfo;
 }
 @property (nonatomic, strong) KSYGPUPicOutput *textureOutput;
 @property (nonatomic , strong) EAGLContext *glRenderContext;
@@ -32,16 +34,26 @@
             appKey:(NSString *)appKey
 {
     if (self = [super init]) {
+        _enableSticker = YES;
+        _enableBeauty = YES;
+        
         [self checkActiveCode];
         [self setupMaterialRender];
         [self setupSenseArServiceAndBroadcasterWithAppID:appID appKey:appKey];
+
         _textureOutput = [[KSYGPUPicOutput alloc] initWithOutFmt:kCVPixelFormatType_32BGRA];
+        
         __weak typeof(self) weakSelf = self;
         _textureOutput.videoProcessingCallback = ^(CVPixelBufferRef pixelBuffer, CMTime timeInfo){
             [weakSelf uploadRGBPixel:pixelBuffer time:timeInfo];
         };
         ksy_activeAndBindTexture(GL_TEXTURE3, &textureStickerOut, NULL, GL_RGBA, 360, 640);
         _textureInput = [[GPUImageTextureInput alloc] initWithTexture:textureStickerOut size:CGSizeMake(360, 640)];
+        
+        pFrameInfo = (Byte *)malloc(sizeof(Byte) * 10000);
+        memset(pFrameInfo, 0, 10000 * sizeof(Byte));
+        
+        setMaterialQueue = dispatch_queue_create( "com.ksyun.setMaterialQueue", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 
@@ -67,7 +79,7 @@
             
             [arrAds addObject:material];
         }
-        
+        NSLog(@"fetch AD_LIST Success");
     } onFailure:^(int iErrorCode, NSString *strMessage) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
@@ -95,6 +107,7 @@
         {
             _fetchListFinishCallback(self.arrStickers.count);
         }
+         NSLog(@"fetch SE_LIST Success");
     } onFailure:^(int iErrorCode, NSString *strMessage) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
@@ -109,6 +122,10 @@
 }
 - (void)addTarget:(id<GPUImageInput>)newTarget atTextureLocation:(NSInteger)textureLocation{
     [_textureInput addTarget:newTarget atTextureLocation:textureLocation];
+}
+
+-(void)removeAllTargets{
+    [_textureInput removeAllTargets];
 }
 
 - (NSString *)getSHA1StringWithData:(NSData *)data
@@ -239,7 +256,15 @@
             _currentMaterial = _arrStickers[index];
     }
     
-    [self.service downloadMaterial:_arrStickers[index] onSuccess:completeSuccess onFailure:completeFailure onProgress:processingCallBack];
+    if(![self.service isMaterialDownloaded:((SenseArMaterial *)_arrStickers[index]).strID])
+    {
+        //资源不存在，先下载，完成后start
+        [self.service downloadMaterial:_arrStickers[index] onSuccess:completeSuccess onFailure:completeFailure onProgress:processingCallBack];
+    }
+    else{
+        //资源存在，直接start
+        [self startShowingMaterial];
+    }
 }
 
 - (void)setupSenseArServiceAndBroadcasterWithAppID:(NSString*)appid
@@ -248,37 +273,38 @@
     // 初始化服务
     self.service = [SenseArMaterialService shareInstnce];
     // 使用AppID , AppKey 进行授权 , 如果不授权将无法使用 SenseArMaterialService 相关接口 .
+    __weak typeof(self) weakSelf = self;
     [self.service authorizeWithAppID:appid
                               appKey:appKey
                            onSuccess:^{
                                
-                               self.broadcaster = [[SenseArBroadcasterClient alloc] init];
+                               weakSelf.broadcaster = [[SenseArBroadcasterClient alloc] init];
                                
                                // 根据实际情况设置主播的属性
-                               self.broadcaster.strID = @"testASD01234";
-                               self.broadcaster.strName = @"name_testASD01234";
-                               self.broadcaster.strBirthday = @"19901023";
-                               self.broadcaster.strGender = @"男";
-                               self.broadcaster.strArea = @"北京市/海淀区";
-                               self.broadcaster.strPostcode = @"067306";
-                               self.broadcaster.latitude = 39.977813;
-                               self.broadcaster.longitude = 116.317188;
-                               self.broadcaster.iFollowCount = 2000;
-                               self.broadcaster.iFansCount = 2000;
-                               self.broadcaster.iAudienceCount = 6000;
-                               self.broadcaster.strType = @"游戏";
-                               self.broadcaster.strTelephone = @"13600000000";
-                               self.broadcaster.strEmail = @"broadcasteriOS@126.com";
+                               weakSelf.broadcaster.strID = @"testASD01234";
+                               weakSelf.broadcaster.strName = @"name_testASD01234";
+                               weakSelf.broadcaster.strBirthday = @"19901023";
+                               weakSelf.broadcaster.strGender = @"男";
+                               weakSelf.broadcaster.strArea = @"北京市/海淀区";
+                               weakSelf.broadcaster.strPostcode = @"067306";
+                               weakSelf.broadcaster.latitude = 39.977813;
+                               weakSelf.broadcaster.longitude = 116.317188;
+                               weakSelf.broadcaster.iFollowCount = 2000;
+                               weakSelf.broadcaster.iFansCount = 2000;
+                               weakSelf.broadcaster.iAudienceCount = 6000;
+                               weakSelf.broadcaster.strType = @"游戏";
+                               weakSelf.broadcaster.strTelephone = @"13600000000";
+                               weakSelf.broadcaster.strEmail = @"broadcasteriOS@126.com";
                                
-                               SenseArConfigStatus iStatus = [self.service configureClientWithType:Broadcaster client:self.broadcaster];
+                               SenseArConfigStatus iStatus = [weakSelf.service configureClientWithType:Broadcaster client:weakSelf.broadcaster];
                                
                                if (CONFIG_OK == iStatus) {
                                    
                                    // 设置缓存大小 , 默认为 100M
-                                   [self.service setMaxCacheSize:120000000];
+                                   [weakSelf.service setMaxCacheSize:120000000];
                                    
                                    // 开始直播
-                                   [self.broadcaster broadcastStart];
+                                   [weakSelf.broadcaster broadcastStart];
                                    
                                }else{
                                    
@@ -287,7 +313,7 @@
                                    [alert show];
                                }
                                
-                               [self downLoadMetarials];
+                                [weakSelf downLoadMetarials];
                            } onFailure:^(SenseArAuthorizeError iErrorCode) {
                                
                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"服务初始化失败" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
@@ -310,52 +336,58 @@
     [self setCurrentContext:self.glRenderContext];
     
     // 获取模型路径
-    NSString *strModelPath = [[NSBundle mainBundle] pathForResource:@"action3.1.0"
+    NSString *strModelPath = [[NSBundle mainBundle] pathForResource:@"action3.3.0"
                                                              ofType:@"model"];
     // 根据实际需求决定是否开启美颜和动作检测
+    
     self.render = [SenseArMaterialRender instanceWithModelPath:strModelPath
                                                         config:SENSEAR_ENABLE_HUMAN_ACTION |SENSEAR_ENABLE_BEAUTIFY
                                                        context:self.glRenderContext];
-    
-    
     if (self.render) {
         
         // 初始化渲染模块使用的 OpenGL 资源
         [self.render initGLResource];
-        
-        // 根据需求设置美颜参数
-        if (![self.render setBeautifyValue:0.71 forBeautifyType:BEAUTIFY_CONTRAST_STRENGTH]) {
-            
-            NSLog(@"set BEAUTIFY_CONTRAST_STRENGTH failed");
-        }
-        if (![self.render setBeautifyValue:0.71 forBeautifyType:BEAUTIFY_SMOOTH_STRENGTH]) {
-            
-            NSLog(@"set BEAUTIFY_SMOOTH_STRENGTH failed");
-        }
-        if (![self.render setBeautifyValue:0.0 forBeautifyType:BEAUTIFY_WHITEN_STRENGTH]) {
-            
-            NSLog(@"set BEAUTIFY_WHITEN_STRENGTH failed");
-        }
-        if (![self.render setBeautifyValue:0.11 forBeautifyType:BEAUTIFY_SHRINK_FACE_RATIO]) {
-            
-            NSLog(@"set BEAUTIFY_SHRINK_FACE_RATIO failed");
-        }
-        if (![self.render setBeautifyValue:0.17 forBeautifyType:BEAUTIFY_ENLARGE_EYE_RATIO]) {
-            
-            NSLog(@"set BEAUTIFY_ENLARGE_EYE_RATIO failed");
-        }
-        if (![self.render setBeautifyValue:0.2 forBeautifyType:BEAUTIFY_SHRINK_JAW_RATIO]) {
-            
-            NSLog(@"set BEAUTIFY_SHRINK_JAW_RATIO failed");
-        }
+        [self setBeauty];
         
     }else{
-        
         NSLog(@"setupMaterialRender failed.");
     }
-    
     // 需要设为之前的渲染环境防止与其他需要 GPU 资源的模块冲突.
     [self setCurrentContext:preContext];
+}
+
+-(void)setEnableBeauty:(BOOL)enableBeauty
+{
+    _enableBeauty = enableBeauty;
+    [self setBeauty];
+}
+
+-(void)setBeauty
+{
+    if (![self.render setBeautifyValue:_enableBeauty?0.71:0.0 forBeautifyType:BEAUTIFY_CONTRAST_STRENGTH]) {
+        
+        NSLog(@"set BEAUTIFY_CONTRAST_STRENGTH failed");
+    }
+    if (![self.render setBeautifyValue:_enableBeauty?0.71:0.0 forBeautifyType:BEAUTIFY_SMOOTH_STRENGTH]) {
+        
+        NSLog(@"set BEAUTIFY_SMOOTH_STRENGTH failed");
+    }
+    if (![self.render setBeautifyValue:0.0 forBeautifyType:BEAUTIFY_WHITEN_STRENGTH]) {
+        
+        NSLog(@"set BEAUTIFY_WHITEN_STRENGTH failed");
+    }
+    if (![self.render setBeautifyValue:_enableBeauty?0.11:0.0 forBeautifyType:BEAUTIFY_SHRINK_FACE_RATIO]) {
+        
+        NSLog(@"set BEAUTIFY_SHRINK_FACE_RATIO failed");
+    }
+    if (![self.render setBeautifyValue:_enableBeauty?0.17:0.0 forBeautifyType:BEAUTIFY_ENLARGE_EYE_RATIO]) {
+        
+        NSLog(@"set BEAUTIFY_ENLARGE_EYE_RATIO failed");
+    }
+    if (![self.render setBeautifyValue:_enableBeauty?0.2:0.0 forBeautifyType:BEAUTIFY_SHRINK_JAW_RATIO]) {
+        
+        NSLog(@"set BEAUTIFY_SHRINK_JAW_RATIO failed");
+    }
 }
 
 - (void)sovlePaddingImage:(Byte *)pImage width:(int)iWidth height:(int)iHeight bytesPerRow:(int *)pBytesPerRow
@@ -436,20 +468,17 @@ void ksy_activeAndBindTexture(GLenum textureActive,
     ksy_activeAndBindTexture(GL_TEXTURE0, &textureBeautifyIn, pBGRAImageInput, GL_BGRA, iWidth, iHeight);
     
     // 分配渲染信息的内存空间
-    Byte *pFrameInfo = (Byte *)malloc(sizeof(Byte) * 10000);
     memset(pFrameInfo, 0, 10000 * sizeof(Byte));
     int iInfoLength = 10000;
     
     SenseArRenderStatus iRenderStatus = RENDER_UNKNOWN;
     
-    
-    // 美颜输出纹理
-    GLuint textureBeautifyOut;
-    ksy_activeAndBindTexture(GL_TEXTURE1, &textureBeautifyOut, NULL, GL_RGBA, iWidth, iHeight);
-    
     [self.render setFrameWidth:iWidth height:iHeight stride:iBytesPerRow];
     
     SenseArRotateType iRotate = [self getRotateTypeWithDeviceOrientation];
+    
+    GLuint textureBeautifyOut;
+    ksy_activeAndBindTexture(GL_TEXTURE1, &textureBeautifyOut, NULL, GL_RGBA, iWidth, iHeight);
     
     iRenderStatus = [self.render beautifyAndGenerateFrameInfo:pFrameInfo
                                               frameInfoLength:&iInfoLength
@@ -460,32 +489,47 @@ void ksy_activeAndBindTexture(GLenum textureActive,
                                                needsMirroring:NO
                                                pixelFormatOut:PIX_FMT_BGRA8888
                                                      imageOut:NULL
-                                                   textureOut:textureBeautifyOut];
+                                                   textureOut:(_enableSticker)?textureBeautifyOut:textureStickerOut ];
     
-    //        // 贴纸输出纹理
-    
-    // 如果需要直接推流贴纸后的效果 , imageOut 需要传入有效的内存 .
-    iRenderStatus = [self.render renderMaterial:self.currentMaterial.strID
-                                  withFrameInfo:pFrameInfo
-                                frameInfoLength:iInfoLength
-                                      textureIn:textureBeautifyOut
-                                     textureOut:textureStickerOut
-                                    pixelFormat:PIX_FMT_BGRA8888
-                                       imageOut:pBGRAImageInput];
+    if(_enableSticker){
+        // 如果需要直接推流贴纸后的效果 , imageOut 需要传入有效的内存 .
+        iRenderStatus = [self.render renderMaterialWithFrameInfo:pFrameInfo
+                                    frameInfoLength:iInfoLength
+                                          textureIn:textureBeautifyOut
+                                         textureOut:textureStickerOut
+                                        pixelFormat:PIX_FMT_BGRA8888
+                                           imageOut:pBGRAImageInput];
+    }
     
     [_textureInput processTextureWithFrameTime:timeInfo];
     //[_kit processTexture:textureStickerOut size: time:pts];
     
-    glDeleteTextures(1, &textureBeautifyIn);
-    glDeleteTextures(1, &textureBeautifyOut);
     //    glDeleteTextures(1, &textureStickerOut);
     
     //        glFinish();
-    
+    glDeleteTextures(1, &textureBeautifyIn);
+    glDeleteTextures(1, &textureBeautifyOut);
+
     [self setCurrentContext:preContext];
     
     CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
 }
+
+- (void)startShowingMaterial
+{
+    dispatch_async(self->setMaterialQueue, ^{
+        SenseArRenderStatus iStatus =  [self.render setMaterial:_currentMaterial.strID];
+        if (RENDER_SUCCESS == iStatus) {
+        }else{
+            if (RENDER_UNSUPPORTED_MATERIAL == iStatus) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle :@"设置素材失败" message:@"无法设置素材" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [alert show];
+                }); }
+            NSLog(@"setMaterial fail,ret:%lu",(unsigned long)iStatus);
+        } });
+}
+
 - (SenseArRotateType)getRotateTypeWithDeviceOrientation
 {
     UIDeviceOrientation iDeviceOrientation = [[UIDevice currentDevice] orientation];
@@ -525,6 +569,7 @@ void ksy_activeAndBindTexture(GLenum textureActive,
     return iRotate;
 }
 
+
 #pragma GPUImageInput
 - (void)newFrameReadyAtTime:(CMTime)frameTime atIndex:(NSInteger)textureIndex {
     [_textureOutput newFrameReadyAtTime:frameTime atIndex:textureIndex];
@@ -551,7 +596,7 @@ void ksy_activeAndBindTexture(GLenum textureActive,
     return [_textureOutput getInputRotation];
 }
 
-- (CGSize)maximumOutputSize {
+- (CGSize)maximumOutputSize  {
     return [_textureOutput maximumOutputSize];
 }
 
@@ -567,5 +612,11 @@ void ksy_activeAndBindTexture(GLenum textureActive,
 }
 - (void)setCurrentlyReceivingMonochromeInput:(BOOL)newValue {
     
+}
+
+-(void)dealloc{
+    NSLog(@"KSYSTFilter dealloc");
+    [_arrStickers removeAllObjects];
+    setMaterialQueue= nil;
 }
 @end

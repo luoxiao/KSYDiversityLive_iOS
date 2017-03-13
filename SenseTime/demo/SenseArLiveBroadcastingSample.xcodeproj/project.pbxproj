@@ -8,19 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E32815DB1E2E8AA300399E94 /* KSYSTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E32815DA1E2E8AA300399E94 /* KSYSTVC.m */; };
-		E32815DE1E2F3D6900399E94 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32815DC1E2F3D6900399E94 /* GPUImage.framework */; };
-		E32815DF1E2F3D6900399E94 /* libksygpulive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32815DD1E2F3D6900399E94 /* libksygpulive.framework */; };
-		E32815E01E2F3D7600399E94 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32815DC1E2F3D6900399E94 /* GPUImage.framework */; };
-		E32815E11E2F3D7600399E94 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E32815DC1E2F3D6900399E94 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E32815E21E2F3D7600399E94 /* libksygpulive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32815DD1E2F3D6900399E94 /* libksygpulive.framework */; };
-		E32815E31E2F3D7600399E94 /* libksygpulive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E32815DD1E2F3D6900399E94 /* libksygpulive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E329BF7C1E29D4B300DD72EF /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E329BF7A1E29D4B300DD72EF /* GPUImage.framework */; };
-		E329BF7D1E29D4B300DD72EF /* libksygpulive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E329BF7B1E29D4B300DD72EF /* libksygpulive.framework */; };
 		E338BE091E2F762B0073A973 /* KSYSTFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E338BE061E2F762B0073A973 /* KSYSTFilter.m */; };
-		E338BE0A1E2F762B0073A973 /* KSYSTKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E338BE081E2F762B0073A973 /* KSYSTKit.m */; };
-		E338BE191E2F76B00073A973 /* action3.1.0.model in Resources */ = {isa = PBXBuildFile; fileRef = E338BE0B1E2F76B00073A973 /* action3.1.0.model */; };
 		E338BE1A1E2F76B00073A973 /* libSenseAr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E338BE0C1E2F76B00073A973 /* libSenseAr.a */; };
 		E338BE1B1E2F76B00073A973 /* SENSEME.lic in Resources */ = {isa = PBXBuildFile; fileRef = E338BE181E2F76B00073A973 /* SENSEME.lic */; };
+		F2193EC61E6D0F5500CE643D /* action3.3.0.model in Resources */ = {isa = PBXBuildFile; fileRef = F2193EC51E6D0F5500CE643D /* action3.3.0.model */; };
 		F75008481D5B680D0004D150 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F75008471D5B680D0004D150 /* icon@2x.png */; };
 		F7FFB41A1D2FB9FB00E7DD2D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FFB4191D2FB9FB00E7DD2D /* main.m */; };
 		F7FFB41D1D2FB9FB00E7DD2D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FFB41C1D2FB9FB00E7DD2D /* AppDelegate.m */; };
@@ -37,8 +28,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E32815E11E2F3D7600399E94 /* GPUImage.framework in Embed Frameworks */,
-				E32815E31E2F3D7600399E94 /* libksygpulive.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,15 +37,8 @@
 /* Begin PBXFileReference section */
 		E32815D91E2E8AA300399E94 /* KSYSTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYSTVC.h; sourceTree = "<group>"; };
 		E32815DA1E2E8AA300399E94 /* KSYSTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYSTVC.m; sourceTree = "<group>"; };
-		E32815DC1E2F3D6900399E94 /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPUImage.framework; path = ../../framework/GPUImage.framework; sourceTree = "<group>"; };
-		E32815DD1E2F3D6900399E94 /* libksygpulive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libksygpulive.framework; path = ../../framework/libksygpulive.framework; sourceTree = "<group>"; };
-		E329BF7A1E29D4B300DD72EF /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPUImage.framework; path = /Users/sunjian/Desktop/SenseAR_iOS_SDK/samples/ksylive/GPUImage.framework; sourceTree = "<absolute>"; };
-		E329BF7B1E29D4B300DD72EF /* libksygpulive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libksygpulive.framework; path = /Users/sunjian/Desktop/SenseAR_iOS_SDK/samples/ksylive/libksygpulive.framework; sourceTree = "<absolute>"; };
 		E338BE051E2F762B0073A973 /* KSYSTFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYSTFilter.h; path = ../../source/KSYSTFilter.h; sourceTree = "<group>"; };
 		E338BE061E2F762B0073A973 /* KSYSTFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYSTFilter.m; path = ../../source/KSYSTFilter.m; sourceTree = "<group>"; };
-		E338BE071E2F762B0073A973 /* KSYSTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYSTKit.h; path = ../../source/KSYSTKit.h; sourceTree = "<group>"; };
-		E338BE081E2F762B0073A973 /* KSYSTKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYSTKit.m; path = ../../source/KSYSTKit.m; sourceTree = "<group>"; };
-		E338BE0B1E2F76B00073A973 /* action3.1.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; name = action3.1.0.model; path = ../../framework/action3.1.0.model; sourceTree = "<group>"; };
 		E338BE0C1E2F76B00073A973 /* libSenseAr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSenseAr.a; path = ../../framework/libSenseAr.a; sourceTree = "<group>"; };
 		E338BE0D1E2F76B00073A973 /* SenseAr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseAr.h; path = ../../framework/SenseAr.h; sourceTree = "<group>"; };
 		E338BE0E1E2F76B00073A973 /* SenseArAudienceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseArAudienceClient.h; path = ../../framework/SenseArAudienceClient.h; sourceTree = "<group>"; };
@@ -70,9 +52,8 @@
 		E338BE161E2F76B00073A973 /* SenseArMaterialService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseArMaterialService.h; path = ../../framework/SenseArMaterialService.h; sourceTree = "<group>"; };
 		E338BE171E2F76B00073A973 /* SenseArShortVideoClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenseArShortVideoClient.h; path = ../../framework/SenseArShortVideoClient.h; sourceTree = "<group>"; };
 		E338BE181E2F76B00073A973 /* SENSEME.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SENSEME.lic; path = ../../framework/SENSEME.lic; sourceTree = "<group>"; };
-		F72F11361DC21A0E00CDC860 /* libSenseAr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSenseAr.a; path = "../Build/Products/Debug-iphoneos/libSenseAr.a"; sourceTree = "<group>"; };
+		F2193EC51E6D0F5500CE643D /* action3.3.0.model */ = {isa = PBXFileReference; lastKnownFileType = file; name = action3.3.0.model; path = ../../framework/action3.3.0.model; sourceTree = "<group>"; };
 		F75008471D5B680D0004D150 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
-		F795BD4B1DF842C300BC7CC4 /* libSenseAr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSenseAr.a; path = "../SenseAr/build/Release-iphoneos/libSenseAr.a"; sourceTree = "<group>"; };
 		F7FFB4151D2FB9FB00E7DD2D /* SenseArLiveBroadcastingSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SenseArLiveBroadcastingSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7FFB4191D2FB9FB00E7DD2D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F7FFB41B1D2FB9FB00E7DD2D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -89,41 +70,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E329BF7D1E29D4B300DD72EF /* libksygpulive.framework in Frameworks */,
-				E32815DE1E2F3D6900399E94 /* GPUImage.framework in Frameworks */,
-				E32815DF1E2F3D6900399E94 /* libksygpulive.framework in Frameworks */,
 				E338BE1A1E2F76B00073A973 /* libSenseAr.a in Frameworks */,
-				E32815E21E2F3D7600399E94 /* libksygpulive.framework in Frameworks */,
-				E329BF7C1E29D4B300DD72EF /* GPUImage.framework in Frameworks */,
-				E32815E01E2F3D7600399E94 /* GPUImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E329BF791E29D47A00DD72EF /* ksylive */ = {
-			isa = PBXGroup;
-			children = (
-				E32815DC1E2F3D6900399E94 /* GPUImage.framework */,
-				E32815DD1E2F3D6900399E94 /* libksygpulive.framework */,
-			);
-			name = ksylive;
-			sourceTree = "<group>";
-		};
-		F71FAEE81DB9B5A900BFCDFE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F795BD4B1DF842C300BC7CC4 /* libSenseAr.a */,
-				F72F11361DC21A0E00CDC860 /* libSenseAr.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		F71FAEED1DB9B60100BFCDFE /* SenseAr */ = {
 			isa = PBXGroup;
 			children = (
-				E338BE0B1E2F76B00073A973 /* action3.1.0.model */,
+				F2193EC51E6D0F5500CE643D /* action3.3.0.model */,
 				E338BE0C1E2F76B00073A973 /* libSenseAr.a */,
 				E338BE0D1E2F76B00073A973 /* SenseAr.h */,
 				E338BE0E1E2F76B00073A973 /* SenseArAudienceClient.h */,
@@ -146,7 +103,6 @@
 			children = (
 				F7FFB4171D2FB9FB00E7DD2D /* SenseArLiveBroadcastingSample */,
 				F7FFB4161D2FB9FB00E7DD2D /* Products */,
-				F71FAEE81DB9B5A900BFCDFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,7 +117,6 @@
 		F7FFB4171D2FB9FB00E7DD2D /* SenseArLiveBroadcastingSample */ = {
 			isa = PBXGroup;
 			children = (
-				E329BF791E29D47A00DD72EF /* ksylive */,
 				F71FAEED1DB9B60100BFCDFE /* SenseAr */,
 				F7FFB41B1D2FB9FB00E7DD2D /* AppDelegate.h */,
 				F7FFB41C1D2FB9FB00E7DD2D /* AppDelegate.m */,
@@ -169,8 +124,6 @@
 				E32815DA1E2E8AA300399E94 /* KSYSTVC.m */,
 				E338BE051E2F762B0073A973 /* KSYSTFilter.h */,
 				E338BE061E2F762B0073A973 /* KSYSTFilter.m */,
-				E338BE071E2F762B0073A973 /* KSYSTKit.h */,
-				E338BE081E2F762B0073A973 /* KSYSTKit.m */,
 				F7FFB4211D2FB9FB00E7DD2D /* Main.storyboard */,
 				F7FFB4241D2FB9FB00E7DD2D /* Assets.xcassets */,
 				F7FFB4261D2FB9FB00E7DD2D /* LaunchScreen.storyboard */,
@@ -223,6 +176,11 @@
 					F7FFB4141D2FB9FB00E7DD2D = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = ZGJ54Q7R45;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -249,9 +207,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2193EC61E6D0F5500CE643D /* action3.3.0.model in Resources */,
 				F7FFB4281D2FB9FB00E7DD2D /* LaunchScreen.storyboard in Resources */,
 				F7FFB4301D2FBA4900E7DD2D /* Default-568h@2x.png in Resources */,
-				E338BE191E2F76B00073A973 /* action3.1.0.model in Resources */,
 				F7FFB4251D2FB9FB00E7DD2D /* Assets.xcassets in Resources */,
 				F7FFB4231D2FB9FB00E7DD2D /* Main.storyboard in Resources */,
 				F75008481D5B680D0004D150 /* icon@2x.png in Resources */,
@@ -266,7 +224,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E338BE0A1E2F762B0073A973 /* KSYSTKit.m in Sources */,
 				E338BE091E2F762B0073A973 /* KSYSTFilter.m in Sources */,
 				F7FFB41D1D2FB9FB00E7DD2D /* AppDelegate.m in Sources */,
 				E32815DB1E2E8AA300399E94 /* KSYSTVC.m in Sources */,
@@ -393,17 +350,27 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZGJ54Q7R45;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = ../framework;
-				HEADER_SEARCH_PATHS = ../source;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					../framework,
+				);
+				HEADER_SEARCH_PATHS = (
+					../source,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/SenseArLiveBroadcastingSample/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = ../framework;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					../framework,
+				);
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-lsqlite3",
 					"-liconv",
 					"-lresolv.9",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ksyun.ios.KSYLiveDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -420,17 +387,27 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZGJ54Q7R45;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = ../framework;
-				HEADER_SEARCH_PATHS = ../source;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					../framework,
+				);
+				HEADER_SEARCH_PATHS = (
+					../source,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/SenseArLiveBroadcastingSample/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = ../framework;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					../framework,
+				);
 				OTHER_LDFLAGS = (
 					"-lstdc++",
 					"-lsqlite3",
 					"-liconv",
 					"-lresolv.9",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ksyun.ios.KSYLiveDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
