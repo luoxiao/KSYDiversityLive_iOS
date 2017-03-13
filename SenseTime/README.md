@@ -15,33 +15,30 @@
 
 ##2.集成
 
-###2.1开始集成
-资源下载：
+###2.1 需要从商汤获取安装包，framework下为试用版本。[详细文档介绍](https://ks3-cn-beijing.ksyun.com/ksy.vcloud.sdk/Ios/%E7%89%B9%E6%95%88%E8%B4%B4%E7%BA%B8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3%20v3.2.2.pdf)
+###2.2 需要从商汤获取Appid,AppKey.
+###2.3 开源了金山封装的KSYSTFilter，把贴纸做成一个滤镜模式，和其他美颜滤镜相同的使用方式。
 
-* 金山SDK：[github.com/ksvc/KSYLive_iOS](https://github.com/ksvc/KSYLive_iOS)
+##3.KSYSTFilter接口
 
+###3.1初始化(需要传入appID，appKey）
 
-### 2.2 结构图
-目前金山SDK流程结构图：
-    
-![Diagram](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/diagram.png)
-  
-那我们要做的事情是啥呢，请看下图：
-  
-![Diagram](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/fu/SenseME.png)
+-(id)initWithAppid:(NSString *)appID
+            appKey:(NSString *)appKey;
 
-###2.3开始集成
+###3.2选择贴纸
 
-重要功能类介绍：
+- (void)changeSticker:(int) index
+            onSuccess:(void (^)(SenseArMaterial *))completeSuccess
+            onFailure:(void (^)(SenseArMaterial *, int, NSString *))completeFailure
+           onProgress:(void (^)(SenseArMaterial *, float, int64_t))processingCallBack;
 
+注意需要在获取贴纸列表后选择，获取贴纸列表回调总的贴纸数，客户可自行选择业务需要的贴纸。 
 
-KSYSTFilter: 封装了商汤美颜和动态贴纸功能；
+###3.3 高级功能（关闭贴纸，关闭美颜）
 
+注意美颜效果请自行调节，KSYSTFilter里的只是推荐美颜效果。
 
-## 3. 资源获取
-SenseME_Sticker 使用了 license 文件授权方式支持 SDK 离线激活，用户在授权 期限内激活 SDK 就可永久使用该版本的功能。如需延长或调整 SDK 授权期限， 通过替换 license 文件即可。
-
-[详细文档介绍](https://ks3-cn-beijing.ksyun.com/ksy.vcloud.sdk/Ios/%E7%89%B9%E6%95%88%E8%B4%B4%E7%BA%B8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3%20v3.2.2.pdf)
 ## 4. 效果展示
 ## 效果展示
 | | |
