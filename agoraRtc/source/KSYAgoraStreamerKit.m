@@ -50,7 +50,7 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
 - (instancetype) initWithDefaultCfg {
     self = [super initWithDefaultCfg];
     __weak typeof(self) weakSelf = self;
-    _agoraKit = [[KSYAgoraClient alloc] initWithAppId:@"e58027d14ffa40c18deaab1754e2fc37" delegate:weakSelf];
+    _agoraKit = [[KSYAgoraClient alloc] initWithAppId://请输入自己的APPid delegate:weakSelf];
     _beautyOutput = nil;
     _callstarted = NO;
     _maskPicture = nil;
