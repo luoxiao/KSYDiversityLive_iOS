@@ -17,10 +17,11 @@
 #include "libyuv.h"
 
 
-@interface KSYAgoraClient()<AgoraRtcEngineDelegate>{
+@interface KSYAgoraClient(){
     unsigned char *_videoBuffer;
     int32_t _videoBufferSize;
     BOOL _joined;
+    id<AgoraRtcEngineDelegate> _delegate;
 }
 
 @property (strong, nonatomic) AgoraRtcEngineKit *rtcEngine;
@@ -81,6 +82,7 @@ public:
     }
     virtual bool onRenderVideoFrame(unsigned int uid, VideoFrame& videoFrame) override
     {
+        //NSLog(@"videoFrame.width:%d,videoFrame.height:%d",videoFrame.width,videoFrame.height);
         [_kit processRemoteVideoWithYbuffer:videoFrame.yBuffer Ubuffer:videoFrame.uBuffer Vbuffer:videoFrame.vBuffer YStride:videoFrame.yStride UStride:videoFrame.uStride VStride:videoFrame.vStride Height:videoFrame.height Width:videoFrame.width];
         return true;
     }
@@ -88,7 +90,7 @@ private:
     KSYAgoraClient* _kit;
 };
 
-@interface KSYAgoraClient()<AgoraRtcEngineDelegate>{
+@interface KSYAgoraClient(){
     AgoraAudioFrameObserver* _audioFrameObserver;
     AgoraVideoFrameObserver* _videoFrameObserver;
 }
@@ -97,10 +99,12 @@ private:
 @implementation KSYAgoraClient
 
 - (instancetype)init {
-    return [self initWithAppId:nil];
+    return [self initWithAppId:nil delegate:nil];
 }
 
-- (instancetype)initWithAppId:(NSString *)appId{
+- (instancetype)initWithAppId:(NSString *)appId
+                     delegate:(id<AgoraRtcEngineDelegate>)delegate;
+{
     self = [super init];
     if (self) {
         _appId = appId;
@@ -112,6 +116,7 @@ private:
         _videoBufferSize = 1920 * 1088 * 3 / 2;
         _videoBuffer = (unsigned char *)malloc(_videoBufferSize);
         _videoDataCallback = nil;
+        _delegate = delegate;
     
     }
 
@@ -129,7 +134,7 @@ private:
     };
     //init rtcengine
     __weak KSYAgoraClient* weak_self = self;
-    _rtcEngine = [AgoraRtcEngineKit sharedEngineWithAppId:_appId delegate:weak_self];
+    _rtcEngine = [AgoraRtcEngineKit sharedEngineWithAppId:_appId delegate:_delegate];
     NSLog(@"version is %@",[AgoraRtcEngineKit getSdkVersion]);
     if(!_rtcEngine){
         NSLog(@"rtc engine init fail");
@@ -153,7 +158,7 @@ private:
     [_videoSource Attach];
     
     //        //设置video profile
-    [_rtcEngine setVideoProfile:_videoProfile swapWidthAndHeight:NO];
+    [_rtcEngine setVideoProfile:_videoProfile swapWidthAndHeight:YES];
     [_rtcEngine joinChannelByKey:nil channelName:channelName info:nil uid:0 joinSuccess:_internJoinChannelBlock];
     
 }
@@ -233,10 +238,10 @@ private:
     if(!_joined)
         return;
     
+    CVPixelBufferRef y420= [self BGRAToI420:pixelBuffer];
+    
     int width = (int)CVPixelBufferGetWidth(pixelBuffer);
     int height = (int)CVPixelBufferGetHeight(pixelBuffer);
-    
-    CVPixelBufferRef y420= [self BGRAToI420:pixelBuffer];
     
     [self fillVideoBuf:y420];
     
@@ -508,12 +513,5 @@ void AgoraNV21ToI420(const unsigned char *nv21,
     CFRelease(pixelBuffer);
 }
 
-#pragma AgoraRtcEngineDelegate
-
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine didOfflineOfUid:(NSUInteger)uid reason:(AgoraRtcUserOfflineReason)reason
-{
-    if(_remoteLeaveChannelBlock)
-        _remoteLeaveChannelBlock(reason);
-}
 
 @end

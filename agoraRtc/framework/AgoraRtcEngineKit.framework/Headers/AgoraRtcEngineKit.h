@@ -152,6 +152,7 @@ typedef NS_ENUM(NSInteger, AgoraRtcVideoProfile) {
     AgoraRtc_VideoProfile_480P_6 = 45,		// 480x480   30   600
     AgoraRtc_VideoProfile_480P_8 = 47,		// 848x480   15   610
     AgoraRtc_VideoProfile_480P_9 = 48,		// 848x480   30   930
+    AgoraRtc_VideoProfile_480P_10 = 49,		// 640x480   10   400
     AgoraRtc_VideoProfile_720P = 50,		// 1280x720  15   1130
     AgoraRtc_VideoProfile_720P_3 = 52,		// 1280x720  30   1710
     AgoraRtc_VideoProfile_720P_5 = 54,		// 960x720   15   910
@@ -189,12 +190,23 @@ typedef NS_ENUM(NSInteger, AgoraRtcVideoStreamType) {
     AgoraRtc_VideoStream_Medium = 2,
 };
 
+typedef NS_ENUM(NSInteger, AudioOutputRouting)
+{
+    AudioOutputRouting_Default = -1,
+    AudioOutputRouting_Headset = 0,
+    AudioOutputRouting_Earpiece = 1,
+    AudioOutputRouting_HeadsetNoMic = 2,
+    AudioOutputRouting_Speakerphone = 3,
+    AudioOutputRouting_Loudspeaker = 4,
+    AudioOutputRouting_HeadsetBluetooth = 5
+};
+
 typedef NS_ENUM(NSUInteger, AgoraRtcLogFilter) {
-    AgoraRtc_LogFilter_Console = 0x08000,
-    AgoraRtc_LogFilter_Debug = 0x0800,
-    AgoraRtc_LogFilter_Info = 0x0001,
-    AgoraRtc_LogFilter_Warn = 0x0002,
-    AgoraRtc_LogFilter_Error = 0x0004,
+    AgoraRtc_LogFilter_Off = 0,
+    AgoraRtc_LogFilter_Debug = 0x080f,
+    AgoraRtc_LogFilter_Info = 0x000f,
+    AgoraRtc_LogFilter_Warn = 0x000e,
+    AgoraRtc_LogFilter_Error = 0x000c,
     AgoraRtc_LogFilter_Critical = 0x0008,
 };
 
@@ -361,6 +373,16 @@ __attribute__((visibility("default"))) @interface AgoraRtcVideoCompositingLayout
 - (void)rtcEngine:(AgoraRtcEngineKit *)engine firstRemoteVideoDecodedOfUid:(NSUInteger)uid size:(CGSize)size elapsed:(NSInteger)elapsed;
 
 /**
+ *  Event of video size changed for local or remote user
+ *
+ *  @param engine  The engine kit
+ *  @param uid     The user id
+ *  @param size    The new size of video
+ *  @param rotation  The new rotate of video
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine videoSizeChangedOfUid:(NSUInteger)uid size:(CGSize)size rotation:(NSInteger)rotation;
+
+/**
  *  Event of the first frame of remote user is rendering on the screen.
  *
  *  @param engine  The engine kit
@@ -405,6 +427,15 @@ __attribute__((visibility("default"))) @interface AgoraRtcVideoCompositingLayout
  *  @param uid    The remote user id
  */
 - (void)rtcEngine:(AgoraRtcEngineKit *)engine didVideoMuted:(BOOL)muted byUid:(NSUInteger)uid;
+
+/**
+ *  Event of remote user video muted or unmuted
+ *
+ *  @param engine The engine kit
+ *  @param routing the current audio output routing
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine didAudioRouteChanged:(AudioOutputRouting)routing;
+
 
 /**
  *  Event of remote user video enabled or disabled

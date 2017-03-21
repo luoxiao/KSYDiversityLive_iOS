@@ -46,7 +46,8 @@
 - (NSString*) hostUrl;
 - (NSString*) capResolution;
 - (KSYVideoDimension) strResolution;
-- (CGSize) strResolutionSize;
+@property(nonatomic, assign) CGSize capResolutionSize;
+@property(nonatomic, assign) CGSize strResolutionSize;
 - (AVCaptureDevicePosition) cameraPos;
 - (int) frameRate;
 - (KSYVideoCodec) videoCodec;

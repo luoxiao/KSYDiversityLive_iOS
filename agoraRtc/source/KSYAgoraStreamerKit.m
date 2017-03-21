@@ -24,7 +24,7 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
 }
 
 #if __arm__  || __arm64__
-@interface KSYAgoraStreamerKit (){
+@interface KSYAgoraStreamerKit()<AgoraRtcEngineDelegate> {
     AudioStreamBasicDescription _asbd;  // format description for audio data
     KSYDummyAudioSource *_dAudioSrc;
 }
@@ -49,7 +49,8 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
  */
 - (instancetype) initWithDefaultCfg {
     self = [super initWithDefaultCfg];
-    _agoraKit = [[KSYAgoraClient alloc] initWithAppId:@"输入自己的ID"];
+    __weak typeof(self) weakSelf = self;
+    _agoraKit = [[KSYAgoraClient alloc] initWithAppId:@"e58027d14ffa40c18deaab1754e2fc37" delegate:weakSelf];
     _beautyOutput = nil;
     _callstarted = NO;
     _maskPicture = nil;
@@ -61,7 +62,6 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
     fillAsbd(&_asbd, YES, sizeof(Float32));
     _dAudioSrc = [[KSYDummyAudioSource alloc] initWithAudioFmt:_asbd];
 
-    __weak KSYAgoraStreamerKit* weakSelf = self;
     self.audioProcessingCallback = ^(CMSampleBufferRef buf){
         weakSelf.lastPts = CMSampleBufferGetPresentationTimeStamp(buf);
     };
@@ -97,16 +97,6 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
         [weak_kit.aCapDev startCapture];
     };
     
-    _agoraKit.remoteLeaveChannelBlock = ^(AgoraRtcUserOfflineReason reason){
-        NSLog(@"remote leave channel");
-        if(weak_kit.callstarted){
-            [weak_kit stopRTCView];
-            if(weak_kit.onCallStop)
-                weak_kit.onCallStop(reason);
-            weak_kit.callstarted = NO;
-        }
-    };
-    
     //接收数据回调，放入yuvinput里面
     _agoraKit.videoDataCallback=^(CVPixelBufferRef buf){
         [weak_kit defaultRtcVideoCallback:buf];
@@ -126,10 +116,6 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
 
     //注册进入后台的处理
     NSNotificationCenter* dc = [NSNotificationCenter defaultCenter];
-    [dc addObserver:self
-           selector:@selector(enterbg)
-               name:UIApplicationDidEnterBackgroundNotification
-             object:nil];
     
     [dc addObserver:self
            selector:@selector(becomeActive)
@@ -141,35 +127,30 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
                name:UIApplicationWillResignActiveNotification
              object:nil];
     
-    [dc addObserver:self
-           selector:@selector(enterFg)
-               name:UIApplicationWillEnterForegroundNotification
-             object:nil];
-    
-    [dc addObserver:self
-           selector:@selector(interruptHandler:)
-               name:AVAudioSessionInterruptionNotification
-             object:nil];
+//    [dc addObserver:self
+//           selector:@selector(interruptHandler:)
+//               name:AVAudioSessionInterruptionNotification
+//             object:nil];
 
     
     return self;
 }
 
-- (void)interruptHandler:(NSNotification *)notification {
-    UInt32 interruptionState = [notification.userInfo[AVAudioSessionInterruptionTypeKey] unsignedIntValue];
-    if (interruptionState == kAudioSessionBeginInterruption){
-        if(_callstarted){
-            [self stopRTCView];
-            _callstarted = NO;
-        }
-    }
-    else if (interruptionState == kAudioSessionEndInterruption){
-        if(!_callstarted){
-            [self startRtcView];
-            _callstarted = YES;
-        }
-    }
-}
+//- (void)interruptHandler:(NSNotification *)notification {
+//    UInt32 interruptionState = [notification.userInfo[AVAudioSessionInterruptionTypeKey] unsignedIntValue];
+//    if (interruptionState == kAudioSessionBeginInterruption){
+//        if(_callstarted){
+//            [self stopRTCView];
+//            _callstarted = NO;
+//        }
+//    }
+//    else if (interruptionState == kAudioSessionEndInterruption){
+//        if(!_callstarted){
+//            [self startRtcView];
+//            _callstarted = YES;
+//        }
+//    }
+//}
 
 - (instancetype)init {
     return [self initWithDefaultCfg];
@@ -196,20 +177,14 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
     
     NSNotificationCenter* dc = [NSNotificationCenter defaultCenter];
     [dc removeObserver:self
-                  name:UIApplicationDidEnterBackgroundNotification
-                object:nil];
-    [dc removeObserver:self
-                  name:UIApplicationWillEnterForegroundNotification
-                object:nil];
-    [dc removeObserver:self
                   name:AVAudioSessionInterruptionNotification
                 object:nil];
     [dc removeObserver:self
                   name:UIApplicationDidBecomeActiveNotification
                 object:nil];
-    [dc removeObserver:self
-                  name:UIApplicationWillResignActiveNotification
-                object:nil];
+//    [dc removeObserver:self
+//                  name:UIApplicationWillResignActiveNotification
+//                object:nil];
 }
 
 
@@ -401,14 +376,6 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
 
 
 #pragma mark -rtc
--(void) defaultOnCallStartCallback
-{
-    [self startRtcView];
-    if(_onCallStart)
-    {
-        _onCallStart(200);
-    }
-}
 
 -(void)joinChannel:(NSString *)channelName
 {
@@ -483,15 +450,7 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
 
 -(void) defaultRtcVideoCallback:(CVPixelBufferRef)buf
 {
-    /*
-     第一帧，开始渲染，并设置标志位
-     */
-    if(!_callstarted)
-    {
-        [self defaultOnCallStartCallback];
-        _callstarted = YES;
-    }
-    
+    //NSLog(@"width:%zu,height:%zu",CVPixelBufferGetWidth(buf),CVPixelBufferGetHeight(buf));
     [self.rtcYuvInput processPixelBuffer:buf time:CMTimeMake(2, 10)];
 }
 -(void) defaultRtcVoiceCallback:(uint8_t*)buf
@@ -541,16 +500,6 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
     [self setupRtcFilter:_curfilter];
 }
 
-- (void)enterbg {
-    if(_callstarted)
-        [self stopRTCVideoView];
-}
-
--(void)enterFg{
-    if(_callstarted)
-        [self startRtcVideoView];
-}
-
 -(void)becomeActive
 {
     __weak KSYAgoraStreamerKit * weak_kit = self;
@@ -571,54 +520,54 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
     CGSize videoSize;
     switch(videoProfile){
         case AgoraRtc_VideoProfile_120P:
-            videoSize=CGSizeMake(160, 120);
+            videoSize=CGSizeMake(120, 160);
             break;
         case AgoraRtc_VideoProfile_120P_3:
             videoSize=CGSizeMake(120, 120);
             break;
         case AgoraRtc_VideoProfile_180P:		// 320x180   15   140
-            videoSize=CGSizeMake(320, 180);
+            videoSize=CGSizeMake(180, 320);
             break;
         case AgoraRtc_VideoProfile_180P_3:		// 180x180   15   100
             videoSize=CGSizeMake(180, 180);
             break;
         case AgoraRtc_VideoProfile_180P_4:		// 240x180   15   120
-            videoSize=CGSizeMake(240, 180);
+            videoSize=CGSizeMake(180, 240);
             break;
         case AgoraRtc_VideoProfile_240P:        // 320x240   15   200
-            videoSize=CGSizeMake(320, 240);
+            videoSize=CGSizeMake(240, 320);
             break;
         case AgoraRtc_VideoProfile_240P_3:		// 240x240   15   140
             videoSize=CGSizeMake(240, 240);
             break;
         case AgoraRtc_VideoProfile_240P_4:      // 424x240   15   220
-            videoSize=CGSizeMake(424, 240);
+            videoSize=CGSizeMake(240, 424);
             break;
         case AgoraRtc_VideoProfile_360P:
              AgoraRtc_VideoProfile_DEFAULT:// 640x360   15   400
-            videoSize=CGSizeMake(640, 360);
+            videoSize=CGSizeMake(360, 640);
             break;
         case AgoraRtc_VideoProfile_360P_3:	// 360x360   15   260
             videoSize=CGSizeMake(360, 360);
             break;
         case AgoraRtc_VideoProfile_360P_4:		// 640x360   30   600
-            videoSize=CGSizeMake(640, 360);
+            videoSize=CGSizeMake(360, 640);
             break;
         case AgoraRtc_VideoProfile_360P_6:		// 360x360   30   400
             videoSize=CGSizeMake(360, 360);
             break;
         case AgoraRtc_VideoProfile_360P_7:
         case AgoraRtc_VideoProfile_360P_8:      // 480x360   30   490
-            videoSize=CGSizeMake(480, 360);
+            videoSize=CGSizeMake(360, 480);
             break;
         case AgoraRtc_VideoProfile_360P_9:      // 640x360   15   800
         case AgoraRtc_VideoProfile_360P_10:     // 640x360   24   800
         case AgoraRtc_VideoProfile_360P_11:   // 640x360   24   1000
-            videoSize=CGSizeMake(640, 360);
+            videoSize=CGSizeMake(360, 640);
             break;
         case AgoraRtc_VideoProfile_480P:        	// 640x480   15   500
         case AgoraRtc_VideoProfile_480P_4:
-            videoSize=CGSizeMake(640, 480);
+            videoSize=CGSizeMake(480, 640);
             break;
         case AgoraRtc_VideoProfile_480P_3:		// 480x480   15   400
         case AgoraRtc_VideoProfile_480P_6:		// 480x480   30   600
@@ -626,35 +575,69 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
             break;
         case AgoraRtc_VideoProfile_480P_8:		// 848x480   15   610
         case AgoraRtc_VideoProfile_480P_9:		// 848x480   30   930
-            videoSize=CGSizeMake(848, 480);
+            videoSize=CGSizeMake(480, 848);
             break;
         case AgoraRtc_VideoProfile_720P:		// 1280x720  15   1130
         case AgoraRtc_VideoProfile_720P_3:		// 1280x720  30   1710
-            videoSize=CGSizeMake(1280,720);
+            videoSize=CGSizeMake(720,1280);
             break;
         case AgoraRtc_VideoProfile_720P_5:		// 960x720   15   910
         case AgoraRtc_VideoProfile_720P_6:		// 960x720   30   1380
-            videoSize=CGSizeMake(960,720);
+            videoSize=CGSizeMake(720,960);
             break;
         case AgoraRtc_VideoProfile_1080P:	// 1920x1080 15   2080
         case AgoraRtc_VideoProfile_1080P_3:		// 1920x1080 30   3150
         case AgoraRtc_VideoProfile_1080P_5:		// 1920x1080 60   4780
-            videoSize=CGSizeMake(1920,1080);
+            videoSize=CGSizeMake(1080,1920);
             break;
         case AgoraRtc_VideoProfile_1440P:		// 2560x1440 30   4850
         case AgoraRtc_VideoProfile_1440P_2:		// 2560x1440 60   7350
-            videoSize=CGSizeMake(2560,1440);
+            videoSize=CGSizeMake(1440,2560);
             break;
         case AgoraRtc_VideoProfile_4K:			// 3840x2160 30   8190
         case AgoraRtc_VideoProfile_4K_3:		// 3840x2160 60   13500
-            videoSize=CGSizeMake(3840,2160);
+            videoSize=CGSizeMake(2160,3840);
             break;
         default:
-            videoSize=CGSizeMake(640, 360);
+            videoSize=CGSizeMake(360, 640);
             break;
     }
     
     return videoSize;
+}
+
+#pragma AgoraRtcEngineDelegate
+
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine didOfflineOfUid:(NSUInteger)uid reason:(AgoraRtcUserOfflineReason)reason
+{
+    if(_callstarted){
+        [self stopRTCView];
+        if(_onCallStop)
+            _onCallStop(reason);
+        _callstarted = NO;
+    }
+}
+
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine didJoinedOfUid:(NSUInteger)uid elapsed:(NSInteger)elapsed
+{
+    if(!_callstarted)
+    {
+        [self startRtcView];
+        if(_onCallStart)
+            _onCallStart(200);
+        _callstarted = YES;
+    }
+}
+
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine didOccurError:(AgoraRtcErrorCode)errorCode
+{
+    NSLog(@"bad things happen~,");
+}
+
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine remoteVideoStats:(AgoraRtcRemoteVideoStats*)stats
+{
+//    NSLog(@"remotestats,width:%lu,height:%lu,fps:%lu,receivedBitrate:%lu",(unsigned long)stats.width,(unsigned long)stats.height,(unsigned long)stats.receivedFrameRate,(unsigned long)stats.receivedBitrate);
+//    
 }
 
 @end

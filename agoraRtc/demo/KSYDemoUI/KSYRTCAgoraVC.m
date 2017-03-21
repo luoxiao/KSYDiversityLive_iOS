@@ -84,6 +84,8 @@
 
 - (void) setCaptureCfg {
     _kit.capPreset = [self.presetCfgView capResolution];
+    _kit.previewDimension = [self.presetCfgView capResolutionSize];
+    _kit.streamDimension  = [self.presetCfgView strResolutionSize ];
     _kit.videoFPS       = [self.presetCfgView frameRate];
     _kit.cameraPosition = [self.presetCfgView cameraPos];
     _kit.videoProcessingCallback = ^(CMSampleBufferRef buf){
@@ -133,7 +135,7 @@
 - (void) setAgoraStreamerKitCfg {
     
     _kit.selfInFront = NO;
-    _kit.agoraKit.videoProfile = AgoraRtc_VideoProfile_720P;
+    _kit.agoraKit.videoProfile = AgoraRtc_VideoProfile_DEFAULT;
     //设置小窗口属性
     _kit.winRect = CGRectMake(0.6, 0.6, 0.3, 0.3);//设置小窗口属性
     _kit.rtcLayer = 4;//设置小窗口图层，因为主版本占用了1~3，建议设置为4
@@ -195,6 +197,7 @@
 
 - (void) onQuit{
     [_kit stopPreview];
+    [_kit leaveChannel];
     _kit = nil;
     [super onQuit];
     

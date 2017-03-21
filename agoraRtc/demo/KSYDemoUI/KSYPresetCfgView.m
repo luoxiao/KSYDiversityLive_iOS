@@ -115,24 +115,34 @@
 - (KSYVideoDimension) strResolution {
     return [self resolution: _streamResoUI.selectedSegmentIndex];
 }
+
+
+@synthesize capResolutionSize =  _capResolutionSize;
+- (CGSize) capResolutionSize {
+    NSInteger idx = _resolutionUI.selectedSegmentIndex;
+    return [self dimensionToSize:idx];
+}
+
+@synthesize strResolutionSize =  _strResolutionSize;
 - (CGSize) strResolutionSize {
     NSInteger idx = _streamResoUI.selectedSegmentIndex;
-    return [self dimensionToSize:[self resolution:idx ]];
+    return [self dimensionToSize:idx];
 }
-- (CGSize) dimensionToSize:(KSYVideoDimension) dim {
-    switch ( dim) {
-        case KSYVideoDimension_16_9__640x360:
+- (CGSize) dimensionToSize:(NSInteger)idx {
+    switch (idx) {
+        case 0:
             return  CGSizeMake(640, 360);
-        case KSYVideoDimension_16_9__960x540:
+        case 1:
             return  CGSizeMake(960, 540);
-        case KSYVideoDimension_16_9__1280x720:
+        case 2:
             return  CGSizeMake(1280, 720);
-        case KSYVideoDimension_4_3__640x480:
+        case 3:
             return  CGSizeMake(640, 480);
         default:
-            return  CGSizeMake(640, 360);
+            return  CGSizeMake(400, 400);
     }
 }
+
 
 - (KSYVideoDimension) resolution: (NSInteger)idx {
     //@"360p",@"540p",@"720p"

@@ -62,4 +62,6 @@
 	cropLeft:(int)cropLeft cropTop:(int)cropTop cropRight:(int)cropRight cropBottom:(int)cropBottom
 	rotation:(int)rotation timeStamp:(long long)ts format:(int)format;
 
+- (void)DeliverTexture:(CVPixelBufferRef)texBuf rotation:(int)rotation timeStamp:(long long)ts;
+
 @end
