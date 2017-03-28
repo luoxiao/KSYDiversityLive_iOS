@@ -1,6 +1,8 @@
 #import "KSYFaceunityVC.h"
 #import "KSYFaceunityFilter.h"
 
+// 为防止将手机存储写满,限制录像时长为30s
+#define REC_MAX_TIME 30 //录制视频的最大时间，单位s
 
 @interface KSYFaceunityVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 {
@@ -10,6 +12,10 @@
     NSMutableDictionary *_obsDict;
     NSMutableArray  *_resourceArray;
     KSYFaceunityFilter * _faceUnityFilter;
+    NSString *_recFile;// 录制文件
+    BOOL _bRecord;//是否录制
+    int _strSeconds; // 推流持续的时间 , 单位s
+    NSURL * _url;//暂存推流地址
 }
 @end
 
@@ -28,19 +34,20 @@
     //NSArray *array = [NSArray arrayWithObjects:@"open",@"kitty.bundle", @"fox.bundle", @"evil.bundle", @"eyeballs.bundle", @"mood.bundle", @"tears.bundle", @"rabbit.bundle", @"cat.bundle", @"close", nil];
     NSArray *array = @[
                        @"tiara",
-                       @"item0208",
                        @"YellowEar",
+                       @"tears",
                        @"PrincessCrown",
-                       @"Mood" ,
-                       @"Deer" ,
+                       @"Mood",
+                       @"Deer",
                        @"BeagleDog",
-                       @"item0501",
-                       @"ColorCrown",
-                       @"item0210",
                        @"HappyRabbi",
+                       @"hartshorn",
                        @"item0204",
-                       @"hartshorn"];
-
+                       @"item0208",
+                       @"item0210",
+                       @"item0501",
+                       ];
+    
     _resourceArray = [NSMutableArray arrayWithArray:array];
     
     _kit = [[KSYGPUStreamerKit alloc] initWithDefaultCfg];
@@ -60,6 +67,10 @@
         [_kit startPreview:self.view];
     }
     [self iniWithUI];
+    
+    _url = self.hostURL;
+    _recFile =[NSHomeDirectory() stringByAppendingString:@"/Documents/rec.mp4"];
+    _bRecord = NO;
 }
 - (void)addSubViews{
     _ctrlView  = [[KSYCtrlView alloc] init];
@@ -106,7 +117,6 @@
     }
 }
 
-
 #pragma mark -  state change
 - (void) onCaptureStateChange:(NSNotification *)notification{
     NSLog(@"new capStat: %@", _kit.getCurCaptureStateName );
@@ -141,6 +151,10 @@
     else if (_kit.streamerBase.streamState == KSYStreamStateConnecting) {
         [_ctrlView.lblStat initStreamStat]; // 尝试开始连接时,重置统计数据
     }
+    //状态为KSYStreamStateIdle且_bRecord为ture时，录制视频
+    if (_kit.streamerBase.streamState == KSYStreamStateIdle && _bRecord){
+        [self saveVideoToAlbum:_recFile];
+    }
 }
 
 - (void) onStreamError:(KSYStreamErrorCode) errCode{
@@ -168,6 +182,8 @@
     if (_kit.streamerBase.streamState == KSYStreamStateConnected ) {
         [_ctrlView.lblStat updateState: _kit.streamerBase];
     }
+    _strSeconds++;
+    [self updateRecLabel];  // 本地录制:直接存储到本地, 不推流
 }
 #pragma mark - UI respond
 //ctrView control (for basic ctrl)
@@ -181,10 +197,15 @@
     else if (btn == _ctrlView.btnQuit){
         [self onQuit];
     }
-    else if(btn == _ctrlView.btnCapture){
+    else if (btn == _ctrlView.btnCapture){
         [self onCapture];
     }
-    else if(btn == _ctrlView.btnStream){
+    else if (btn == _ctrlView.btnStream){
+        _bRecord = NO;
+        [self onStream];
+    }
+    else if(btn == _ctrlView.btnRecord){
+        _bRecord = YES;
         [self onStream];
     }
 }
@@ -213,9 +234,11 @@
 - (void) onStream{
     if (_kit.streamerBase.streamState == KSYStreamStateIdle ||
         _kit.streamerBase.streamState == KSYStreamStateError) {
+        [self updateStreamCfg:YES];
         [_kit.streamerBase startStream:self.hostURL];
     }
     else {
+        [self updateStreamCfg:NO];
         [_kit.streamerBase stopStream];
     }
 }
@@ -271,7 +294,6 @@
     //组册item类型，这里使用系统的类型
     [collect registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellid"];
     [self.view addSubview:collect];
-    
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView  cellForItemAtIndexPath:indexPath];
@@ -293,7 +315,7 @@
 }
 //返回每个分区的item个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 13;
+    return _resourceArray.count;
 }
 //获取cell
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -350,50 +372,34 @@
     _kit.streamDimension  = [self.presetCfgView strResolutionSize ];
     _kit.videoFPS       = [self.presetCfgView frameRate];
     _kit.cameraPosition = [self.presetCfgView cameraPos];
-    _kit.videoProcessingCallback = ^(CMSampleBufferRef buf){
-    };
 }
 
 -(void)setupFaceUnity
 {
-    NSArray * g_item_names = @[
-                               @"tiara.bundle",
-                               @"item0208.bundle",
-                               @"YellowEar.bundle",
-                               @"PrincessCrown.bundle",
-                               @"Mood.bundle" ,
-                               @"Deer.bundle" ,
-                               @"BeagleDog.bundle",
-                               @"item0501.bundle",
-                               @"ColorCrown.bundle",
-                               @"item0210.bundle",
-                               @"HappyRabbi.bundle",
-                               @"item0204.bundle",
-                               @"hartshorn.bundle"];
+    NSMutableArray * g_item_names = [NSMutableArray array];
+    
+    [_resourceArray enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [g_item_names addObject:[obj stringByAppendingString:@".bundle"]];
+    }];
+    // faceUnityFilter
     _faceUnityFilter = [[KSYFaceunityFilter alloc]initWithArray:g_item_names];
     
-    GPUImageOutput<GPUImageInput>* beautifilter = [[KSYGPUBeautifyPlusFilter alloc]init];
+    // beautyFilter
+    GPUImageOutput<GPUImageInput>* beautyFilter = [[KSYGPUBeautifyPlusFilter alloc]init];
     
-//    [_faceUnityFilter addTarget:beautifilter];
-//    
-//    // 用滤镜组 将 滤镜 串联成整体
-//    GPUImageFilterGroup * fg = [[GPUImageFilterGroup alloc] init];
-//    [fg addFilter:_faceUnityFilter];
-//    [fg addFilter:beautifilter];
+    // 用滤镜组 将 滤镜 串联成整体
+    GPUImageFilterGroup * fg = [[GPUImageFilterGroup alloc] init];
+    [fg addFilter:_faceUnityFilter];
+    [fg addFilter:beautyFilter];
     
+    [_faceUnityFilter addTarget:beautyFilter];
     
-        [beautifilter addTarget:_faceUnityFilter];
+    [fg setInitialFilters:[NSArray arrayWithObject:_faceUnityFilter]];
+    [fg setTerminalFilter:beautyFilter];
     
-        // 用滤镜组 将 滤镜 串联成整体
-        GPUImageFilterGroup * fg = [[GPUImageFilterGroup alloc] init];
-        [fg addFilter:_faceUnityFilter];
-        [fg addFilter:beautifilter];
-    
-    [fg setInitialFilters:[NSArray arrayWithObject:beautifilter]];
-    [fg setTerminalFilter:_faceUnityFilter];
-
     [_kit setupFilter:fg];
 }
+
 - (void) setStreamerCfg { // must set after capture
     if (_kit.streamerBase == nil) {
         return;
@@ -407,27 +413,107 @@
         _kit.streamerBase.audiokBPS        = [_presetCfgView audioKbps];
         _kit.streamerBase.videoFPS         = [_presetCfgView frameRate];
         _kit.streamerBase.bwEstimateMode   = [_presetCfgView bwEstMode];
+        _kit.streamerBase.shouldEnableKSYStatModule = YES;
         _kit.streamerBase.logBlock = ^(NSString* str){ };
         _hostURL = [NSURL URLWithString:[_presetCfgView hostUrl]];
     }
     [self defaultStramCfg];
 }
 - (void) defaultStramCfg{
-        // stream default settings
-        _kit.streamerBase.videoCodec = KSYVideoCodec_AUTO;
-        _kit.streamerBase.videoInitBitrate =  800;
-        _kit.streamerBase.videoMaxBitrate  = 1000;
-        _kit.streamerBase.videoMinBitrate  =    0;
-        _kit.streamerBase.audiokBPS        =   48;
-        _kit.streamerBase.videoFPS = 15;
-        _kit.streamerBase.logBlock = ^(NSString* str){
-//            NSLog(@"%@", str);
-        };
+    // stream default settings
+    _kit.streamerBase.videoCodec = KSYVideoCodec_AUTO;
+    _kit.streamerBase.videoInitBitrate =  800;
+    _kit.streamerBase.videoMaxBitrate  = 1000;
+    _kit.streamerBase.videoMinBitrate  =    0;
+    _kit.streamerBase.audiokBPS        =   48;
+    _kit.streamerBase.videoFPS = [_presetCfgView frameRate];
+    _kit.streamerBase.logBlock = ^(NSString* str){
+        //            NSLog(@"%@", str);
+    };
     _hostURL = [NSURL URLWithString:@"rtmp://test.uplive.ksyun.com/live/823"];
+}
+
+- (void) updateStreamCfg: (BOOL) bStart {
+    _strSeconds = 0;
+    //判断是直播还是录制
+    if (_bRecord){
+        if (bStart){
+            [self deleteFile:_recFile];
+            self.hostURL =[[NSURL alloc] initFileURLWithPath:_recFile];
+            _ctrlView.btnStream.enabled = NO;
+        }
+        else{
+            _ctrlView.btnStream.enabled = YES;
+        }
+    }
+    else{
+        if (bStart){
+            self.hostURL = _url;
+            _ctrlView.btnRecord.enabled = NO;
+        }
+        else{
+            _ctrlView.btnRecord.enabled = YES;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) updateRecLabel {
+    if (!_bRecord){ // 直接录制短视频
+        return;
+    }
+    int diff = REC_MAX_TIME - _strSeconds;
+    //保持连接和限制短视频长度
+    if (_kit.streamerBase.isStreaming && diff < 0){
+        [self onStream];//结束录制
+    }
+    if (_kit.streamerBase.isStreaming){//录制时的倒计时时间
+        NSString *durMsg = [NSString stringWithFormat:@"%ds/%ds", diff,REC_MAX_TIME];
+        _ctrlView.lblRecDur.text = durMsg;
+    }
+    else{
+        _ctrlView.lblRecDur.text = @"0s";
+    }
+}
+
+//保存视频到相簿
+- (void) saveVideoToAlbum: (NSString*) path {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:path]) {
+        return;
+    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path)) {
+            SEL onDone = @selector(video:didFinishSavingWithError:contextInfo:);
+            UISaveVideoAtPathToSavedPhotosAlbum(path, self, onDone, nil);
+        }
+    });
+}
+//保存mp4文件完成时的回调
+- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error
+  contextInfo:(void *)contextInfo {
+    NSString *message;
+    if (!error) {
+        message = @"Save album success!";
+    }
+    else {
+        message = @"Failed to save the album!";
+    }
+    [KSYUIVC toast:message time:3];
+}
+//删除文件,保证保存到相册里面的视频时间是更新的
+-(void)deleteFile:(NSString *)file{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:file]) {
+        [fileManager removeItemAtPath:file error:nil];
+    }
+}
+
+- (BOOL)shouldAutorotate{
+    return NO;
 }
 @end

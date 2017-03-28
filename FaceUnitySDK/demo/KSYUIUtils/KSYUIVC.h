@@ -34,8 +34,8 @@
 // ksy util functions
 + (NSString*) sizeFormatted : (int )KB;
 + (NSString *)timeFormatted:(int)totalSeconds;
-+ (void) toast:(NSString*)message;
-//cpu use rate
++ (void) toast:(NSString*)message
+          time:(double)duration;//cpu use rate
 + (float) cpu_usage;
 // 网络状态
 @property NSString* networkStatus;

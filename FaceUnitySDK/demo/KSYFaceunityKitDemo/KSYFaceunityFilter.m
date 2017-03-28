@@ -43,12 +43,14 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
     NSArray *itemArray;
     
     NSLock *_lock;
+    
+    int curItems[3];
 }
 
 @property KSYGPUPicOutput* pipOut;
 @property EAGLContext* gl_context;
-@property (nonatomic, assign) int curItem;
-@property (nonatomic, retain) dispatch_queue_t queue;
+
+@property dispatch_queue_t queue;
 @end
 
 @implementation KSYFaceunityFilter
@@ -60,23 +62,34 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
     
     if(self)
     {
-        _queue = dispatch_queue_create("com.ksyun.faceunity.queue", DISPATCH_QUEUE_SERIAL);
+        
+        _queue = dispatch_queue_create("com.ksyun.faceunity.queue", DISPATCH_QUEUE_SERIAL_WITH_AUTORELEASE_POOL);
         
         itemArray = [items copy];
         
         [self initFaceUnity];
         
-        [self loadItem:items.firstObject];
+        if (curItems[0] == 0) {
+            [self loadItem:items.firstObject];
+        }
         
+        if (curItems[1] == 0) {
+            [self loadFilter];
+        }
+        
+        if (curItems[2] == 0) {
+            [self loadHeart];
+        }
         _pipOut = [[KSYGPUPicOutput alloc]initWithOutFmt:kCVPixelFormatType_32BGRA];
         __weak KSYFaceunityFilter *weak_filter = self;
-        _pipOut.videoProcessingCallback = ^(CVPixelBufferRef pixelBuffer, CMTime timeInfo ){
+        _pipOut.videoProcessingCallback = ^(CVPixelBufferRef pixelBuffer, CMTime timeInfo){
             [weak_filter renderFaceUnity:pixelBuffer timeInfo:timeInfo];
         };
     }
     return self;
-
+    
 }
+
 - (id) init {
     return [self initWithArray:nil];
 }
@@ -98,8 +111,8 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
         int itemId = fuCreateItemFromPackage(data, (int)size);
         
         [_lock lock];
-        _lastItem = _curItem;
-        _curItem = itemId;
+        _lastItem = curItems[0];
+        curItems[0] = itemId;
         [_lock unlock];
     });
 }
@@ -110,6 +123,26 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
     });
 }
 
+#pragma mark - load filter
+- (void)loadFilter
+{
+    intptr_t size = 0;
+    
+    void *data = mmap_bundle(@"face_beautification.bundle", &size);
+    
+    curItems[1] = fuCreateItemFromPackage(data, (int)size);
+}
+
+#pragma mark - load filter
+- (void)loadHeart{
+    intptr_t size = 0;
+    
+    void *data = mmap_bundle(@"heart.bundle", &size);
+    
+    curItems[2] = fuCreateItemFromPackage(data, (int)size);
+}
+
+#pragma mark - Render CallBack
 -(void)renderFaceUnity:(CVPixelBufferRef)pixelBuffer
               timeInfo:(CMTime)timeInfo
 {
@@ -118,7 +151,21 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
             NSLog(@"faceunity: failed to create / set a GLES2 context");
         }
         
-        CVPixelBufferRef output_pixelBuffer = [[FURenderer shareRenderer] renderPixelBuffer:pixelBuffer withFrameId:g_frame_id items:&_curItem itemCount:1];
+        //设置美颜效果
+        // 滤镜 "nature", "delta", "electric", "slowlived", "tokyo", "warm"
+        fuItemSetParams(curItems[1], "filter_name", "nature");
+        // 瘦脸 （大于等于0的浮点数，0为关闭效果，1为默认效果，大于1为进一步增强效果）
+        fuItemSetParamd(curItems[1], "cheek_thinning", 1.0);
+        // 大眼 （大于等于0的浮点数，0为关闭效果，1为默认效果，大于1为进一步增强效果）
+        fuItemSetParamd(curItems[1], "eye_enlarging", 1.0);
+        // 美白 （大于等于0的浮点数，0为关闭效果，1为默认效果，大于1为进一步增强效果）
+        fuItemSetParamd(curItems[1], "color_level", 0.5);
+        // 磨皮 取值范围为0-6
+        fuItemSetParamd(curItems[1], "blur_level", 5.0);
+        
+        
+        // itemCount
+        CVPixelBufferRef output_pixelBuffer = [[FURenderer shareRenderer] renderPixelBuffer:pixelBuffer withFrameId:g_frame_id items:curItems itemCount:3];
         ++g_frame_id;
         [self processPixelBuffer:output_pixelBuffer time:timeInfo];
     });
@@ -133,7 +180,6 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
     
     intptr_t size = 0;
     void* v3data = mmap_bundle(@"v3.bundle", &size);
-    
     [[FURenderer shareRenderer] setupWithData:v3data ardata:NULL authPackage:g_auth_package authSize:sizeof(g_auth_package)];
 }
 
@@ -160,7 +206,7 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
 }
 
 - (GPUImageRotationMode)  getInputRotation {
-   return [_pipOut getInputRotation];
+    return [_pipOut getInputRotation];
 }
 
 - (CGSize)maximumOutputSize {
@@ -181,7 +227,7 @@ static void* mmap_bundle(NSString* fn_bundle,intptr_t* psize){
     
 }
 
-- (void)setChoosedIndex:(int)choosedIndex{
+- (void)setChoosedIndex:(NSInteger)choosedIndex{
     if (_choosedIndex == choosedIndex) {
         return;
     }

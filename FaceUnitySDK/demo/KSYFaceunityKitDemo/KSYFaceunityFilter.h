@@ -5,7 +5,6 @@
 @interface KSYFaceunityFilter : KSYGPUPicInput <GPUImageInput>
 /**
  @abstract   构造函数
- @param      items
  
  **/
 -(id) initWithArray:(NSArray *) items;

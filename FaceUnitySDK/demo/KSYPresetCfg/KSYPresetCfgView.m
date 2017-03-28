@@ -42,6 +42,7 @@
     _lblStreamResoUI = [self addLable:@"推流分辨率"];
     if ( FLOAT_EQ( ratio, 16.0/9 ) || FLOAT_EQ( ratio,  9.0/16) ){
         _resolutionUI = [self addSegCtrlWithItems:@[@"360p",@"540p",@"720p"]];
+        _resolutionUI.selectedSegmentIndex = 2;
         _streamResoUI = [self addSegCtrlWithItems:@[@"360p",@"540p",@"720p"]];
     }
     else {
@@ -56,7 +57,7 @@
     _cameraPosUI    = [self addSegCtrlWithItems:@[@"前置",@"后置"]];
     _lblGpuPixFmtUI = [self addLable:@"像素格式"];
     _gpuPixFmtUI  = [self addSegCtrlWithItems:@[@"rgba",@"yuva"]];
-    _frameRateUI  = [self addSliderName:@"视频帧率fps" From:1.0 To:30.0 Init:15.0];
+    _frameRateUI  = [self addSliderName:@"视频帧率fps" From:1.0 To:30.0 Init:24.0];
     _lblVideoCodecUI = [self addLable:@"视频编码器"];
     _videoCodecUI = [self addSegCtrlWithItems:@[@"自动",@"软264",@"硬264",@"软265"]];
     _lblAudioCodecUI = [self addLable:@"音频编码器"];

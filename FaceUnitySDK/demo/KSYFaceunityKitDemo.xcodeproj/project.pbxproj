@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DE8D88B7B3EA2D2CAC19E285 /* libPods-KSYFaceunityKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 049A8B541AAB113FD2F8BBD7 /* libPods-KSYFaceunityKitDemo.a */; };
+		C3C37F661E8A5EA50060DA49 /* heart.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3C37F641E8A5EA50060DA49 /* heart.bundle */; };
+		C3C37F671E8A5EA50060DA49 /* tears.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3C37F651E8A5EA50060DA49 /* tears.bundle */; };
 		E3142FB11DC357AB00F88070 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3142FB01DC357AB00F88070 /* main.m */; };
 		E3142FB41DC357AB00F88070 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3142FB31DC357AB00F88070 /* AppDelegate.m */; };
 		E3142FB71DC357AB00F88070 /* KSYFaceunityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E3142FB61DC357AB00F88070 /* KSYFaceunityVC.m */; };
@@ -23,7 +24,6 @@
 		E32BF1171E30B59300DCCE20 /* BeagleDog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E32BF1041E30B59300DCCE20 /* BeagleDog.bundle */; };
 		E32BF1181E30B59300DCCE20 /* ColorCrown.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E32BF1051E30B59300DCCE20 /* ColorCrown.bundle */; };
 		E32BF1191E30B59300DCCE20 /* Deer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E32BF1061E30B59300DCCE20 /* Deer.bundle */; };
-		E32BF11A1E30B59300DCCE20 /* einstein.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E32BF1071E30B59300DCCE20 /* einstein.bundle */; };
 		E32BF11B1E30B59300DCCE20 /* face_beautification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E32BF1081E30B59300DCCE20 /* face_beautification.bundle */; };
 		E32BF11C1E30B59300DCCE20 /* HappyRabbi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E32BF10B1E30B59300DCCE20 /* HappyRabbi.bundle */; };
 		E32BF11D1E30B59300DCCE20 /* hartshorn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E32BF10C1E30B59300DCCE20 /* hartshorn.bundle */; };
@@ -61,11 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		049A8B541AAB113FD2F8BBD7 /* libPods-KSYFaceunityKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KSYFaceunityKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E3679E844601EEEBAA419DF /* Pods-KSYFaceunityKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYFaceunityKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-KSYFaceunityKitDemo/Pods-KSYFaceunityKitDemo.release.xcconfig"; sourceTree = "<group>"; };
-		2F3380426416F3080C1C736F /* Pods-KSYFaceunityKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYFaceunityKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KSYFaceunityKitDemo/Pods-KSYFaceunityKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		B39E0E1FB5FB1AE2875D62F7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		DF0E31312A9D0C39BC459792 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C3C37F641E8A5EA50060DA49 /* heart.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = heart.bundle; sourceTree = "<group>"; };
+		C3C37F651E8A5EA50060DA49 /* tears.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = tears.bundle; sourceTree = "<group>"; };
 		E3142FAC1DC357AB00F88070 /* KSYFaceunityKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSYFaceunityKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3142FB01DC357AB00F88070 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E3142FB21DC357AB00F88070 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -95,7 +92,6 @@
 		E32BF1041E30B59300DCCE20 /* BeagleDog.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = BeagleDog.bundle; path = ../../framework/BeagleDog.bundle; sourceTree = "<group>"; };
 		E32BF1051E30B59300DCCE20 /* ColorCrown.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = ColorCrown.bundle; path = ../../framework/ColorCrown.bundle; sourceTree = "<group>"; };
 		E32BF1061E30B59300DCCE20 /* Deer.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = Deer.bundle; path = ../../framework/Deer.bundle; sourceTree = "<group>"; };
-		E32BF1071E30B59300DCCE20 /* einstein.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = einstein.bundle; path = ../../framework/einstein.bundle; sourceTree = "<group>"; };
 		E32BF1081E30B59300DCCE20 /* face_beautification.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; name = face_beautification.bundle; path = ../../framework/face_beautification.bundle; sourceTree = "<group>"; };
 		E32BF1091E30B59300DCCE20 /* funama.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = funama.h; path = ../../framework/funama.h; sourceTree = "<group>"; };
 		E32BF10A1E30B59300DCCE20 /* FURenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FURenderer.h; path = ../../framework/FURenderer.h; sourceTree = "<group>"; };
@@ -127,7 +123,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E32BF1221E30B59300DCCE20 /* libnama.a in Frameworks */,
-				DE8D88B7B3EA2D2CAC19E285 /* libPods-KSYFaceunityKitDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,32 +143,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BE1B17907345A3C309754294 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				049A8B541AAB113FD2F8BBD7 /* libPods-KSYFaceunityKitDemo.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C1C5B21BDB3566B02D04A0C6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B39E0E1FB5FB1AE2875D62F7 /* Pods.debug.xcconfig */,
-				DF0E31312A9D0C39BC459792 /* Pods.release.xcconfig */,
-				2F3380426416F3080C1C736F /* Pods-KSYFaceunityKitDemo.debug.xcconfig */,
-				1E3679E844601EEEBAA419DF /* Pods-KSYFaceunityKitDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		E3142FA31DC357AB00F88070 = {
 			isa = PBXGroup;
 			children = (
 				E3142FAE1DC357AB00F88070 /* KSYFaceunityKitDemo */,
 				E3142FAD1DC357AB00F88070 /* Products */,
-				C1C5B21BDB3566B02D04A0C6 /* Pods */,
-				BE1B17907345A3C309754294 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -252,11 +226,12 @@
 		E32BF0B81E30B46D00DCCE20 /* faceunity */ = {
 			isa = PBXGroup;
 			children = (
+				C3C37F641E8A5EA50060DA49 /* heart.bundle */,
+				C3C37F651E8A5EA50060DA49 /* tears.bundle */,
 				E32BF1031E30B59300DCCE20 /* authpack.h */,
 				E32BF1041E30B59300DCCE20 /* BeagleDog.bundle */,
 				E32BF1051E30B59300DCCE20 /* ColorCrown.bundle */,
 				E32BF1061E30B59300DCCE20 /* Deer.bundle */,
-				E32BF1071E30B59300DCCE20 /* einstein.bundle */,
 				E32BF1081E30B59300DCCE20 /* face_beautification.bundle */,
 				E32BF1091E30B59300DCCE20 /* funama.h */,
 				E32BF10A1E30B59300DCCE20 /* FURenderer.h */,
@@ -283,12 +258,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3142FD91DC357AB00F88070 /* Build configuration list for PBXNativeTarget "KSYFaceunityKitDemo" */;
 			buildPhases = (
-				235752DEE8D508EEA8BC678B /* [CP] Check Pods Manifest.lock */,
 				E3142FA81DC357AB00F88070 /* Sources */,
 				E3142FA91DC357AB00F88070 /* Frameworks */,
 				E3142FAA1DC357AB00F88070 /* Resources */,
-				D0B4ABF2494EB292E1B6B9CE /* [CP] Embed Pods Frameworks */,
-				DC4F7AF4038DEFBA139B83AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -392,12 +364,13 @@
 				E3142FBF1DC357AB00F88070 /* LaunchScreen.storyboard in Resources */,
 				E32BF1271E30B59300DCCE20 /* YellowEar.bundle in Resources */,
 				E32BF1261E30B59300DCCE20 /* v3.bundle in Resources */,
+				C3C37F661E8A5EA50060DA49 /* heart.bundle in Resources */,
 				E32BF11E1E30B59300DCCE20 /* item0204.bundle in Resources */,
 				E32BF1191E30B59300DCCE20 /* Deer.bundle in Resources */,
+				C3C37F671E8A5EA50060DA49 /* tears.bundle in Resources */,
 				E32BF1181E30B59300DCCE20 /* ColorCrown.bundle in Resources */,
 				E32BF1211E30B59300DCCE20 /* item0501.bundle in Resources */,
 				E32BF11F1E30B59300DCCE20 /* item0208.bundle in Resources */,
-				E32BF11A1E30B59300DCCE20 /* einstein.bundle in Resources */,
 				E3142FBC1DC357AB00F88070 /* Assets.xcassets in Resources */,
 				E32BF1201E30B59300DCCE20 /* item0210.bundle in Resources */,
 				E32BF11D1E30B59300DCCE20 /* hartshorn.bundle in Resources */,
@@ -425,54 +398,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		235752DEE8D508EEA8BC678B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D0B4ABF2494EB292E1B6B9CE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSYFaceunityKitDemo/Pods-KSYFaceunityKitDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DC4F7AF4038DEFBA139B83AD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSYFaceunityKitDemo/Pods-KSYFaceunityKitDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E3142FA81DC357AB00F88070 /* Sources */ = {
@@ -636,7 +561,6 @@
 		};
 		E3142FDA1DC357AB00F88070 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F3380426416F3080C1C736F /* Pods-KSYFaceunityKitDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZGJ54Q7R45;
@@ -677,7 +601,6 @@
 		};
 		E3142FDB1DC357AB00F88070 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E3679E844601EEEBAA419DF /* Pods-KSYFaceunityKitDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZGJ54Q7R45;

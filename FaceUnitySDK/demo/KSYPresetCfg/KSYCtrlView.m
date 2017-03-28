@@ -25,6 +25,8 @@
     _lblNetwork=  [self addLable:@""  ];
     _btnStream =  [self addButton:@"推流"  ];
     _btnCapture=  [self addButton:@"采集"  ];
+    _btnRecord = [self addButton:@"录制"];
+    _lblRecDur = [self addLable:@"0s"];
     _lblStat   =  [[KSYStateLableView alloc] init];
     [self addSubview:_lblStat];
     // format
@@ -46,6 +48,8 @@
               and:_lblNetwork
               and:_btnStream];
     
+    [self putRow:@[_btnRecord, _lblRecDur]];
+
     _lblStat.frame = CGRectMake( self.gap, self.yPos, self.winWdt - self.gap*2, 200);
 }
 

@@ -21,5 +21,7 @@
 @property UIButton * btnCapture;
 @property KSYStateLableView  * lblStat;
 @property UILabel  * lblNetwork;
+@property UIButton * btnRecord;
+@property UILabel  * lblRecDur;//录制的时长
 
 @end
