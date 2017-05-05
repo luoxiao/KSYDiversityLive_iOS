@@ -5,6 +5,7 @@
 #import "KSYAgoraClient.h"
 #import <GPUImage/GPUImage.h>
 #import "KSYAgoraStreamerKit.h"
+#import <mach/mach_time.h>
 
 static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32 size) {
     bzero(asbd, sizeof(AudioStreamBasicDescription));
@@ -26,7 +27,6 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
 #if __arm__  || __arm64__
 @interface KSYAgoraStreamerKit()<AgoraRtcEngineDelegate> {
     AudioStreamBasicDescription _asbd;  // format description for audio data
-    KSYDummyAudioSource *_dAudioSrc;
 }
 
 @property KSYGPUPicOutput *     beautyOutput;
@@ -34,8 +34,8 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
 @property GPUImageUIElement *   uiElementInput;
 @property GPUImageMaskFilter *  maskingFilter;
 @property GPUImageFilter *  maskingShieldFilter;//用于mask隔离，防止残影发生
-@property CMTime lastPts;
-
+@property CMTime localAudioPts;
+@property CMTime videoPts;
 
 @end
 
@@ -50,7 +50,7 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
 - (instancetype) initWithDefaultCfg {
     self = [super initWithDefaultCfg];
     __weak typeof(self) weakSelf = self;
-    _agoraKit = [[KSYAgoraClient alloc] initWithAppId://请输入自己的APPid delegate:weakSelf];
+    _agoraKit = [[KSYAgoraClient alloc] initWithAppId:@"e58027d14ffa40c18deaab1754e2fc37" delegate:weakSelf];
     _beautyOutput = nil;
     _callstarted = NO;
     _maskPicture = nil;
@@ -58,12 +58,12 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
     _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height)];
     _contentView.backgroundColor = [UIColor clearColor];
     _curfilter = self.filter;
+    _localAudioPts = kCMTimeInvalid;
     
     fillAsbd(&_asbd, YES, sizeof(Float32));
-    _dAudioSrc = [[KSYDummyAudioSource alloc] initWithAudioFmt:_asbd];
-
-    self.audioProcessingCallback = ^(CMSampleBufferRef buf){
-        weakSelf.lastPts = CMSampleBufferGetPresentationTimeStamp(buf);
+    
+    self.videoProcessingCallback = ^(CMSampleBufferRef buf){
+        weakSelf.videoPts= CMSampleBufferGetPresentationTimeStamp(buf);
     };
 
     __weak KSYAgoraStreamerKit * weak_kit = self;
@@ -105,12 +105,21 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
     //音频回调，放入amixer里面
     _agoraKit.remoteAudioDataCallback=^(void* buffer,int sampleRate,int len,int bytesPerSample,int channels,int64_t pts)
     {
-        [weak_kit defaultRtcVoiceCallback:buffer len:len pts:0 channel:channels sampleRate:sampleRate sampleBytes:bytesPerSample trackId:2];
+        [weak_kit defaultRtcVoiceCallback:buffer len:len pts:CMTimeMake(0, 0) channel:channels sampleRate:sampleRate sampleBytes:bytesPerSample trackId:1];
     };
     //本地音频回调
     _agoraKit.localAudioDataCallback=^(void* buffer,int sampleRate,int len,int bytesPerSample,int channels,int64_t pts)
     {
-        [weak_kit defaultRtcVoiceCallback:buffer len:len pts:0 channel:channels sampleRate:sampleRate sampleBytes:bytesPerSample trackId:1];
+        if(CMTIME_IS_INVALID(weak_kit.localAudioPts)){
+            _localAudioPts = _videoPts;
+        }else{
+            int nb_sample = len/bytesPerSample;
+            int64_t timescale = weak_kit.localAudioPts.timescale;
+            int64_t dur =(nb_sample*timescale)/sampleRate;
+            _localAudioPts.value +=dur;
+        }
+        
+        [weak_kit defaultRtcVoiceCallback:buffer len:len pts:weak_kit.localAudioPts channel:channels sampleRate:sampleRate sampleBytes:bytesPerSample trackId:0];
     };
 
 
@@ -126,6 +135,7 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
            selector:@selector(resignActive)
                name:UIApplicationWillResignActiveNotification
              object:nil];
+    
     
 //    [dc addObserver:self
 //           selector:@selector(interruptHandler:)
@@ -415,16 +425,10 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
     //音频混音
     [self.aCapDev stopCapture];
     [self.aMixer processAudioData:NULL nbSample:0 withFormat:&(_asbd) timeinfo:(CMTimeMake(0, 0)) of:0];
-    [_dAudioSrc startAt:_lastPts];
-    __weak KSYAgoraStreamerKit* weakSelf = self;
-    _dAudioSrc.audioProcessingCallback = ^(CMSampleBufferRef buf) {
-        if (![weakSelf.streamerBase isStreaming]){
-            return;
-        }
-        [weakSelf.aMixer processAudioSampleBuffer:buf of:0];
-    };
-    [self.aMixer setTrack:2 enable:YES];
-    [self.aMixer setMixVolume:1 of:2];
+    
+    [self.aMixer setTrack:1 enable:YES];
+    [self.aMixer setMixVolume:1 of:1];
+    _localAudioPts = kCMTimeInvalid;
 }
 
 -(void)stopRTCVideoView{
@@ -439,13 +443,9 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
 {
     [self stopRTCVideoView];
     
-    //音频混音
-    if(_dAudioSrc.bRunning) {
-        [_dAudioSrc stop]; // stop dummy source
-        _dAudioSrc.audioProcessingCallback  = nil;
-    }
+    
     [self.aCapDev startCapture];
-    [self.aMixer setTrack:2 enable:NO];
+    [self.aMixer setTrack:1 enable:NO];
 }
 
 -(void) defaultRtcVideoCallback:(CVPixelBufferRef)buf
@@ -455,7 +455,7 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
 }
 -(void) defaultRtcVoiceCallback:(uint8_t*)buf
                             len:(int)len
-                            pts:(uint64_t)ptsvalue
+                            pts:(CMTime)pts
                         channel:(uint32_t)channels
                      sampleRate:(uint32_t)sampleRate
                     sampleBytes:(uint32_t)bytesPerSample
@@ -471,9 +471,7 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
     asbd.mBytesPerPacket   = bytesPerSample;
     asbd.mFramesPerPacket  = 1;
     asbd.mChannelsPerFrame = 1;
-    
-    CMTime pts;
-    pts.value = ptsvalue;
+
     if([self.streamerBase isStreaming])
     {
         [self.aMixer processAudioData:&buf nbSample:len/bytesPerSample withFormat:&asbd timeinfo:pts of:trackId];
@@ -506,12 +504,14 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
     _agoraKit.videoDataCallback=^(CVPixelBufferRef buf){
         [weak_kit defaultRtcVideoCallback:buf];
     };
+    _localAudioPts = kCMTimeInvalid;
 }
 
 -(void)resignActive
 {
      _agoraKit.videoDataCallback = nil;
 }
+
 
 #pragma utility
 
@@ -639,6 +639,19 @@ static inline void fillAsbd(AudioStreamBasicDescription*asbd,BOOL bFloat, UInt32
 //    NSLog(@"remotestats,width:%lu,height:%lu,fps:%lu,receivedBitrate:%lu",(unsigned long)stats.width,(unsigned long)stats.height,(unsigned long)stats.receivedFrameRate,(unsigned long)stats.receivedBitrate);
 //    
 }
+
+// 得到系统时间 单位为ns
+inline static int64_t getABSTime() {
+    static double timeBase = -1;
+    if (timeBase < 0) {
+        mach_timebase_info_data_t s_timebase_info;
+        (void) mach_timebase_info(&s_timebase_info);
+        timeBase = s_timebase_info.numer;
+        timeBase /= s_timebase_info.denom;
+    }
+    return (int64_t)( mach_absolute_time() * timeBase);
+}
+
 
 @end
 #else

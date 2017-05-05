@@ -88,8 +88,6 @@
     _kit.streamDimension  = [self.presetCfgView strResolutionSize ];
     _kit.videoFPS       = [self.presetCfgView frameRate];
     _kit.cameraPosition = [self.presetCfgView cameraPos];
-    _kit.videoProcessingCallback = ^(CMSampleBufferRef buf){
-    };
 }
 
 #pragma mark - 采集/推流功能
