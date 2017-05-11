@@ -8,6 +8,7 @@
 
 #import <ReplayKit/ReplayKit.h>
 #import "libksygpulive/libksygpulive.h"
+#import "libksygpulive/KSYAudioMixer.h"
 
 @interface KSYRKStreamerKit : NSObject
 
