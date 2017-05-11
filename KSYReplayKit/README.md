@@ -82,3 +82,12 @@ KSYRKStreamerKit 中主要是保存 KSYStreamerBase 和 KSYAudioMixer的实例,
 
 * broadcastStartedWithSetupInfo 接口启动推流, 从setupInfo 得到推流的配置信息,比如rtmp的url.
 * processSampleBuffer 接口将收到的图像和音频的sampleBuffer 送入 KSYRKStreamerKit
+
+3. 用户可以自定义推出去视频的宽高比，参看scaleRatio参数。
+
+## 注意事项
+
+如果遇到错误：'sharedApplication' is unavailable: not available on iOS (App Extension) - Use view controller based solutions where appropriate instead.
+
+只需要把libksygpulive里面require-only-app-extension-safe API设置成NO.
+ ![Diagram](https://raw.githubusercontent.com/wiki/ksvc/KSYDiversityLive_iOS/images/replaykit/error.png)
