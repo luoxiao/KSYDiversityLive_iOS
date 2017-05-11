@@ -62,6 +62,7 @@
     _rtmpUrl = url;
     _streamerBase.videoCodec = [self getVideoCodec];
     _streamerBase.audioCodec = KSYAudioCodec_AT_AAC;
+    _streamerBase.scaleRatio = 0.5;
     [_streamerBase startStream:url];
 }
 
